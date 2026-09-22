@@ -4,7 +4,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  src: url('../public/assets/fonts/quicksand-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/quicksand-v37-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* quicksand-600 - latin */
 @font-face {
@@ -12,7 +12,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 600;
-  src: url('../public/assets/fonts/quicksand-v37-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/quicksand-v37-latin-600.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* quicksand-700 - latin */
 @font-face {
@@ -20,7 +20,7 @@
   font-family: 'Quicksand';
   font-style: normal;
   font-weight: 700;
-  src: url('../public/assets/fonts/quicksand-v37-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/quicksand-v37-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* eczar-regular - latin */
@@ -29,7 +29,7 @@
   font-family: 'Eczar';
   font-style: normal;
   font-weight: 400;
-  src: url('../public/assets/fonts/eczar-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/eczar-v27-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 /* eczar-700 - latin */
 @font-face {
@@ -37,7 +37,7 @@
   font-family: 'Eczar';
   font-style: normal;
   font-weight: 700;
-  src: url('../public/assets/fonts/eczar-v27-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/eczar-v27-latin-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
 
 /* karla-regular - latin */
@@ -46,5 +46,5 @@
   font-family: 'Karla';
   font-style: normal;
   font-weight: 400;
-  src: url('../public/assets/fonts/karla-v33-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('/assets/fonts/karla-v33-latin-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }

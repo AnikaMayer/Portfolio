@@ -1,0 +1,105 @@
+@use '../../../../public/assets/styles/all_styles.scss' as all;
+
+.header {
+  background-color: rgba(33, 56, 48, 1);
+  width: 100%;
+  height: 88px;
+  padding: 28px 72px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &__links {
+    width: 112px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    a {
+      svg {
+        path {
+          transition: fill 0.2s ease;
+
+          &:first-child {
+            fill: none;
+          }
+          &:last-child {
+            fill: #f8f7e5;
+          }
+        }
+      }
+
+      &:hover svg path {
+        &:first-child {
+          fill: rgba(234, 142, 184, 1);
+        }
+      }
+    }
+  }
+
+  &__logo {
+    width: fit-content;
+    height: 40px;
+    @include all.flex-center;
+    gap: 10px;
+
+    &-icon {
+      path {
+        fill: rgba(234, 142, 184, 1);
+      }
+    }
+
+    &-text {
+      path {
+        fill: #f8f7e5;
+      }
+    }
+  }
+
+  &__nav {
+    width: 88px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &-btn--language {
+      width: 40px;
+      height: 40px;
+      border: 1px solid #f8f7e5;
+      border-radius: 50%;
+      background: none;
+      @include all.flex-center;
+
+      p {
+        color: #f8f7e5;
+        font-family: Quicksand;
+        font-weight: 600;
+        font-size: 18px;
+      }
+
+      &:hover {
+        transition: 0.1s ease;
+        background: rgba(234, 142, 184, 1);
+      }
+    }
+
+    &-btn--menu {
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: none;
+      @include all.flex-center;
+
+      svg path {
+        transition: fil 0.2s ease;
+        fill: #f8f7e5;
+      }
+
+      &:hover svg path {
+        fill: rgba(234, 142, 184, 1);
+      }
+    }
+  }
+}
