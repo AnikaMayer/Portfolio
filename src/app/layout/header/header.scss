@@ -5,6 +5,8 @@
   height: 88px;
   line-height: 120%;
   position: fixed;
+  top: 0;
+  left: 0;
   @include flex-center;
   background-color: $bgMedium;
 
@@ -163,11 +165,18 @@
     top: -30%;
     right: -20%;
     z-index: 10;
-    transform: translateX(150%);
-    transition: transform 0.2s ease;
+    visibility: hidden;
+    transform: translateX(120%);
+    transition:
+      transform 0.2s ease,
+      visibility 0s linear 0.2s;
 
     &--open {
+      visibility: visible;
       transform: translateX(0);
+      transition:
+        transform 0.2s ease,
+        visibility 0s linear 0s;
     }
 
     &-header {
@@ -197,6 +206,10 @@
 
           svg {
             display: none;
+          }
+
+          a {
+            line-height: 120%;
           }
 
           &:hover {
