@@ -115,6 +115,7 @@
         aria-label="Menü öffnen"
         aria-expanded="false"
         aria-controls="main-nav"
+        (click)="openMenu()"
       >
         <svg
           aria-hidden="true"
@@ -131,10 +132,14 @@
       </button>
     </div>
   </div>
-  <dialog id="main-nav" class="header__overlay" aria-label="Navigation">
+  <dialog id="main-nav" class="header__overlay" [open]="overlayOpen" aria-label="Navigation">
     <div class="header__overlay-header">
       <h3>Menu</h3>
-      <button class="header__btn header__btn--close" aria-label="Menü schließen">
+      <button
+        class="header__btn header__btn--close"
+        aria-label="Menü schließen"
+        (click)="closeMenu()"
+      >
         <svg
           width="18"
           height="18"

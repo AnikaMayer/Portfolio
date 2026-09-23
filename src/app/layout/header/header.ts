@@ -8,6 +8,15 @@ import { Component } from '@angular/core';
 })
 export class Header {
   isEnglish = false;
+  overlayOpen = false;
+
+  openMenu() {
+    this.overlayOpen = true;
+  }
+
+  closeMenu() {
+    this.overlayOpen = false;
+  }
 
   changeLanguageBtn() {
     this.isEnglish = !this.isEnglish;
