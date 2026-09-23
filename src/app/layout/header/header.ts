@@ -6,4 +6,14 @@ import { Component } from '@angular/core';
   styleUrl: './header.scss',
   templateUrl: './header.html',
 })
-export class Header {}
+export class Header {
+  isEnglish = false;
+
+  changeLanguageBtn() {
+    this.isEnglish = !this.isEnglish;
+  }
+
+  get languageText(): string {
+    return this.isEnglish ? 'EN' : 'DE';
+  }
+}
