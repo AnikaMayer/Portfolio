@@ -1,5 +1,20 @@
+// position items in center
 @mixin flex-center {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+// media-query for tablet-size
+@mixin tablet {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+// media-query for mobile-size
+@mixin mobile {
+  @media (max-width: 768px) {
+    @content;
+  }
 }
