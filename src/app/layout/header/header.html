@@ -132,9 +132,23 @@
       </button>
     </div>
   </div>
-  <dialog id="main-nav" class="header__overlay" [open]="overlayOpen" aria-label="Navigation">
+  <div
+    class="header__backdrop"
+    [class.header__backdrop--visible]="overlayOpen"
+    (click)="closeMenu()"
+  ></div>
+  <div
+    id="main-nav"
+    class="header__overlay"
+    [class.header__overlay--open]="overlayOpen"
+    aria-label="Navigation"
+  >
     <div class="header__overlay-header">
-      <h3>Menu</h3>
+      @if (isEnglish) {
+        <h3>Menu</h3>
+      } @else {
+        <h3>Menü</h3>
+      }
       <button
         class="header__btn header__btn--close"
         aria-label="Menü schließen"
@@ -249,10 +263,10 @@
           @if (isEnglish) {
             <a href="#contact">Contact me</a>
           } @else {
-            <a href="#contact">Kontaktiere mich</a>
+            <a href="#contact">Kontakt</a>
           }
         </li>
       </ul>
     </nav>
-  </dialog>
+  </div>
 </header>

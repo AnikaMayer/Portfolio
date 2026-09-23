@@ -20,6 +20,7 @@ export class Header {
 
   changeLanguageBtn() {
     this.isEnglish = !this.isEnglish;
+    this.overlayOpen = false;
   }
 
   get languageText(): string {
