@@ -14,6 +14,21 @@ body {
   overflow-x: hidden;
 }
 
+body {
+  min-height: 100dvh;
+  // display: flex;
+  // flex-direction: column;
+  // align-items: center;
+  // width: 100%;
+}
+
+// app-root {
+//   width: 100%;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
 li {
   list-style: none;
 }
