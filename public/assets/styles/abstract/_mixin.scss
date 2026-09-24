@@ -5,6 +5,12 @@
   align-items: center;
 }
 
+@mixin widescreen {
+  @media (min-width: 1441px) {
+    @content;
+  }
+}
+
 // media-query for tablet-size
 @mixin tablet {
   @media (max-width: 1024px) {
