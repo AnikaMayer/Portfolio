@@ -1,0 +1,14 @@
+@use '../../../../../public/assets/styles/all_styles.scss' as *;
+
+.btn {
+  width: 155px;
+  height: 40px;
+  border: 1px solid $textLight;
+  border-radius: 100px;
+  background: none;
+  font-family: Quicksand;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 120%;
+  color: $textLight;
+}
