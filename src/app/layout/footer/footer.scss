@@ -15,8 +15,18 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: end;
-    padding: 0 72px 56px;
+    padding: 0 clamp(16px, calc(-21.333px + 9.333vw), 72px) 56px;
     position: relative;
+
+    @include mobile {
+      height: 100%;
+      padding-block: 0;
+      display: flex;
+      flex-direction: column-reverse;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 16px;
+    }
   }
 
   &__animation {
@@ -26,29 +36,61 @@
     bottom: 0;
     left: 0;
 
+    @include mobile {
+      width: 320px;
+      min-height: 230px;
+      position: relative;
+      bottom: 0;
+      margin-top: 24px;
+    }
+
     svg {
       position: absolute;
       bottom: 0;
+
+      @include mobile {
+        transform: translateY(0);
+      }
     }
 
     &--left {
       fill: $highlightMedium;
-      width: 180px;
+      //   width: 180px;
+      //   width: clamp(172px, calc(166.667px + 1.333vw), 180px);
+      width: 48.6%;
       height: auto;
       transform: translateY(31%);
+      left: 0;
+
+      @include mobile {
+        // width: 145px;
+      }
     }
 
     &--right {
       fill: $highlightLight;
-      width: 263px;
+      //   width: 263px;
+      //   width: clamp(251px, calc(243px + 2vw), 263px);
+      width: 71.1%;
       height: auto;
-      left: 105px;
+      //   left: 105px;
+      right: 0;
       transform: translateY(21%);
+
+      @include mobile {
+        // width: 190px;
+        // left: unset;
+        // right: 0;
+      }
     }
   }
 
   &__name {
     text-align: center;
+
+    @include mobile {
+      order: 2;
+    }
   }
 
   &__links {
@@ -58,6 +100,12 @@
 
     a:hover {
       color: $highlightLight;
+    }
+
+    @include mobile {
+      order: 1;
+      width: 100%;
+      justify-content: space-between;
     }
   }
 
