@@ -55,22 +55,26 @@
     display: flex;
     justify-content: flex-end;
     gap: 32px;
-  }
 
-  &__info {
-    width: 100%;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: end;
-
-    &--name {
-      text-align: end;
-    }
-
-    &--links {
-      display: flex;
-      justify-content: flex-end;
-      gap: 32px;
+    a:hover {
+      color: $highlightLight;
     }
   }
+
+  //   &__info {
+  //     width: 100%;
+  //     display: grid;
+  //     grid-template-columns: 1fr 1fr;
+  //     align-items: end;
+
+  //     &--name {
+  //       text-align: end;
+  //     }
+
+  //     &--links {
+  //       display: flex;
+  //       justify-content: flex-end;
+  //       gap: 32px;
+  //     }
+  //   }
 }
