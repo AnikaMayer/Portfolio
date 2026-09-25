@@ -9,7 +9,7 @@
   line-height: 120%;
   @include flex-center;
   position: relative;
-  background-color: black;
+  background-color: $bgDark;
 
   .content {
     display: grid;

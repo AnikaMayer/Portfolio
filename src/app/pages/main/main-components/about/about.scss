@@ -1,0 +1,72 @@
+@use '../../../../../../public/assets/styles/all_styles.scss' as *;
+
+.about {
+  height: 100dvh;
+  background-color: $bgLight;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .content {
+    height: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding: 159px 96px 0 112px;
+  }
+
+  h2 {
+    color: $textDark;
+    font-family: Eczar;
+    font-weight: 700;
+    font-size: 72px;
+    line-height: 100%;
+  }
+
+  &__image {
+    width: 528px;
+    height: 740px;
+    background-color: rgba(21, 87, 87, 0.733);
+    // position: absolute;
+    // bottom: 0;
+  }
+
+  &__info {
+    width: 600px;
+    height: 250px;
+    background-color: $bgDark;
+    color: $textLight;
+    font-family: Quicksand;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    position: absolute;
+    top: 328px;
+    left: 554px;
+
+    &--text {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    &--more {
+      width: 40px;
+      height: auto;
+      border: none;
+      background: none;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+    }
+  }
+}
