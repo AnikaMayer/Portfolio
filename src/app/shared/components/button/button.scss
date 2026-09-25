@@ -11,4 +11,8 @@
   font-size: 18px;
   line-height: 120%;
   color: $textLight;
+
+  &:hover {
+    background-color: $highlightMedium;
+  }
 }

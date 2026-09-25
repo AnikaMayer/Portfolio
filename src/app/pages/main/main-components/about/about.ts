@@ -7,4 +7,13 @@ import { Button } from '../../../../shared/components/button/button';
   styleUrl: './about.scss',
   templateUrl: './about.html',
 })
-export class About {}
+export class About {
+  infoList = [
+    'Team player',
+    'Continuosly learning',
+    'Creative Thinker',
+    'Based in Munich',
+    'Open to work remote',
+    'Open to relocate',
+  ];
+}
