@@ -23,10 +23,11 @@
     align-items: center;
 
     @include tablet {
+      padding: 16px clamp(16px, calc(-21.333px + 9.333vw), 72px);
     }
 
     @include mobile {
-      padding: 16px clamp(10px, calc(5.714px + 1.339vw), 16px);
+      // padding: 16px clamp(10px, calc(5.714px + 1.339vw), 16px);
     }
   }
 
