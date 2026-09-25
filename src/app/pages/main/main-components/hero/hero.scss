@@ -9,6 +9,11 @@
   flex-direction: column;
   align-items: center;
 
+  @include mobile {
+    height: auto;
+    margin-top: 72px;
+  }
+
   .content {
     width: 100%;
     height: 100%;
@@ -18,6 +23,12 @@
     justify-content: space-between;
     position: relative;
     // background-color: rgba(58, 125, 202, 0.137);
+
+    @include mobile {
+      padding-block: 40px 0;
+      flex-direction: column;
+      gap: 41px;
+    }
   }
 
   &__title {
@@ -27,6 +38,11 @@
     flex-direction: column;
     gap: 32px;
     // background-color: rgba(0, 255, 255, 0.514);
+
+    @include mobile {
+      width: 100%;
+      position: unset;
+    }
 
     h1 {
       width: 100%;
@@ -39,10 +55,18 @@
       flex-direction: column;
       gap: 8px;
 
+      @include mobile {
+        font-size: 32px;
+      }
+
       span {
         font-family: Eczar;
         font-weight: 700;
         font-size: 96px;
+
+        @include mobile {
+          font-size: 72px;
+        }
       }
     }
 
@@ -51,6 +75,16 @@
       height: 144px;
       margin-top: 92px;
       background-color: rgb(236, 171, 111);
+
+      @include mobile {
+        width: clamp(80px, calc(-5.333px + 21.333vw), 144px);
+        height: clamp(80px, calc(-5.333px + 21.333vw), 144px);
+        margin-top: 0;
+        position: absolute;
+        bottom: 5px;
+        left: 9px;
+        z-index: 5;
+      }
     }
   }
 
@@ -60,25 +94,44 @@
     // margin: 20px 28px 0 40px;
     display: flex;
     position: absolute;
-    // bottom: 0;
+    bottom: 0;
     right: 112px;
     // position: relative;
     // background-color: rgba(240, 248, 255, 0.356);
 
-    &--svg-left {
-      fill: $highlightLight;
+    @include mobile {
+      width: 100%;
+      height: 100vw;
+      position: relative;
+      right: 0;
+    }
+
+    svg {
       width: 500px;
       height: 500px;
       position: absolute;
+
+      @include mobile {
+        width: 70%;
+        height: auto;
+      }
+    }
+
+    &--svg-left {
+      fill: $highlightLight;
       bottom: 0;
+      position: absolute;
+      left: 0; // mobile
     }
 
     &--svg-right {
       fill: $highlightMedium;
-      width: 500px;
-      height: 500px;
       position: absolute;
       right: 0;
+    }
+
+    &--picture {
+      width: 100%;
     }
   }
 
@@ -100,6 +153,13 @@
     //   max-width: 1000px;
     //   height: auto;
     // }
+
+    @include mobile {
+      width: 100%;
+      max-width: 390px;
+      height: auto;
+      left: 0;
+    }
   }
 
   &__section-bar {
