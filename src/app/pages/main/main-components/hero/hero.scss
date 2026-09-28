@@ -5,9 +5,7 @@
   height: calc(100dvh - 88px);
   margin-top: 88px;
   background-color: $bgMedium;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-column;
 
   @include tablet {
     height: auto;

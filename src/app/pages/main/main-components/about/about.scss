@@ -4,9 +4,7 @@
   height: 100dvh;
   padding-top: 88px;
   background-color: $bgLight;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  @include flex-column;
   overflow: hidden;
 
   .content {
