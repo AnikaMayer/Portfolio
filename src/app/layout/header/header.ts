@@ -9,6 +9,13 @@ import { Component } from '@angular/core';
 export class Header {
   isEnglish = false;
   overlayOpen = false;
+  navList = [
+    { href: '#about-section', label: 'About me' },
+    { href: '#skills-section', label: 'Skillset' },
+    { href: '#portfolio-section', label: 'Portfolio' },
+    { href: '#reference-section', label: 'References' },
+    { href: '#contact-section', label: 'Contact me' },
+  ];
 
   openMenu() {
     this.overlayOpen = true;
