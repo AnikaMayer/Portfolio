@@ -1,7 +1,7 @@
-<section class="skills">
+<section class="skills" aria-labelledby="skills-heading">
   <div class="content">
     <div class="skills__info">
-      <h2>Core Competencies</h2>
+      <h2 id="skills-heading">Core Competencies</h2>
       <div class="skills__info--text">
         <p>
           Emphasise that you have used a variety of front-end technologies in your projects. Where
@@ -14,6 +14,7 @@
       <div class="skills__animation">
         <svg
           class="skills__animation--graphic"
+          aria-hidden="true"
           width="120"
           height="120"
           viewBox="0 0 120 120"
@@ -26,10 +27,13 @@
         </svg>
         <button
           class="skills__animation--btn"
+          aria-label="Show missing skills"
+          [attr.aria-expanded]="isOpen"
           (mouseenter)="openMissingSkills()"
           (mouseleave)="closeMissingSkills()"
         >
           <svg
+            aria-hidden="true"
             width="32"
             height="29"
             viewBox="0 0 32 29"
@@ -62,9 +66,14 @@
           </svg>
         </button>
       </div>
-      <div class="skills__overlay" [class.skills__overlay--visible]="isOpen">
-        <button (click)="closeMissingSkills()">
+      <div
+        class="skills__overlay"
+        [class.skills__overlay--visible]="isOpen"
+        [attr.aria-hidden]="!isOpen"
+      >
+        <button (click)="closeMissingSkills()" aria-label="Close overlay">
           <svg
+            aria-hidden="true"
             width="18"
             height="18"
             viewBox="0 0 18 18"
@@ -82,7 +91,7 @@
             Feel free to contact me. I look forward to expanding on my previous knowledge. Also I
             have a special interest in learning:
           </p>
-          <ul>
+          <ul aria-label="Skills I want to learn">
             @for (item of learningSkills; track item.name) {
               <li>
                 <img [src]="item.path" [alt]="item.text" />
@@ -93,7 +102,7 @@
         </div>
       </div>
       <div class="skills__list">
-        <ul>
+        <ul aria-label="Skill list">
           @for (item of skillList; track item.name) {
             <li>
               <div><img [src]="item.path" [alt]="item.text" /></div>
