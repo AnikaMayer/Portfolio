@@ -10,19 +10,10 @@
         </p>
       </div>
     </div>
-    <div class="skills__list">
-      <ul>
-        @for (item of skillList; track item.name) {
-          <li>
-            <img [src]="item.path" [alt]="item.text" />
-            <p>{{ item.name }}</p>
-          </li>
-        }
-      </ul>
-    </div>
-    <div class="skills__more">
-      <div class="skills__more--animation">
+    <div class="skills__wrapper">
+      <div class="skills__animation">
         <svg
+          class="skills__animation--graphic"
           width="120"
           height="120"
           viewBox="0 0 120 120"
@@ -31,10 +22,9 @@
         >
           <path
             d="M0 68.1027L2.28828 77.8795L36.074 71.0491L9.48962 93.2143L15.7487 101.049L43.2754 80.2902L28.94 111.696L38.0258 116.049L53.7745 85.5134L54.5822 120L64.6775 120L65.4851 85.6473L81.3012 116.384L90.387 112.031L76.1189 80.7589L103.78 101.652L110.039 93.75L83.5895 71.7188L117.577 78.6161L119.865 68.8393L86.3489 60.4018L120 51.8973L117.779 42.1205L83.926 48.9509L110.51 26.7857L104.251 18.9509L76.7246 39.7098L91.06 8.30357L81.9742 3.95089L66.2255 34.5536L65.4178 -7.62939e-06L55.3225 -7.62939e-06L54.5149 34.3527L38.7661 3.61607L29.613 7.96875L43.8811 39.2411L16.2199 18.3482L9.96074 26.25L36.4105 48.2812L2.42289 41.3839L0.201912 51.1607L33.6512 59.5982L0 68.1027Z"
-            fill="#FF834F"
           />
         </svg>
-        <button>
+        <button class="skills__animation--btn">
           <svg
             width="32"
             height="29"
@@ -68,7 +58,7 @@
           </svg>
         </button>
       </div>
-      <div class="skills__more--overlay">
+      <div class="skills__overlay">
         <button>
           <svg
             width="18"
@@ -79,16 +69,15 @@
           >
             <path
               d="M8.76667 10.6333L2.23333 17.1667C1.98889 17.4111 1.67778 17.5333 1.3 17.5333C0.922222 17.5333 0.611111 17.4111 0.366667 17.1667C0.122222 16.9222 0 16.6111 0 16.2333C0 15.8556 0.122222 15.5444 0.366667 15.3L6.9 8.76667L0.366667 2.23333C0.122222 1.98889 0 1.67778 0 1.3C0 0.922222 0.122222 0.611111 0.366667 0.366667C0.611111 0.122222 0.922222 0 1.3 0C1.67778 0 1.98889 0.122222 2.23333 0.366667L8.76667 6.9L15.3 0.366667C15.5444 0.122222 15.8556 0 16.2333 0C16.6111 0 16.9222 0.122222 17.1667 0.366667C17.4111 0.611111 17.5333 0.922222 17.5333 1.3C17.5333 1.67778 17.4111 1.98889 17.1667 2.23333L10.6333 8.76667L17.1667 15.3C17.4111 15.5444 17.5333 15.8556 17.5333 16.2333C17.5333 16.6111 17.4111 16.9222 17.1667 17.1667C16.9222 17.4111 16.6111 17.5333 16.2333 17.5333C15.8556 17.5333 15.5444 17.4111 15.3 17.1667L8.76667 10.6333Z"
-              fill="#F8F7E5"
             />
           </svg>
         </button>
         <h3>Don't see the skill you are looking for?</h3>
-        <p>
-          Feel free to contact me. I look forward to expanding on my previous knowledge. Also I have
-          a special interest in learning:
-        </p>
-        <div class="">
+        <div>
+          <p>
+            Feel free to contact me. I look forward to expanding on my previous knowledge. Also I
+            have a special interest in learning:
+          </p>
           <ul>
             @for (item of learningSkills; track item.name) {
               <li>
@@ -98,6 +87,16 @@
             }
           </ul>
         </div>
+      </div>
+      <div class="skills__list">
+        <ul>
+          @for (item of skillList; track item.name) {
+            <li>
+              <div><img [src]="item.path" [alt]="item.text" /></div>
+              <p>{{ item.name }}</p>
+            </li>
+          }
+        </ul>
       </div>
     </div>
   </div>
