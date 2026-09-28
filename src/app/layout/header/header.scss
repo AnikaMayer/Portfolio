@@ -9,7 +9,7 @@
   top: 0;
   left: 0;
   @include flex-center;
-  background-color: $bgMedium;
+  background-color: rgba(0, 0, 0, 0.473);
 
   @include mobile {
     height: 72px;
