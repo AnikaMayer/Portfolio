@@ -1,0 +1,163 @@
+@use '../../../../../../public/assets/styles/all_styles.scss' as *;
+
+.skills {
+  height: 100dvh;
+  padding-top: 88px;
+  background-color: $bgDark;
+  font-family: Quicksand;
+  color: $textLight;
+  @include flex-column;
+
+  .content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 88px;
+  }
+
+  &__info {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    h2 {
+      font-family: Eczar;
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 100%;
+    }
+
+    &--text {
+      width: 600px;
+      height: 140px;
+      border-radius: 4px;
+      background-color: $highlightMedium;
+      padding: 32px;
+    }
+  }
+
+  &__wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  &__animation {
+    width: auto;
+    // height: 285px;
+    display: flex;
+    flex-direction: column;
+    align-self: flex-end;
+    position: relative;
+
+    &--graphic {
+      fill: $highlightMedium;
+    }
+
+    &--btn {
+      width: 32px;
+      height: auto;
+      border: none;
+      background: none;
+      @include flex-center;
+      position: absolute;
+      bottom: 37%;
+      left: 37%;
+    }
+  }
+
+  &__overlay {
+    width: 360px;
+    height: auto;
+    background-color: $highlightLight;
+    border: 1px solid $textLight;
+    border-radius: 4px;
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    button {
+      width: 32px;
+      height: 32px;
+      align-self: flex-end;
+      border: none;
+      background: none;
+      @include flex-center;
+      display: none;
+
+      @include tablet {
+        display: unset;
+      }
+
+      svg path {
+        fill: $textLight;
+      }
+    }
+
+    h3 {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 120%;
+      text-align: center;
+    }
+
+    > div {
+      @include flex-column;
+      gap: 8px;
+
+      p {
+        line-height: 100%;
+      }
+
+      ul {
+        display: flex;
+        gap: 40px;
+
+        li {
+          @include flex-column;
+          line-height: 120%;
+
+          img {
+            width: 40px;
+            height: 40px;
+          }
+        }
+      }
+    }
+  }
+
+  &__list {
+    width: 640px;
+    height: auto;
+
+    ul {
+      // display: grid;
+      // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 16px 40px;
+
+      li {
+        @include flex-column;
+        gap: 8px;
+
+        > div {
+          width: 96px;
+          height: 96px;
+          @include flex-center;
+
+          img {
+            width: 72px;
+            height: 72px;
+          }
+        }
+      }
+    }
+  }
+}
