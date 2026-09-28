@@ -13,9 +13,9 @@ export class Skills {
     { name: 'JavaScript', path: '/assets/images/js_icon.svg', text: 'JavaScript-Logo' },
     { name: 'TypeScript', path: '/assets/images/ts_icon.svg', text: 'TypeScript-Logo' },
     { name: 'Angular', path: '/assets/images/angular_icon.svg', text: 'Angular-Logo' },
+    { name: 'Supabase', path: '/assets/images/supabase_icon.svg', text: 'Supabase-Logo' },
     { name: 'Git', path: '/assets/images/git_icon.svg', text: 'Git-Logo' },
     { name: 'REST-API', path: '/assets/images/api_icon.svg', text: 'Rest-API-Logo' },
-    { name: 'Supabase', path: '/assets/images/supabase_icon.svg', text: 'Supabase-Logo' },
   ];
 
   learningSkills = [
