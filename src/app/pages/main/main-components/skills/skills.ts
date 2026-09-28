@@ -7,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './skills.html',
 })
 export class Skills {
+  isOpen = false;
+
   skillList = [
     { name: 'HTML', path: '/assets/images/html_icon.svg', text: 'HTML-Logo' },
     { name: 'CSS', path: '/assets/images/css_icon.svg', text: 'CSS-Logo' },
@@ -22,4 +24,12 @@ export class Skills {
     { name: 'React', path: '/assets/images/react_icon.svg', text: 'React-Logo' },
     { name: 'Vue.js', path: '/assets/images/vue_js_icon.svg', text: 'Vue.js-Logo' },
   ];
+
+  openMissingSkills() {
+    this.isOpen = true;
+  }
+
+  closeMissingSkills() {
+    this.isOpen = false;
+  }
 }
