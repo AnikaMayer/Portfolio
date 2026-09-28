@@ -117,7 +117,7 @@
       <button
         class="header__btn header__btn--menu"
         aria-label="Open menu"
-        aria-expanded="false"
+        [attr.aria-expanded]="overlayOpen"
         aria-controls="main-nav"
         (click)="openMenu()"
       >
