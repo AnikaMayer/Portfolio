@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
   templateUrl: './header.html',
 })
 export class Header {
-  isEnglish = false;
+  isEnglish = true;
   overlayOpen = false;
   navList = [
     { href: '#about-section', label: 'About me' },
