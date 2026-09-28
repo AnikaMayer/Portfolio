@@ -8,6 +8,7 @@ import { Button } from '../../../../shared/components/button/button';
   templateUrl: './about.html',
 })
 export class About {
+  moreIsOpen = false;
   infoList = [
     'Team player',
     'Continuosly learning',
@@ -16,4 +17,12 @@ export class About {
     'Open to work remote',
     'Open to relocate',
   ];
+
+  openMoreAbout() {
+    this.moreIsOpen = true;
+  }
+
+  closeMoreAbout() {
+    this.moreIsOpen = false;
+  }
 }

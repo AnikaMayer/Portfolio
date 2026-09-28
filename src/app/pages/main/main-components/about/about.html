@@ -16,7 +16,13 @@
         <app-button>
           <a href="#contact-section" aria-label="Jump to contact form">Let's talk</a>
         </app-button>
-        <button class="about__btn--more" aria-expanded="false" aria-controls="about-more">
+        <button
+          class="about__btn--more"
+          [attr.aria-expanded]="moreIsOpen"
+          aria-controls="about-more"
+          (mouseenter)="openMoreAbout()"
+          (mouseleave)="closeMoreAbout()"
+        >
           <svg
             width="29"
             height="30"
@@ -67,7 +73,7 @@
         </button>
       </div>
     </div>
-    <div id="about-more" class="about__more">
+    <div id="about-more" class="about__more" [class.about__more--visible]="moreIsOpen">
       <h3>More about me</h3>
       <ul>
         @for (item of infoList; track item) {
