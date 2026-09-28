@@ -167,18 +167,10 @@
     top: -30%;
     right: -20%;
     z-index: 11;
-    visibility: hidden;
-    transform: translateX(120%);
-    transition:
-      transform 0.2s ease,
-      visibility 0s linear 0.2s;
+    @include hoverDefault(X);
 
     &--open {
-      visibility: visible;
-      transform: translateX(0);
-      transition:
-        transform 0.2s ease,
-        visibility 0s linear 0s;
+      @include hoverEnter(X);
     }
 
     &-header {

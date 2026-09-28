@@ -11,6 +11,26 @@
   align-items: center;
 }
 
+@mixin hoverDefault($axis: Y) {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate#{$axis }(100%);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0s linear 0.2s;
+}
+
+@mixin hoverEnter($axis: Y) {
+  opacity: 1;
+  visibility: visible;
+  transform: translate#{$axis }(0);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    visibility 0s linear 0s;
+}
+
 @mixin widescreen {
   @media (min-width: 1441px) {
     @content;

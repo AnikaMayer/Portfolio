@@ -96,22 +96,10 @@
     position: absolute;
     bottom: 80px;
     left: 1040px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(100%);
-    transition:
-      opacity 0.2s ease,
-      transform 0.2s ease,
-      visibility 0s linear 0.2s;
+    @include hoverDefault;
 
     &--visible {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-      transition:
-        opacity 0.2s ease,
-        transform 0.2s ease,
-        visibility 0s linear 0s;
+      @include hoverEnter;
     }
 
     h3 {
