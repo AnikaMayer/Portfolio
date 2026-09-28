@@ -2,6 +2,7 @@
   <div class="content">
     <div class="footer__animation">
       <svg
+        aria-hidden="true"
         class="footer__animation--left"
         width="180"
         height="180"
@@ -14,6 +15,7 @@
         />
       </svg>
       <svg
+        aria-hidden="true"
         class="footer__animation--right"
         width="263"
         height="263"
@@ -27,10 +29,20 @@
       </svg>
     </div>
     <div class="footer__name"><p>© Anika Mayer 2026</p></div>
-    <div class="footer__links">
-      <a routerLink="legal-notice">Impressum</a>
-      <a href="https://www.linkedin.com/in/anika-mayer" target="_blank">LinkedIn</a>
-      <a href="https://github.com/AnikaMayer" target="_blank">GitHub</a>
-    </div>
+    <nav class="footer__links" aria-label="Footer navigation">
+      <a routerLink="legal-notice">Legal Notice</a>
+      <a
+        href="https://www.linkedin.com/in/anika-mayer"
+        target="_blank"
+        aria-label="Open LinkedIn profile in new tab"
+        >LinkedIn</a
+      >
+      <a
+        href="https://github.com/AnikaMayer"
+        target="_blank"
+        aria-label="Open GitHub profile in new tab"
+        >GitHub</a
+      >
+    </nav>
   </div>
 </footer>
