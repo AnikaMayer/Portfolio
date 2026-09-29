@@ -1,12 +1,7 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
 .skills {
-  height: 100dvh;
-  padding-top: 160px;
-  background-color: $bgDark;
-  font-family: Quicksand;
-  color: $textLight;
-  @include flex-column;
+  @include sectionStart($bgDark, $textLight);
 
   .content {
     height: 100%;

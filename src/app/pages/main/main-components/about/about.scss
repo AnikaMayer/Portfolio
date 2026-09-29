@@ -5,7 +5,7 @@
   padding-top: 88px;
   background-color: $bgLight;
   @include flex-column;
-  overflow: hidden;
+  // overflow: hidden;
 
   .content {
     height: 100%;
