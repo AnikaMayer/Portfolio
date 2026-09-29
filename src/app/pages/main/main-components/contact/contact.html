@@ -12,25 +12,25 @@
     </div>
     <div class="contact__form">
       <div class="contact__form--personal">
-        <div>
+        <div class="contact__form--input">
           <h3>What's your name?</h3>
           <input type="text" placeholder="Your name goes here" />
         </div>
-        <div>
+        <div class="contact__form--input">
           <h3>What's your email?</h3>
           <input type="email" name="" id="" placeholder="youremail@email.com" />
         </div>
       </div>
-      <div class="contact__form--mail">
+      <div class="contact__form--mail contact__form--input">
         <h3>How can I help you?</h3>
         <input type="text" placeholder="Hello Anika, I am interested in..." />
       </div>
       <div class="contact__form--send">
         <div>
           <button></button>
-          <p>I've read the <span>privacy policy</span> and agree to the processing of my data.</p>
+          <p>I've read the <a>privacy policy</a> and agree to the processing of my data.</p>
         </div>
-        <app-button disabled>Drop a Line</app-button>
+        <app-button [disabled]="true">Drop a Line</app-button>
       </div>
     </div>
   </div>
