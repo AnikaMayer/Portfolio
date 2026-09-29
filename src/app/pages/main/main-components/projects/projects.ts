@@ -34,7 +34,7 @@ export class Projects {
       technologies: ['HTML', 'CSS', 'Supabase', 'Angular', 'Typescript'],
       description:
         'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      image: '/assets/images/projects/El-Pollo-Loco.png',
+      image: '/assets/images/projects/join.jpg',
       icon: '/assets/images/icons/join_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
