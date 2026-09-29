@@ -11,6 +11,15 @@
   align-items: center;
 }
 
+@mixin sectionStart($bgColor, $color) {
+  height: 100dvh;
+  padding-top: 160px;
+  background-color: #{$bgColor};
+  font-family: Quicksand;
+  color: #{$color};
+  @include flex-column;
+}
+
 @mixin hoverDefault($axis: Y) {
   opacity: 0;
   visibility: hidden;
