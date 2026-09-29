@@ -1,1 +1,17 @@
-<section class="ref"></section>
+<section class="ref">
+  <div class="content">
+    <h2>What my colleagues say about me</h2>
+    <div class="ref__wrapper">
+      <div class="ref__box">
+        @for (ref of refList; track ref) {
+          <div class="ref__box--content">
+            <h3>{{ ref.name }}</h3>
+            <p>{{ ref.text }}</p>
+            <p>{{ ref.job }}</p>
+          </div>
+          <a href="ref.link">Zum Linkedin profile &gt;&gt;</a>
+        }
+      </div>
+    </div>
+  </div>
+</section>
