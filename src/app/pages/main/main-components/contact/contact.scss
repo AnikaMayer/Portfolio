@@ -4,7 +4,10 @@
   @include sectionStart($bgDark, $textLight);
 
   .content {
-    display: flex;
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 80px;
   }
 
@@ -13,7 +16,6 @@
     display: flex;
     flex-direction: column;
     gap: 64px;
-    background-color: rgba(255, 192, 203, 0.178);
 
     h2 {
       @include headline;
@@ -36,6 +38,7 @@
 
   &__form {
     width: 600px;
+    align-self: flex-end;
     height: 370px;
     display: flex;
     flex-direction: column;
@@ -46,36 +49,10 @@
       display: flex;
       // justify-content: space-between;
       gap: 32px;
-
-      > div {
-        width: 50%;
-        height: 90px;
-        padding: 16px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        gap: 10px;
-        border-bottom: 1px solid $highlightLight;
-
-        h3 {
-          line-height: 120%;
-          font-weight: 700;
-          font-size: 24px;
-        }
-
-        input {
-          background: none;
-          border: none;
-          font-family: Quicksand;
-          font-size: 16px;
-          line-height: 120%;
-          color: rgba(248, 247, 229, 1);
-        }
-      }
     }
 
-    &--mail {
-      width: 100%;
+    &--input {
+      width: 50%;
       height: 90px;
       padding: 16px;
       display: flex;
@@ -88,6 +65,10 @@
         line-height: 120%;
         font-weight: 700;
         font-size: 24px;
+
+        &:hover {
+          color: $highlightMedium;
+        }
       }
 
       input {
@@ -96,8 +77,12 @@
         font-family: Quicksand;
         font-size: 16px;
         line-height: 120%;
-        color: rgba(248, 247, 229, 1);
+        color: $textLight;
       }
+    }
+
+    &--mail {
+      width: 100%;
     }
 
     &--send {
@@ -112,8 +97,13 @@
         justify-content: flex-start;
         gap: 4px;
 
-        p span {
+        p a {
           color: $highlightMedium;
+
+          &:hover {
+            color: $textLight;
+            font-weight: 700;
+          }
         }
 
         button {
