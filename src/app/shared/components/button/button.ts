@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 
 @Component({
   imports: [],
@@ -6,4 +6,6 @@ import { Component } from '@angular/core';
   styleUrl: './button.scss',
   templateUrl: './button.html',
 })
-export class Button {}
+export class Button {
+  disabled = input(false);
+}
