@@ -2,4 +2,125 @@
 
 .contact {
   @include sectionStart($bgDark, $textLight);
+
+  .content {
+    display: flex;
+    gap: 80px;
+  }
+
+  &__intro {
+    width: 528px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    background-color: rgba(255, 192, 203, 0.178);
+
+    h2 {
+      @include headline;
+      color: $highlightLight;
+    }
+
+    &--text {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      h3 {
+        color: $highlightMedium;
+        font-weight: 700;
+        font-size: 24px;
+      }
+    }
+  }
+
+  &__form {
+    width: 600px;
+    height: 370px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+
+    &--personal {
+      width: 100%;
+      display: flex;
+      // justify-content: space-between;
+      gap: 32px;
+
+      > div {
+        width: 50%;
+        height: 90px;
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 10px;
+        border-bottom: 1px solid $highlightLight;
+
+        h3 {
+          line-height: 120%;
+          font-weight: 700;
+          font-size: 24px;
+        }
+
+        input {
+          background: none;
+          border: none;
+          font-family: Quicksand;
+          font-size: 16px;
+          line-height: 120%;
+          color: rgba(248, 247, 229, 1);
+        }
+      }
+    }
+
+    &--mail {
+      width: 100%;
+      height: 90px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      gap: 10px;
+      border-bottom: 1px solid $highlightLight;
+
+      h3 {
+        line-height: 120%;
+        font-weight: 700;
+        font-size: 24px;
+      }
+
+      input {
+        background: none;
+        border: none;
+        font-family: Quicksand;
+        font-size: 16px;
+        line-height: 120%;
+        color: rgba(248, 247, 229, 1);
+      }
+    }
+
+    &--send {
+      width: 100%;
+      height: 110px;
+      @include flex-column;
+      gap: 41px;
+
+      > div {
+        width: 100%;
+        display: flex;
+        justify-content: flex-start;
+        gap: 4px;
+
+        p span {
+          color: $highlightMedium;
+        }
+
+        button {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
 }
