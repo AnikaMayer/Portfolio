@@ -1,0 +1,5 @@
+@use '../../../../../../public/assets/styles/all_styles.scss' as *;
+
+.ref {
+  @include sectionStart($bgMedium, $textLight);
+}
