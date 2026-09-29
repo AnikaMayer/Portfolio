@@ -136,8 +136,8 @@
 
   &__navBtn {
     width: 100%;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
     button {
       width: fit-content;
@@ -152,6 +152,11 @@
       &:hover {
         color: $highlightMedium;
       }
+    }
+
+    &--next {
+      grid-column: 2;
+      justify-self: flex-end;
     }
   }
 }
