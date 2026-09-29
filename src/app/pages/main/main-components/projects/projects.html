@@ -22,65 +22,29 @@
             d="M0 102.154L3.43242 116.819L54.1111 106.574L14.2344 139.821L23.6231 151.574L64.9131 120.435L43.41 167.545L57.0387 174.074L80.6618 128.27L81.8732 180H97.0163L98.2277 128.471L121.952 174.576L135.58 168.047L114.178 121.138L155.67 152.478L165.059 140.625L125.384 107.578L176.366 117.924L179.798 103.259L129.523 90.6027L180 77.846L176.669 63.1808L125.889 73.4263L165.766 40.1786L156.377 28.4263L115.087 59.5647L136.59 12.4554L122.961 5.92635L99.3382 51.8304L98.1268 0H82.9837L81.7723 51.529L58.1492 5.42412L44.4195 11.9531L65.8216 58.8616L24.3298 27.5223L14.9411 39.375L54.6158 72.4219L3.63434 62.0759L0.302872 76.7411L50.4767 89.3973L0 102.154Z"
           />
         </svg>
-        <img src="/assets/images/projects/El-Pollo-Loco.png" alt="Image of El Pollo loco" />
+        <img [src]="currentProject().image" [alt]="'Image of ' + currentProject().title" />
       </div>
       <div class="projects__info-wrapper">
         <div class="projects__info">
           <div class="projects__info--text">
             <div>
-              <h3>El Pollo Loco</h3>
+              <h3>{{ currentProject().title }}</h3>
               <button>
-                <svg
-                  width="30"
-                  height="27"
-                  viewBox="0 0 30 27"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M13.1312 25.2095H16.8812L16.8612 18.7695H18.4712L18.4912 25.2095H19.8512C20.6312 25.2095 21.2912 25.7695 21.4312 26.5095C21.4612 26.6695 21.3312 26.8195 21.1612 26.8195H8.8212C8.6512 26.8195 8.5212 26.6695 8.5512 26.5095C8.7012 25.7695 9.3412 25.2095 10.1312 25.2095H11.5112L11.4912 18.7695H13.1012L13.1212 25.2095H13.1312Z"
-                    fill="#FF822D"
-                  />
-                  <path
-                    d="M10.1481 10.3014C10.1581 8.88141 9.7481 7.55141 9.0581 6.44141L0.318104 15.1714C-0.241896 15.7314 -0.0318959 16.6714 0.708104 16.9314C1.4581 17.2014 2.2781 17.3414 3.1181 17.3314C6.9581 17.2914 10.0981 14.1514 10.1481 10.3014Z"
-                    fill="#F9C23C"
-                  />
-                  <path
-                    d="M19.8459 10.3114C19.8359 8.88141 20.2359 7.55141 20.9359 6.44141L29.6659 15.1814C30.2259 15.7414 30.0159 16.6814 29.2759 16.9414C28.5259 17.2114 27.7059 17.3514 26.8659 17.3414C23.0259 17.3014 19.8859 14.1614 19.8359 10.3114H19.8459Z"
-                    fill="#F9C23C"
-                  />
-                  <path
-                    d="M22.7216 8.16C22.5816 7.97 22.5116 7.74 22.5116 7.51C22.5116 3.59 19.5216 0.39 15.7016 0.03C15.4716 0.00999997 15.2416 0 15.0016 0C14.7616 0 14.5316 0.00999997 14.3016 0.03C10.4816 0.38 7.49156 3.6 7.49156 7.51C7.49156 7.75 7.41156 7.97 7.28156 8.16C6.07156 9.77 5.35156 11.78 5.35156 13.94C5.35156 19.27 9.67156 23.59 15.0016 23.59C20.3316 23.59 24.6516 19.27 24.6516 13.94C24.6516 11.77 23.9316 9.77 22.7216 8.16Z"
-                    fill="#FCD53F"
-                  />
-                  <path
-                    d="M11.7909 5.89937C11.7909 6.19937 11.5509 6.43937 11.2509 6.43937C10.9509 6.43937 10.7109 6.19937 10.7109 5.89937C10.7109 5.59937 10.9509 5.35938 11.2509 5.35938C11.5509 5.35938 11.7909 5.59937 11.7909 5.89937Z"
-                    fill="#212121"
-                  />
-                  <path
-                    d="M19.2987 5.89937C19.2987 6.19937 19.0588 6.43937 18.7588 6.43937C18.4588 6.43937 18.2188 6.19937 18.2188 5.89937C18.2188 5.59937 18.4588 5.35938 18.7588 5.35938C19.0588 5.35938 19.2987 5.59937 19.2987 5.89937Z"
-                    fill="#212121"
-                  />
-                  <path
-                    d="M14.9859 5.35938C13.8059 5.35938 12.8359 6.32938 12.8359 7.50938H17.1259C17.1259 6.32938 16.1559 5.35938 14.9759 5.35938H14.9859Z"
-                    fill="#FF822D"
-                  />
-                </svg>
+                <img [src]="currentProject().icon" [alt]="'Icon of ' + currentProject().title" />
               </button>
             </div>
             <ul>
-              <li>JavaScript</li>
-              <li>HTML</li>
-              <li>CSS</li>
+              @for (item of currentProject().technologies; track item) {
+                <li>{{ item }}</li>
+              }
             </ul>
             <p>
-              Jump, run and throw game based on object-oriented approach. Help Pepe to find coins
-              and tabasco salsa to fight against the crazy hen.
+              {{ currentProject().description }}
             </p>
           </div>
           <div class="projects__info--btn">
             <app-button
-              ><a href="https://github.com/AnikaMayer/El-Pollo-Loco" target="_blank"
+              ><a [href]="currentProject().gitUrl" target="_blank"
                 >GitHub
                 <svg
                   width="20"
@@ -110,9 +74,7 @@
               </a>
             </app-button>
             <app-button
-              ><a
-                href="https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html"
-                target="_blank"
+              ><a [href]="currentProject().liveUrl" target="_blank"
                 >Live Test
                 <svg
                   width="20"
@@ -144,8 +106,16 @@
           </div>
         </div>
         <div class="projects__navBtn">
-          <button>&lt;&lt; Previous project</button>
-          <button>Next project &gt;&gt;</button>
+          @if (!firstProject()) {
+            <button class="projects__navBtn--prev" (click)="prevProject()">
+              &lt;&lt; Previous project
+            </button>
+          }
+          @if (!lastProject()) {
+            <button class="projects__navBtn--next" (click)="nextProject()">
+              Next project &gt;&gt;
+            </button>
+          }
         </div>
       </div>
     </div>
