@@ -19,10 +19,7 @@
 
   h2 {
     color: $textDark;
-    font-family: Eczar;
-    font-weight: 700;
-    font-size: 72px;
-    line-height: 100%;
+    @include headline;
     align-self: flex-start;
     position: absolute;
     bottom: 668px;

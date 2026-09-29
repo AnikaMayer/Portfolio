@@ -18,10 +18,7 @@
     gap: 40px;
 
     h2 {
-      font-family: Eczar;
-      font-weight: 700;
-      font-size: 72px;
-      line-height: 100%;
+      @include headline;
     }
 
     &--text {

@@ -11,6 +11,13 @@
   align-items: center;
 }
 
+@mixin headline {
+  font-family: Eczar;
+  font-weight: 700;
+  font-size: 72px;
+  line-height: 100%;
+}
+
 @mixin sectionStart($bgColor, $color) {
   height: 100dvh;
   padding-top: 160px;
