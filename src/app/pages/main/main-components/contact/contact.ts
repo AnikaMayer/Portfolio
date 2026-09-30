@@ -33,24 +33,24 @@ export class Contact {
     minLength(contactPath.message, 10, { message: 'Please enter a valid text.' });
   });
 
-  // namePlaceholder = computed(() => {
-  //   if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
-  //     return 'Oops! It seems your name is missing';
-  //   }
-  //   return 'Your name goes here';
-  // });
+  namePlaceholder = computed(() => {
+    if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
+      return 'Oops! It seems your name is missing';
+    }
+    return 'Your name goes here';
+  });
 
-  // emailPlaceholder = computed(() => {
-  //   if (this.contactForm.email().touched() && this.contactForm.email().invalid()) {
-  //     return 'Hoppla! Your email is required.';
-  //   }
-  //   return 'youremail@email.com';
-  // });
+  emailPlaceholder = computed(() => {
+    if (this.contactForm.email().touched() && this.contactForm.email().invalid()) {
+      return 'Hoppla! Your email is required.';
+    }
+    return 'youremail@email.com';
+  });
 
-  // messagePlaceholder = computed(() => {
-  //   if (this.contactForm.message().touched() && this.contactForm.message().invalid()) {
-  //     return 'What do you need to develop?';
-  //   }
-  //   return 'Hello Anika, I am interested in...';
-  // });
+  messagePlaceholder = computed(() => {
+    if (this.contactForm.message().touched() && this.contactForm.message().invalid()) {
+      return 'What do you need to develop?';
+    }
+    return 'Hello Anika, I am interested in...';
+  });
 }
