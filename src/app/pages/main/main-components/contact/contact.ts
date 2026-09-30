@@ -1,6 +1,6 @@
 import { Component, computed, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
-import { email, form, FormField, minLength, required } from '@angular/forms/signals';
+import { email, form, FormField, minLength, required, validate } from '@angular/forms/signals';
 
 interface FormData {
   name: string;
@@ -9,6 +9,15 @@ interface FormData {
   acceptPrivacy: boolean;
 }
 
+const nameValidator = (value: string) => {
+  const trimmed = value.trim();
+  const validName = /^[a-zA-ZÀ-ž\s\-']+$/.test(trimmed);
+  if (trimmed.length < 2 || !validName) {
+    return { message: 'Please enter a valid name' };
+  }
+  return null;
+};
+
 @Component({
   imports: [Button, FormField],
   selector: 'app-contact',
@@ -16,14 +25,14 @@ interface FormData {
   templateUrl: './contact.html',
 })
 export class Contact {
-  contactModel = signal<FormData>({
+  protected readonly contactModel = signal<FormData>({
     name: '',
     email: '',
     message: '',
     acceptPrivacy: false,
   });
 
-  contactForm = form(this.contactModel, (contactPath) => {
+  protected readonly contactForm = form(this.contactModel, (contactPath) => {
     required(contactPath.name, { message: 'Oops! it seems your name is missing.' });
     required(contactPath.email, { message: 'Hoppla! Your email is required.' });
     required(contactPath.message, { message: 'What do you need to develop?' });
@@ -31,6 +40,7 @@ export class Contact {
     minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
     email(contactPath.email, { message: 'Please enter a valid email address.' });
     minLength(contactPath.message, 10, { message: 'Please enter a valid text.' });
+    // validate(contactPath.name, nameValidator);
   });
 
   namePlaceholder = computed(() => {
