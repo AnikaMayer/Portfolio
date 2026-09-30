@@ -12,7 +12,12 @@
     </div>
     <div class="contact__form">
       <div class="contact__form--personal">
-        <div class="contact__form--input">
+        <div
+          class="contact__form--input"
+          [class.contact__form--invalid]="
+            contactForm.name().touched() && contactForm.name().invalid()
+          "
+        >
           <h3>What's your name?</h3>
           <input type="text" [formField]="contactForm.name" [placeholder]="namePlaceholder()" />
           @if (
@@ -23,7 +28,12 @@
             <p class="contact__form--error">{{ contactForm.name().errors()?.[0]?.message }}</p>
           }
         </div>
-        <div class="contact__form--input">
+        <div
+          class="contact__form--input"
+          [class.contact__form--invalid]="
+            contactForm.email().touched() && contactForm.email().invalid()
+          "
+        >
           <h3>What's your email?</h3>
           <input type="email" [formField]="contactForm.email" [placeholder]="emailPlaceholder()" />
           @if (
@@ -35,7 +45,12 @@
           }
         </div>
       </div>
-      <div class="contact__form--mail contact__form--input">
+      <div
+        class="contact__form--mail contact__form--input"
+        [class.contact__form--invalid]="
+          contactForm.message().touched() && contactForm.message().invalid()
+        "
+      >
         <h3>How can I help you?</h3>
         <input type="text" [formField]="contactForm.message" [placeholder]="messagePlaceholder()" />
         @if (
