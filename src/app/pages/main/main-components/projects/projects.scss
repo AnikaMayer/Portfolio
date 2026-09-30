@@ -93,6 +93,15 @@
         button {
           width: 32px;
           height: 32px;
+          @include flex-center;
+          background: none;
+          border: none;
+
+          img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+          }
         }
       }
 
