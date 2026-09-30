@@ -23,15 +23,15 @@ export class Contact {
     acceptPrivacy: false,
   });
 
-  // contactForm = form(this.contactModel, (contactPath) => {
-  //   required(contactPath.name, { message: 'Oops! it seems your name is missing.' });
-  //   required(contactPath.email, { message: 'Hoppla! Your email is required.' });
-  //   required(contactPath.message, { message: 'What do you need to develop?' });
-  //   required(contactPath.acceptPrivacy, { message: 'Please accept the privacy policy.' });
-  //   minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
-  //   email(contactPath.email, { message: 'Please enter a valid email address.' });
-  //   minLength(contactPath.message, 10, { message: 'Please enter a valid text.' });
-  // });
+  contactForm = form(this.contactModel, (contactPath) => {
+    required(contactPath.name, { message: 'Oops! it seems your name is missing.' });
+    required(contactPath.email, { message: 'Hoppla! Your email is required.' });
+    required(contactPath.message, { message: 'What do you need to develop?' });
+    required(contactPath.acceptPrivacy, { message: 'Please accept the privacy policy.' });
+    minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
+    email(contactPath.email, { message: 'Please enter a valid email address.' });
+    minLength(contactPath.message, 10, { message: 'Please enter a valid text.' });
+  });
 
   // namePlaceholder = computed(() => {
   //   if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
