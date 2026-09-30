@@ -40,14 +40,14 @@ export class Projects {
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
     },
     {
-      title: 'Test',
-      technologies: ['HTML', 'CSS', 'Supabase', 'Angular', 'Typescript'],
+      title: 'Pokédex',
+      technologies: ['HTML', 'CSS', 'Javascript'],
       description:
-        'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      image: '/assets/images/projects/El-Pollo-Loco.png',
-      icon: '/assets/images/icons/chicken_icon.svg',
-      gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
-      liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
+        'Gotta catch ´em all — or at least look them up. This Pokédex pulls live data from the PokéAPI and lets you search, filter, and explore detailed cards for every Pokémon.',
+      image: '/assets/images/projects/Pokedex.png',
+      icon: '/assets/images/icons/pokeball-icon.svg',
+      gitUrl: 'https://github.com/AnikaMayer/Pok-dex',
+      liveUrl: 'https://anikamayer.developerakademie.net/Pok%C3%A9dex/index.html',
     },
   ];
 
