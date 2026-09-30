@@ -2,13 +2,14 @@
 
 .about {
   height: 100dvh;
-  padding-top: 88px;
+  // padding-top: 88px;
   background-color: $bgLight;
   @include flex-column;
   // overflow: hidden;
 
   .content {
-    height: 100%;
+    height: calc(100% - 88px);
+    margin-top: 88px;
     position: relative;
     display: flex;
     flex-direction: row;
