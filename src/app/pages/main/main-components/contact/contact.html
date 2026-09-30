@@ -60,7 +60,7 @@
             </p>
           }
         </div>
-        <app-button [disabled]="true">Drop a Line</app-button>
+        <app-button [disabled]="!contactForm().valid()">Drop a Line</app-button>
       </div>
     </div>
   </div>
