@@ -16,12 +16,13 @@ interface FormData {
   templateUrl: './contact.html',
 })
 export class Contact {
-  // contactModel = signal<FormData>({
-  //   name: '',
-  //   email: '',
-  //   message: '',
-  //   acceptPrivacy: false,
-  // });
+  contactModel = signal<FormData>({
+    name: '',
+    email: '',
+    message: '',
+    acceptPrivacy: false,
+  });
+
   // contactForm = form(this.contactModel, (contactPath) => {
   //   required(contactPath.name, { message: 'Oops! it seems your name is missing.' });
   //   required(contactPath.email, { message: 'Hoppla! Your email is required.' });
@@ -31,18 +32,21 @@ export class Contact {
   //   email(contactPath.email, { message: 'Please enter a valid email address.' });
   //   minLength(contactPath.message, 10, { message: 'Please enter a valid text.' });
   // });
+
   // namePlaceholder = computed(() => {
   //   if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
   //     return 'Oops! It seems your name is missing';
   //   }
   //   return 'Your name goes here';
   // });
+
   // emailPlaceholder = computed(() => {
   //   if (this.contactForm.email().touched() && this.contactForm.email().invalid()) {
   //     return 'Hoppla! Your email is required.';
   //   }
   //   return 'youremail@email.com';
   // });
+
   // messagePlaceholder = computed(() => {
   //   if (this.contactForm.message().touched() && this.contactForm.message().invalid()) {
   //     return 'What do you need to develop?';
