@@ -60,6 +60,7 @@
       justify-content: flex-end;
       gap: 10px;
       border-bottom: 1px solid $highlightLight;
+      position: relative;
 
       h3 {
         line-height: 120%;
@@ -92,6 +93,11 @@
         -webkit-box-shadow: 0 0 0px 1000px $bgDark inset;
         -webkit-text-fill-color: $textLight;
       }
+
+      input::placeholder {
+        color: $textLight;
+        opacity: 0.8;
+      }
     }
 
     &--mail {
@@ -100,6 +106,17 @@
 
     &--invalid {
       border-bottom: 1px solid $highlightMedium;
+
+      input::placeholder {
+        color: rgba(236, 123, 123, 1);
+      }
+    }
+
+    &--error {
+      font-size: 13px;
+      color: rgba(236, 123, 123, 0.8);
+      position: absolute;
+      bottom: 0;
     }
 
     &--send {
@@ -108,11 +125,12 @@
       @include flex-column;
       gap: 41px;
 
-      > div {
+      .checkbox-line {
         width: 100%;
         display: flex;
         justify-content: flex-start;
         gap: 4px;
+        position: relative;
 
         p a {
           color: $highlightMedium;
@@ -122,12 +140,20 @@
             font-weight: 700;
           }
         }
+
+        &__error {
+          position: absolute;
+          bottom: 0;
+          transform: translateY(30px);
+        }
       }
     }
 
     &--checkbox {
       width: 20px;
       height: 20px;
+      border: 2 px solid $highlightMedium;
+      border-radius: 2px;
     }
   }
 }

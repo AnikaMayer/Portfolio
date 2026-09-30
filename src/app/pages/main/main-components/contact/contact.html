@@ -62,7 +62,7 @@
         }
       </div>
       <div class="contact__form--send">
-        <div>
+        <div class="checkbox-line">
           <input
             class="contact__form--checkbox"
             type="checkbox"
@@ -70,7 +70,7 @@
           />
           <p>I've read the <a>privacy policy</a> and agree to the processing of my data.</p>
           @if (contactForm.acceptPrivacy().dirty() && contactForm.acceptPrivacy().invalid()) {
-            <p class="contact__form--error">
+            <p class="contact__form--error checkbox-line__error">
               {{ contactForm.acceptPrivacy().errors()?.[0]?.message }}
             </p>
           }
