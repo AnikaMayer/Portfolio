@@ -3,13 +3,34 @@
 .contact {
   @include sectionStart($bgDark, $textLight);
 
+  @include tablet {
+    height: auto;
+    // padding-bottom: 24px;
+  }
+
+  @include mobile {
+    // padding-bottom: 24px;
+  }
+
   .content {
     width: 100%;
     height: 80%;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px;
+    gap: clamp(32px, calc(8px + 6vw), 80px);
     position: relative;
+
+    @include tablet {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 120px;
+      // gap: 32px;
+    }
+
+    @include mobile {
+      margin-bottom: 24px;
+    }
   }
 
   &__intro {
@@ -17,6 +38,11 @@
     display: flex;
     flex-direction: column;
     gap: 64px;
+
+    @include tablet {
+      width: 100%;
+      gap: 32px;
+    }
 
     h2 {
       @include headline;
@@ -32,7 +58,7 @@
       h3 {
         color: $highlightMedium;
         font-weight: 700;
-        font-size: 24px;
+        font-size: clamp(20px, calc(18px + 0.5vw), 24px);
       }
     }
   }
@@ -45,16 +71,28 @@
     flex-direction: column;
     gap: 40px;
 
+    @include tablet {
+      width: 100%;
+      height: auto;
+    }
+
+    @include mobile {
+      height: 495px;
+    }
+
     &--personal {
       width: 100%;
       display: flex;
-      // justify-content: space-between;
       gap: 32px;
+
+      @include tablet {
+        flex-direction: column;
+      }
     }
 
     &--input {
       width: 50%;
-      height: 90px;
+      height: clamp(82px, calc(78px + 1vw), 90px);
       padding: 16px;
       display: flex;
       flex-direction: column;
@@ -63,10 +101,14 @@
       border-bottom: 1px solid $highlightLight;
       position: relative;
 
+      @include tablet {
+        width: 100%;
+      }
+
       h3 {
         line-height: 120%;
         font-weight: 700;
-        font-size: 24px;
+        font-size: clamp(20px, calc(18px + 0.5vw), 24px);
       }
 
       &:hover,
@@ -168,6 +210,12 @@
     right: 0;
     @include flex-center;
 
+    @include tablet {
+      top: unset;
+      bottom: 0;
+      // transform: translateY(100px);
+    }
+
     svg path {
       fill: $textLight;
     }
@@ -178,6 +226,20 @@
       svg path {
         fill: $highlightMedium;
       }
+    }
+  }
+
+  &__btn-mobile {
+    display: none;
+
+    @include tablet {
+      display: flex;
+    }
+  }
+
+  &__btn-desktop {
+    @include tablet {
+      display: none;
     }
   }
 }
