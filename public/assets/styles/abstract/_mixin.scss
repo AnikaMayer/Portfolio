@@ -14,7 +14,7 @@
 @mixin headline {
   font-family: Eczar;
   font-weight: 700;
-  font-size: 72px;
+  font-size: clamp(40px, calc(24px + 4vw), 72px);
   line-height: 100%;
 }
 
