@@ -20,7 +20,7 @@
     gap: clamp(32px, calc(8px + 6vw), 80px);
     position: relative;
 
-    @include tablet {
+    @include tablet(1150px) {
       height: auto;
       display: flex;
       flex-direction: column;
@@ -34,14 +34,19 @@
   }
 
   &__intro {
-    width: 528px;
+    width: 100%;
+    max-width: 528px;
     display: flex;
     flex-direction: column;
-    gap: 64px;
+    gap: clamp(32px, calc(16px + 4vw), 64px);
 
-    @include tablet {
-      width: 100%;
-      gap: 32px;
+    @include tablet(1150px) {
+      max-width: 80%;
+      // gap: 32px;
+    }
+
+    @include mobile(890px) {
+      max-width: 100%;
     }
 
     h2 {
@@ -64,15 +69,16 @@
   }
 
   &__form {
-    width: 600px;
+    width: 100%;
+    max-width: 600px;
     align-self: flex-end;
     height: 370px;
     display: flex;
     flex-direction: column;
     gap: 40px;
 
-    @include tablet {
-      width: 100%;
+    @include tablet(1150px) {
+      max-width: 100%;
       height: auto;
     }
 
@@ -101,7 +107,7 @@
       border-bottom: 1px solid $highlightLight;
       position: relative;
 
-      @include tablet {
+      @include tablet(1150px) {
         width: 100%;
       }
 

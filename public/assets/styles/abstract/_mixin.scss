@@ -54,8 +54,8 @@
 }
 
 // media-query for tablet-size
-@mixin tablet {
-  @media (max-width: 1024px) {
+@mixin tablet($width: 1024px) {
+  @media (max-width: $width) {
     @content;
   }
 }
@@ -67,8 +67,8 @@
 }
 
 // media-query for mobile-size
-@mixin mobile {
-  @media (max-width: 768px) {
+@mixin mobile($width: 768px) {
+  @media (max-width: $width) {
     @content;
   }
 }
