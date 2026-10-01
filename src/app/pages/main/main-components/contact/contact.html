@@ -69,7 +69,7 @@
             [formField]="contactForm.acceptPrivacy"
           />
           <p>
-            I've read the <a routerLink="privacy-policy">privacy policy</a> and agree to the
+            I've read the <a routerLink="/privacy-policy">privacy policy</a> and agree to the
             processing of my data.
           </p>
           @if (contactForm.acceptPrivacy().dirty() && contactForm.acceptPrivacy().invalid()) {
