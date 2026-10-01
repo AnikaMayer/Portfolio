@@ -1,6 +1,7 @@
 import { Component, computed, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { email, form, FormField, minLength, pattern, required } from '@angular/forms/signals';
+import { RouterLink } from '@angular/router';
 
 interface FormData {
   name: string;
@@ -10,7 +11,7 @@ interface FormData {
 }
 
 @Component({
-  imports: [Button, FormField],
+  imports: [Button, FormField, RouterLink],
   selector: 'app-contact',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
