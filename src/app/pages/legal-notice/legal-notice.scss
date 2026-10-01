@@ -6,3 +6,44 @@ main {
   @include flex-center;
   background-color: $bgDark;
 }
+
+.legal {
+  //   @include sectionStart($bgDark, $textLight);
+  height: 100%;
+  padding: 160px 0 260px;
+  background-color: $bgDark;
+  font-family: Quicksand;
+  color: $textLight;
+  @include flex-column;
+
+  .content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    h1 {
+      font-family: Eczar;
+      font-weight: 700;
+      font-size: 72px;
+      line-height: 100%;
+      margin-bottom: 24px;
+    }
+  }
+
+  &__section {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    h2 {
+      font-weight: 700;
+      color: $highlightMedium;
+      font-size: 24px;
+    }
+
+    a:hover {
+      color: $highlightLight;
+    }
+  }
+}
