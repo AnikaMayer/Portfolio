@@ -9,15 +9,24 @@ main {
 
 .policy {
   height: 100%;
-  padding: 160px 0 260px;
+  padding: 160px 0 clamp(190px, calc(17.108px + 16.867vw), 260px);
   background-color: $bgDark;
   font-family: Quicksand;
   color: $textLight;
   @include flex-column;
 
+  @include tablet {
+    padding-bottom: 190px;
+  }
+
+  @include mobile {
+    padding-bottom: clamp(58px, calc(12.348px + 11.413vw), 100px);
+  }
+
   .content {
     width: 100%;
-    padding: 0 272px 0 200px;
+    padding-left: clamp(20px, calc(-70px + 22.5vw), 200px);
+    padding-right: clamp(27px, calc(-73px + 25vw), 227px);
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -25,9 +34,9 @@ main {
     h1 {
       font-family: Eczar;
       font-weight: 700;
-      font-size: 72px;
+      font-size: clamp(40px, calc(24px + 4vw), 72px);
       line-height: 100%;
-      margin-bottom: 24px;
+      margin-bottom: clamp(8px, calc(0px + 2vw), 24px);
     }
   }
 
