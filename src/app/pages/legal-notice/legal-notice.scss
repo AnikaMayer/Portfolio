@@ -1,0 +1,8 @@
+@use '../../../../public/assets/styles/all_styles.scss' as *;
+
+main {
+  width: 100%;
+  flex: 1;
+  @include flex-center;
+  background-color: $bgDark;
+}
