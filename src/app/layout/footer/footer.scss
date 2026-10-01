@@ -15,15 +15,11 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
-    // display: grid;
-    // grid-template-columns: 1fr 1fr 1fr;
-    // align-items: end;
     padding: 0 clamp(16px, calc(-21.333px + 9.333vw), 72px);
     position: relative;
 
     @include mobile {
       height: 100%;
-      padding-block: 0;
       display: flex;
       flex-direction: column-reverse;
       align-items: center;
@@ -33,96 +29,67 @@
   }
 
   &__animation {
-    // width: 370px;
     width: clamp(200px, calc(-72px + 34vw), 370px);
     height: 0;
     position: relative;
-    bottom: 0;
-    left: 0;
 
-    @include tablet {
-      // width: clamp(200px, calc(-72px + 34vw), 370px);
+    @include mobileFooter {
+      width: 100%;
+      height: $footerAnimationHeight;
     }
 
     @include mobile {
       width: 100%;
-      height: clamp(230px, calc(108.481px + 37.975vw), 260px);
+      height: $footerAnimationHeight;
       position: relative;
       bottom: 0;
       margin-top: 24px;
     }
 
-    @include mobileFooter {
-      width: 100%;
-      height: clamp(230px, calc(108.481px + 37.975vw), 260px);
-      position: relative;
-      bottom: 0;
-    }
-
     svg {
       position: absolute;
       bottom: 0;
-
-      // @include mobileFooter {
-      //   transform: translateY(0);
-      // }
-
-      // @include mobile {
-      //   transform: translateY(0);
-      // }
     }
 
     &--left {
       fill: $highlightMedium;
-      //   width: 180px;
-      //   width: clamp(172px, calc(166.667px + 1.333vw), 180px);
       width: 48.6%;
       height: auto;
-      // transform: translateY(31%);
       left: 0;
 
       @include mobileFooter {
         width: auto;
         height: 67.616%;
-        // left: clamp(0px, calc(83.478px - 10.87vw), 40px);
-      }
-
-      @include mobile {
-        // height: 100%;
-        // width: auto;
       }
     }
 
     &--right {
       fill: $highlightLight;
-      //   width: 263px;
-      //   width: clamp(251px, calc(243px + 2vw), 263px);
       width: 71.1%;
       height: auto;
-      //   left: 105px;
       right: 0;
-      // transform: translateY(21%);
 
       @include mobileFooter {
         width: auto;
         height: 100%;
-        // right: clamp(0px, calc(83.478px - 10.87vw), 40px);
       }
+    }
+  }
 
-      @include mobile {
-        // height: 100%;
-        // width: auto;
-      }
+  &__name,
+  &__links {
+    padding-bottom: 56px;
+
+    @include mobile {
+      padding-bottom: 0;
     }
   }
 
   &__name {
     text-align: center;
-    padding-bottom: 56px;
 
     @include mobile {
       order: 2;
-      padding-bottom: 0;
     }
   }
 
@@ -130,7 +97,6 @@
     display: flex;
     justify-content: flex-end;
     gap: 32px;
-    padding-bottom: 56px;
 
     a:hover {
       color: $highlightLight;
@@ -140,26 +106,6 @@
       order: 1;
       width: 100%;
       justify-content: space-between;
-      padding-bottom: 0;
-      // margin-bottom: 24px;
-      // margin-bottom: 292px;
     }
   }
-
-  //   &__info {
-  //     width: 100%;
-  //     display: grid;
-  //     grid-template-columns: 1fr 1fr;
-  //     align-items: end;
-
-  //     &--name {
-  //       text-align: end;
-  //     }
-
-  //     &--links {
-  //       display: flex;
-  //       justify-content: flex-end;
-  //       gap: 32px;
-  //     }
-  //   }
 }
