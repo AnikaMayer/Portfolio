@@ -9,6 +9,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 80px;
+    position: relative;
   }
 
   &__intro {
@@ -154,6 +155,29 @@
       height: 20px;
       border: 2 px solid $highlightMedium;
       border-radius: 2px;
+    }
+  }
+
+  &__startbtn {
+    width: 30px;
+    height: 48px;
+    border: none;
+    background: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include flex-center;
+
+    svg path {
+      fill: $textLight;
+    }
+
+    &:hover {
+      border-bottom: 1px solid $highlightMedium;
+
+      svg path {
+        fill: $highlightMedium;
+      }
     }
   }
 }
