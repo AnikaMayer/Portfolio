@@ -79,11 +79,15 @@
       fill: $highlightMedium;
     }
 
-    p {
+    a {
       color: $textLight;
       font-family: Quicksand;
       font-weight: 600;
       font-size: 24px;
+
+      &:hover {
+        color: $highlightMedium;
+      }
     }
   }
 
