@@ -28,6 +28,10 @@ main {
       font-size: 72px;
       line-height: 100%;
       margin-bottom: 24px;
+
+      @include mobile {
+        font-size: 40px;
+      }
     }
   }
 
@@ -35,11 +39,19 @@ main {
     display: flex;
     flex-direction: column;
     gap: 16px;
+    line-height: 120%;
 
     h2 {
       font-weight: 700;
       color: $highlightMedium;
       font-size: 24px;
+    }
+
+    h3 {
+      font-weight: 700;
+      color: $highlightMedium;
+      font-size: 19px;
+      margin-bottom: -16px;
     }
 
     a:hover {
