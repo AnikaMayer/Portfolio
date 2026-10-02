@@ -24,7 +24,7 @@
     }
 
     @include mobile {
-      margin-bottom: 24px;
+      margin-bottom: 80px;
     }
   }
 
@@ -201,6 +201,30 @@
       height: 20px;
       border: 2px solid $highlightMedium;
       border-radius: 2px;
+    }
+
+    &--feedback {
+      width: 80%;
+      position: absolute;
+      bottom: 0;
+      transform: translateY(-55px);
+      text-align: center;
+      font-weight: 700;
+      color: $highlightLight;
+      // border: 1px solid $highlightLight;
+      // border-radius: 50px;
+      // padding: 5px;
+      // background-color: rgba($highlightLight, 0.1);
+
+      @include tablet {
+        width: 40%;
+        transform: translateY(50px);
+      }
+
+      @include mobile {
+        width: 80%;
+        transform: translateY(80px);
+      }
     }
   }
 
