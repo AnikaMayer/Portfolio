@@ -106,16 +106,12 @@
           </div>
         </div>
         <div class="projects__navBtn">
-          @if (!firstProject()) {
-            <button class="projects__navBtn--prev" (click)="prevProject()">
-              &lt;&lt; Previous project
-            </button>
-          }
-          @if (!lastProject()) {
-            <button class="projects__navBtn--next" (click)="nextProject()">
-              Next project &gt;&gt;
-            </button>
-          }
+          <button class="projects__navBtn--prev" (click)="prevProject()">
+            &lt;&lt; Previous project
+          </button>
+          <button class="projects__navBtn--next" (click)="nextProject()">
+            Next project &gt;&gt;
+          </button>
         </div>
       </div>
     </div>

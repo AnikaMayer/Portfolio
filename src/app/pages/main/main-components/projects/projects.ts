@@ -57,13 +57,15 @@ export class Projects {
   lastProject = computed(() => this.currentIndex() === this.projectList.length - 1); // next-Btn deaktivieren, wenn index vom letzten Objekt
 
   prevProject() {
-    if (!this.firstProject()) {
-      this.currentIndex.update((i) => i - 1);
-    }
+    if (this.currentIndex() === 0) {
+      this.currentIndex.set(this.projectList.length - 1);
+    } else [this.currentIndex.update((i) => i - 1)];
   }
 
   nextProject() {
-    if (!this.lastProject()) {
+    if (this.currentIndex() === this.projectList.length - 1) {
+      this.currentIndex.set(0);
+    } else {
       this.currentIndex.update((i) => i + 1);
     }
   }
