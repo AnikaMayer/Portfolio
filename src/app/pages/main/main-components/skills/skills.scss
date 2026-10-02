@@ -3,15 +3,24 @@
 .skills {
   @include sectionStart($bgDark, $textLight);
 
+  @include tablet {
+    height: auto;
+    padding-block: 80px;
+  }
+
   .content {
     height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 88px;
+    gap: clamp(50px, calc(31px + 4.75vw), 88px);
 
     @include widescreen {
       justify-content: space-between;
       padding-bottom: 117px;
+    }
+
+    @include tablet {
+      height: auto;
     }
   }
 
@@ -20,7 +29,7 @@
     height: auto;
     display: flex;
     flex-direction: column;
-    gap: 40px;
+    gap: clamp(32px, calc(28px + 1vw), 40px);
 
     h2 {
       @include headline;
@@ -45,7 +54,6 @@
 
   &__animation {
     width: auto;
-    // height: 285px;
     display: flex;
     flex-direction: column;
     align-self: flex-end;
@@ -138,20 +146,22 @@
     height: auto;
 
     ul {
-      // display: grid;
-      // grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
       display: flex;
       flex-wrap: wrap;
       align-items: center;
+      justify-content: center;
       gap: 16px 40px;
 
       li {
+        width: 96px;
+        height: 144px;
         @include flex-column;
+        text-align: center;
         gap: 8px;
 
         > div {
-          width: 96px;
-          height: 96px;
+          width: 100%;
+          aspect-ratio: 1 / 1;
           @include flex-center;
 
           img {
