@@ -1,8 +1,8 @@
 // position items in center
-@mixin flex-center {
+@mixin flex-center($align: center) {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: $align;
 }
 
 @mixin flex-column {

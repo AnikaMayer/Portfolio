@@ -213,13 +213,13 @@
     background: none;
     position: absolute;
     top: 0;
-    right: 0;
-    @include flex-center;
+    right: clamp(16px, calc(-12px + 7vw), 72px);
+    @include flex-center(flex-end);
 
     @include tablet {
       top: unset;
-      bottom: 0;
-      // transform: translateY(100px);
+      bottom: 30px;
+      // right: 16px;
     }
 
     svg path {
@@ -239,13 +239,13 @@
     display: none;
 
     @include tablet {
-      display: flex;
+      // display: flex;
     }
   }
 
   &__btn-desktop {
     @include tablet {
-      display: none;
+      // display: none;
     }
   }
 }
