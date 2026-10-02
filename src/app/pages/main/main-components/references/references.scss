@@ -62,6 +62,10 @@
       width: 100%;
     }
 
+    a:hover {
+      color: $highlightMedium;
+    }
+
     &--content {
       width: 100%;
       height: auto;
