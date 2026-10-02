@@ -18,9 +18,9 @@
   line-height: 100%;
 }
 
-@mixin sectionStart($bgColor, $color) {
+@mixin sectionStart($bgColor, $color, $top: 160px) {
   height: 100dvh;
-  padding-top: 160px;
+  padding-top: $top;
   background-color: #{$bgColor};
   font-family: Quicksand;
   color: #{$color};

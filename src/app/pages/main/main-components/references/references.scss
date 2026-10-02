@@ -1,13 +1,25 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
 .ref {
-  @include sectionStart($bgMedium, $textLight);
+  @include sectionStart($bgMedium, $textLight, 180px);
   padding-bottom: 128px;
 
+  @include tablet {
+    height: auto;
+    padding-block: 80px;
+  }
+
   .content {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 48px;
+    // gap: clamp(32px, calc(24px + 2vw), 48px);
+
+    @include tablet {
+      height: auto;
+      gap: 32px;
+    }
   }
 
   h2 {
@@ -21,15 +33,34 @@
     gap: 32px;
     grid-template-columns: repeat(3, 1fr);
     align-items: flex-start;
+
+    @include tablet {
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    @include mobile {
+      gap: 24px;
+    }
   }
 
   &__box {
-    width: 384px;
+    width: 100%;
     height: auto;
     display: flex;
     flex-direction: column;
     align-items: flex-end;
     gap: 32px;
+
+    @include tablet {
+      width: 384px;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
 
     &--content {
       width: 100%;
@@ -44,7 +75,7 @@
 
       h3 {
         font-weight: 700;
-        font-size: 24px;
+        font-size: clamp(20px, calc(18px + 0.5vw), 24px);
         line-height: 120%;
       }
 
