@@ -6,11 +6,6 @@
   @include tablet {
     height: auto;
     padding-top: 80px;
-    // padding-bottom: 24px;
-  }
-
-  @include mobile {
-    // padding-bottom: 24px;
   }
 
   .content {
@@ -21,7 +16,7 @@
     gap: clamp(32px, calc(8px + 6vw), 80px);
     position: relative;
 
-    @include tablet(1150px) {
+    @include tablet(1390px) {
       height: auto;
       display: flex;
       flex-direction: column;
@@ -128,6 +123,7 @@
       }
 
       input {
+        width: 100%;
         background: none;
         border: none;
         font-family: Quicksand;
@@ -135,6 +131,7 @@
         line-height: 120%;
         color: $textLight;
         caret-color: $highlightLight;
+        text-overflow: ellipsis;
       }
 
       input:-webkit-autofill,
@@ -147,6 +144,12 @@
       input::placeholder {
         color: $textLight;
         opacity: 0.8;
+        font-size: clamp(14px, calc(13px + 0.25vw), 16px);
+        text-overflow: ellipsis;
+
+        // @include mobile {
+        //   font-size: clamp(14px, calc(13px + 0.25vw), 16px);
+        // }
       }
     }
 
@@ -202,7 +205,7 @@
     &--checkbox {
       width: 20px;
       height: 20px;
-      border: 2 px solid $highlightMedium;
+      border: 2px solid $highlightMedium;
       border-radius: 2px;
     }
   }
