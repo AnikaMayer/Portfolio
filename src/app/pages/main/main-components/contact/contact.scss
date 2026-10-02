@@ -21,7 +21,6 @@
       display: flex;
       flex-direction: column;
       margin-bottom: 120px;
-      // gap: 32px;
     }
 
     @include mobile {
@@ -38,7 +37,6 @@
 
     @include tablet(1150px) {
       max-width: 80%;
-      // gap: 32px;
     }
 
     @include mobile(890px) {
@@ -146,10 +144,6 @@
         opacity: 0.8;
         font-size: clamp(14px, calc(13px + 0.25vw), 16px);
         text-overflow: ellipsis;
-
-        // @include mobile {
-        //   font-size: clamp(14px, calc(13px + 0.25vw), 16px);
-        // }
       }
     }
 
@@ -223,7 +217,6 @@
     @include tablet {
       top: unset;
       bottom: 30px;
-      // right: 16px;
     }
 
     svg path {
@@ -236,20 +229,6 @@
       svg path {
         fill: $highlightMedium;
       }
-    }
-  }
-
-  &__btn-mobile {
-    display: none;
-
-    @include tablet {
-      // display: flex;
-    }
-  }
-
-  &__btn-desktop {
-    @include tablet {
-      // display: none;
     }
   }
 }
