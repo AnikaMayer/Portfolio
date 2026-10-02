@@ -85,12 +85,12 @@
         >
         @switch (sendStatus()) {
           @case ('success') {
-            <div class="contact__form--feedback">
+            <div class="contact__form--feedback contact__form--feedback-success">
               <p>Thank you! Your message has been sent!</p>
             </div>
           }
           @case ('error') {
-            <div class="contact__form--feedback">
+            <div class="contact__form--feedback contact__form--feedback-error">
               <p>Oh no, something went wrong. Please try again later.</p>
             </div>
           }
