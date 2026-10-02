@@ -26,14 +26,14 @@ export class Contact {
 
   protected readonly contactForm = form(this.contactModel, (contactPath) => {
     required(contactPath.name, { message: 'Oops! It seems your name is missing.' });
-    required(contactPath.email, { message: 'Hoppla! Your email is required.' });
+    required(contactPath.email, { message: 'Uh-oh! Your email is required.' });
     required(contactPath.message, { message: 'What do you need to develop?' });
     required(contactPath.acceptPrivacy, { message: 'Please accept the privacy policy.' });
     minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
     email(contactPath.email, { message: 'Please enter a valid email address.' });
     minLength(contactPath.message, 2, { message: 'Please enter a valid text.' });
     pattern(contactPath.name, /^[a-zA-ZÀ-ž][a-zA-ZÀ-ž\s\-']*[a-zA-ZÀ-ž]$/, {
-      message: 'Please enter a valid name',
+      message: 'Please enter a valid name.',
     });
     pattern(contactPath.email, /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-z]{2,}$/, {
       message: 'Please enter a valid email address.',
@@ -42,14 +42,14 @@ export class Contact {
 
   namePlaceholder = computed(() => {
     if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
-      return 'Oops! It seems your name is missing';
+      return 'Oops! Your name is missing';
     }
     return 'Your name goes here';
   });
 
   emailPlaceholder = computed(() => {
     if (this.contactForm.email().touched() && this.contactForm.email().invalid()) {
-      return 'Hoppla! Your email is required.';
+      return 'Uh-oh! Your email is required.';
     }
     return 'youremail@email.com';
   });
