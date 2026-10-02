@@ -8,6 +8,10 @@
     padding-block: 80px;
   }
 
+  @include mobile {
+    padding-block: 80px 22px;
+  }
+
   .content {
     height: 100%;
     display: flex;
@@ -36,11 +40,20 @@
     }
 
     &--text {
-      width: 600px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      max-width: 600px;
       height: 140px;
       border-radius: 4px;
       background-color: $bgMedium;
       padding: 32px;
+
+      @include mobile {
+        padding: 16px;
+        height: auto;
+      }
     }
   }
 
@@ -50,6 +63,11 @@
     justify-content: space-between;
     align-items: center;
     position: relative;
+
+    @include tablet {
+      flex-direction: column-reverse;
+      gap: 32px;
+    }
   }
 
   &__animation {
@@ -58,6 +76,10 @@
     flex-direction: column;
     align-self: flex-end;
     position: relative;
+
+    @include tablet {
+      align-self: flex-start;
+    }
 
     &--graphic {
       fill: $highlightMedium;
@@ -76,7 +98,8 @@
   }
 
   &__overlay {
-    width: 360px;
+    width: 100%;
+    max-width: 360px;
     height: auto;
     background-color: $highlightLight;
     border: 1px solid $textLight;
@@ -85,7 +108,16 @@
     display: flex;
     flex-direction: column;
     gap: 16px;
+    position: absolute;
+    left: 14%;
+    bottom: 0;
     @include hoverDefault;
+    z-index: 10;
+
+    @include tablet {
+      bottom: 100px;
+      left: unset;
+    }
 
     &--visible {
       @include hoverEnter;
@@ -142,7 +174,8 @@
   }
 
   &__list {
-    width: 640px;
+    width: 100%;
+    max-width: 640px;
     height: auto;
 
     ul {
@@ -152,12 +185,22 @@
       justify-content: center;
       gap: 16px 40px;
 
+      @include mobile {
+        gap: 12px;
+      }
+
       li {
         width: 96px;
         height: 144px;
         @include flex-column;
         text-align: center;
         gap: 8px;
+
+        @include mobile {
+          width: 80px;
+          height: auto;
+          min-height: 99px;
+        }
 
         > div {
           width: 100%;
@@ -168,6 +211,11 @@
             width: 72px;
             height: 72px;
             transition: ease 0.3s;
+
+            @include mobile {
+              width: 58px;
+              height: 64px;
+            }
           }
 
           img:hover {
