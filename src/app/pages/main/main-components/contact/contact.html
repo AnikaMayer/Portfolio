@@ -10,7 +10,7 @@
         </p>
       </div>
     </div>
-    <div class="contact__form">
+    <form [formRoot]="contactForm" class="contact__form">
       <div class="contact__form--personal">
         <div
           class="contact__form--input"
@@ -78,9 +78,25 @@
             </p>
           }
         </div>
-        <app-button [disabled]="!contactForm().valid()">Drop a Line</app-button>
+        <app-button
+          type="submit"
+          [disabled]="!contactForm().valid() || contactForm().submitting()"
+          >{{ contactForm().submitting() ? 'sending...' : 'Drop a Line' }}</app-button
+        >
+        @switch (sendStatus()) {
+          @case ('success') {
+            <div class="contact__form--feedback">
+              <p>Thank you! Your message has been sent!</p>
+            </div>
+          }
+          @case ('error') {
+            <div class="contact__form--feedback">
+              <p>Oh no, something went wrong. Please try again later.</p>
+            </div>
+          }
+        }
       </div>
-    </div>
+    </form>
     <button class="contact__startbtn">
       <a href="#hero-section">
         <svg

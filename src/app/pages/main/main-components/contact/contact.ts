@@ -1,6 +1,14 @@
 import { Component, computed, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
-import { email, form, FormField, minLength, pattern, required } from '@angular/forms/signals';
+import {
+  email,
+  form,
+  FormField,
+  minLength,
+  pattern,
+  required,
+  FormRoot,
+} from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
 
 interface FormData {
@@ -10,13 +18,17 @@ interface FormData {
   acceptPrivacy: boolean;
 }
 
+type SendStatus = 'idle' | 'success' | 'error';
+
 @Component({
-  imports: [Button, FormField, RouterLink],
+  imports: [Button, FormField, RouterLink, FormRoot],
   selector: 'app-contact',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
 })
 export class Contact {
+  protected readonly sendStatus = signal<SendStatus>('idle');
+
   protected readonly contactModel = signal<FormData>({
     name: '',
     email: '',
@@ -24,21 +36,40 @@ export class Contact {
     acceptPrivacy: false,
   });
 
-  protected readonly contactForm = form(this.contactModel, (contactPath) => {
-    required(contactPath.name, { message: 'Oops! It seems your name is missing.' });
-    required(contactPath.email, { message: 'Uh-oh! Your email is required.' });
-    required(contactPath.message, { message: 'What do you need to develop?' });
-    required(contactPath.acceptPrivacy, { message: 'Please accept the privacy policy.' });
-    minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
-    email(contactPath.email, { message: 'Please enter a valid email address.' });
-    minLength(contactPath.message, 2, { message: 'Please enter a valid text.' });
-    pattern(contactPath.name, /^[a-zA-ZÀ-ž][a-zA-ZÀ-ž\s\-']*[a-zA-ZÀ-ž]$/, {
-      message: 'Please enter a valid name.',
-    });
-    pattern(contactPath.email, /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-z]{2,}$/, {
-      message: 'Please enter a valid email address.',
-    });
-  });
+  protected readonly contactForm = form(
+    this.contactModel,
+    (contactPath) => {
+      required(contactPath.name, { message: 'Oops! It seems your name is missing.' });
+      minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
+      pattern(contactPath.name, /^[a-zA-ZÀ-ž][a-zA-ZÀ-ž\s\-']*[a-zA-ZÀ-ž]$/, {
+        message: 'Please enter a valid name.',
+      });
+      required(contactPath.email, { message: 'Uh-oh! Your email is required.' });
+      email(contactPath.email, { message: 'Please enter a valid email address.' });
+      pattern(contactPath.email, /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-z]{2,}$/, {
+        message: 'Please enter a valid email address.',
+      });
+      required(contactPath.message, { message: 'What do you need to develop?' });
+      minLength(contactPath.message, 2, { message: 'Please enter a valid text.' });
+      required(contactPath.acceptPrivacy, { message: 'Please accept the privacy policy.' });
+    },
+    {
+      submission: {
+        action: async () => {
+          // const result = await sendMessage(field().value());
+          try {
+            await new Promise((resolve) => setTimeout(resolve, 1000));
+
+            this.sendStatus.set('success');
+            this.contactModel.set({ name: '', email: '', message: '', acceptPrivacy: false });
+            this.contactForm().reset();
+          } catch {
+            this.sendStatus.set('error');
+          }
+        },
+      },
+    },
+  );
 
   namePlaceholder = computed(() => {
     if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
