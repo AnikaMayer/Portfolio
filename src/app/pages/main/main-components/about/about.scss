@@ -6,41 +6,103 @@
   background-color: $bgLight;
   @include flex-column;
   // overflow: hidden;
+  position: relative;
+
+  @include tablet {
+    height: auto;
+    padding-block: 80px;
+  }
 
   .content {
-    height: calc(100% - 88px);
-    margin-top: 88px;
-    position: relative;
+    // height: calc(100% - 88px);
+    height: 740px;
+    // margin-top: 88px;
+    // position: relative;
+    position: absolute;
+    bottom: 0;
     display: flex;
-    flex-direction: row;
+    flex-direction: row-reverse;
     justify-content: space-between;
     align-items: flex-end;
-    padding: 0 96px 0 112px;
+    // padding: 0 96px 0 112px;
+
+    @include tablet {
+      height: 100%;
+      // padding-block: 80px;
+      // padding-inline: 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: unset;
+      position: unset;
+    }
   }
 
   h2 {
     color: $textDark;
     @include headline;
     align-self: flex-start;
-    position: absolute;
-    bottom: 668px;
-    right: 96px;
+    // position: absolute;
+    // bottom: 668px;
+    // right: 96px;
 
-    @include widescreen {
-      position: absolute;
-      top: clamp(40px, 10dvh, 159px);
-      right: 96px;
+    @include tablet {
+      position: unset;
+      align-self: flex-end;
+      margin-bottom: 32px;
+    }
+
+    // @include widescreen {
+    //   position: absolute;
+    //   top: clamp(40px, 10dvh, 159px);
+    //   right: 96px;
+    // }
+  }
+
+  &__wrapper {
+    // width: clamp(240px, 27.4vw, 528px);
+    // height: clamp(336px, 48vw, 740px);
+    width: 528px;
+    height: 740px;
+
+    @include tablet {
+      width: 100%;
+      // height: 336px;
+      height: auto;
+      display: flex;
+      flex-direction: column;
     }
   }
 
   &__image {
     width: 528px;
     height: 740px;
-    background-color: rgba(21, 87, 87, 0.733);
+
+    @include tablet {
+      // flex-shrink: 0;
+      width: 67%;
+      height: auto;
+      aspect-ratio: 240 / 336;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__info-wrap {
+    @include tablet {
+      width: 100%;
+      height: auto;
+      min-height: 500px;
+      position: relative;
+    }
   }
 
   &__info {
     width: 600px;
+    max-width: 600px;
     height: 250px;
     background-color: $bgDark;
     color: $textLight;
@@ -53,7 +115,40 @@
     gap: 32px;
     position: absolute;
     bottom: 322px;
-    left: 554px;
+    left: 450px;
+
+    // @include tablet {
+    //   position: relative;
+    //   top: unset;
+    //   bottom: unset;
+    //   left: unset;
+    //   right: unset;
+    //   margin-top: -80px;
+    //   margin-right: 0;
+    //   align-self: flex-end;
+    //   width: 55%;
+    //   height: fit-content;
+    //   z-index: 1;
+    //   padding: 16px;
+    // }
+
+    @include tablet {
+      width: 67%;
+      min-width: 240px;
+      max-width: 330px;
+      height: auto;
+      min-height: 350px;
+
+      // left: 50%;
+      left: unset;
+      bottom: unset;
+      top: -10%;
+      // top: 80%;
+      right: 0;
+
+      // position: unset;
+      // transform: translate(50%, -10%);
+    }
 
     &--text {
       display: flex;
@@ -61,10 +156,15 @@
       gap: 16px;
     }
   }
+
   &__btn {
     width: 100%;
     display: flex;
     justify-content: space-between;
+
+    app-button {
+      --btn-width: clamp(131px, calc(35px + 24vw), 155px);
+    }
 
     &--more {
       width: 40px;
@@ -93,11 +193,16 @@
     gap: 16px;
     position: absolute;
     bottom: 80px;
-    left: 1040px;
+    // left: 940px;
+    right: 120px;
     @include hoverDefault;
 
     &--visible {
       @include hoverEnter;
+    }
+
+    @include tablet {
+      left: clamp(16px, calc(-32px + 12vw), 112px);
     }
 
     h3 {
