@@ -1,3 +1,14 @@
+@mixin bounce-animation {
+  @keyframes bounce {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-10px);
+    }
+  }
+}
+
 // position items in center
 @mixin flex-center($align: center) {
   display: flex;

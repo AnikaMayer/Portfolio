@@ -136,13 +136,10 @@
       background: none;
       animation: bounce 450ms ease infinite alternate;
 
-      @keyframes bounce {
-        from {
-          transform: translateY(0);
-        }
-        to {
-          transform: translateY(-10px);
-        }
+      @include bounce-animation;
+
+      &:hover {
+        animation: paused;
       }
     }
   }
