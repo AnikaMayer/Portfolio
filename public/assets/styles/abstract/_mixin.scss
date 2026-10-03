@@ -1,4 +1,6 @@
 @mixin bounce-animation {
+  animation: bounce 450ms ease infinite alternate;
+
   @keyframes bounce {
     from {
       transform: translateY(0);
@@ -6,6 +8,10 @@
     to {
       transform: translateY(-10px);
     }
+  }
+
+  &:hover {
+    animation: paused;
   }
 }
 
