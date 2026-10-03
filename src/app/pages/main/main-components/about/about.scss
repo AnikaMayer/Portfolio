@@ -37,12 +37,6 @@
       align-self: flex-end;
       margin-bottom: 32px;
     }
-
-    // @include widescreen {
-    //   position: absolute;
-    //   top: clamp(40px, 10dvh, 159px);
-    //   right: 96px;
-    // }
   }
 
   &__wrapper {
@@ -140,6 +134,16 @@
       align-items: flex-end;
       border: none;
       background: none;
+      animation: bounce 450ms ease infinite alternate;
+
+      @keyframes bounce {
+        from {
+          transform: translateY(0);
+        }
+        to {
+          transform: translateY(-10px);
+        }
+      }
     }
   }
 
