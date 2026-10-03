@@ -1,7 +1,7 @@
 @function clampCalc($min, $max, $start, $end) {
   @return clamp(
-    $min * 1px,
-    calc((100dvw - $end * 1px) * ($max - $min) / ($start - $end) + $min * 1px),
-    $max * 1px
+    #{$min}px,
+    calc((100svw - #{$end}px) * #{($max - $min) / ($start - $end)} + #{$min}px),
+    #{$max}px
   );
 }
