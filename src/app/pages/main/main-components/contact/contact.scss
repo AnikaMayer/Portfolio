@@ -252,8 +252,12 @@
       bottom: 30px;
     }
 
-    svg path {
-      fill: $textLight;
+    svg {
+      @include bounce-animation(500ms, 1.2);
+
+      path {
+        fill: $textLight;
+      }
     }
 
     &:hover {
