@@ -135,6 +135,10 @@
       border: none;
       background: none;
       @include bounce-animation;
+
+      &:hover {
+        animation: paused;
+      }
     }
   }
 
