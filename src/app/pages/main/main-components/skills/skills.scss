@@ -82,6 +82,8 @@
     }
 
     &--graphic {
+      @include rotate-animation;
+
       fill: $highlightMedium;
     }
 
