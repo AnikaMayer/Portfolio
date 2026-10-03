@@ -1,11 +1,7 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
 .about {
-  height: 100dvh;
-  // padding-top: 88px;
-  background-color: $bgLight;
-  @include flex-column;
-  // overflow: hidden;
+  @include sectionStart($bgLight, $textDark, 160px);
   position: relative;
 
   @include tablet {
@@ -14,22 +10,16 @@
   }
 
   .content {
-    // height: calc(100% - 88px);
     height: 740px;
-    // margin-top: 88px;
-    // position: relative;
     position: absolute;
     bottom: 0;
     display: flex;
     flex-direction: row-reverse;
     justify-content: space-between;
     align-items: flex-end;
-    // padding: 0 96px 0 112px;
 
     @include tablet {
       height: 100%;
-      // padding-block: 80px;
-      // padding-inline: 16px;
       flex-direction: column;
       align-items: flex-start;
       justify-content: unset;
@@ -41,9 +31,6 @@
     color: $textDark;
     @include headline;
     align-self: flex-start;
-    // position: absolute;
-    // bottom: 668px;
-    // right: 96px;
 
     @include tablet {
       position: unset;
@@ -59,14 +46,11 @@
   }
 
   &__wrapper {
-    // width: clamp(240px, 27.4vw, 528px);
-    // height: clamp(336px, 48vw, 740px);
     width: 528px;
     height: 740px;
 
     @include tablet {
       width: 100%;
-      // height: 336px;
       height: auto;
       display: flex;
       flex-direction: column;
@@ -77,8 +61,7 @@
     width: 528px;
     height: 740px;
 
-    @include tablet {
-      // flex-shrink: 0;
+    @include tablet(1200px) {
       width: 67%;
       height: auto;
       aspect-ratio: 240 / 336;
@@ -117,37 +100,20 @@
     bottom: 322px;
     left: 450px;
 
-    // @include tablet {
-    //   position: relative;
-    //   top: unset;
-    //   bottom: unset;
-    //   left: unset;
-    //   right: unset;
-    //   margin-top: -80px;
-    //   margin-right: 0;
-    //   align-self: flex-end;
-    //   width: 55%;
-    //   height: fit-content;
-    //   z-index: 1;
-    //   padding: 16px;
-    // }
+    @include tablet(1200px) {
+      width: clamp(400px, calc(-449.286px + 82.857vw), 545px);
+      height: auto;
+      bottom: 0;
+    }
 
     @include tablet {
       width: 67%;
       min-width: 240px;
-      max-width: 330px;
-      height: auto;
-      min-height: 350px;
 
-      // left: 50%;
       left: unset;
       bottom: unset;
       top: -10%;
-      // top: 80%;
       right: 0;
-
-      // position: unset;
-      // transform: translate(50%, -10%);
     }
 
     &--text {
@@ -193,7 +159,6 @@
     gap: 16px;
     position: absolute;
     bottom: 80px;
-    // left: 940px;
     right: 120px;
     @include hoverDefault;
 
@@ -201,7 +166,12 @@
       @include hoverEnter;
     }
 
+    @include tablet(1200px) {
+      bottom: 10px;
+    }
+
     @include tablet {
+      bottom: 80px;
       left: clamp(16px, calc(-32px + 12vw), 112px);
     }
 
