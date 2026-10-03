@@ -86,6 +86,7 @@
       position: absolute;
       bottom: 0;
       left: 0;
+      @include rotate-animation;
 
       path {
         fill: $highlightLight;
