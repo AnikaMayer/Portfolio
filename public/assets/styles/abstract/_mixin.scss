@@ -11,6 +11,19 @@
   }
 }
 
+@mixin rotate-animation {
+  animation: rotate 3500ms linear infinite;
+
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(180deg);
+    }
+  }
+}
+
 // position items in center
 @mixin flex-center($align: center) {
   display: flex;
