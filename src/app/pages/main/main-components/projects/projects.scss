@@ -180,6 +180,10 @@
             height: 30px;
             object-fit: cover;
             @include bounce-animation;
+
+            &:hover {
+              animation: paused;
+            }
           }
         }
       }
