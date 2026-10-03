@@ -1,17 +1,13 @@
-@mixin bounce-animation {
-  animation: bounce 450ms ease infinite alternate;
+@mixin bounce-animation($time: 450ms, $scale: 1) {
+  animation: bounce $time ease infinite alternate;
 
   @keyframes bounce {
     from {
-      transform: translateY(0);
+      transform: translateY(0) scaleY(1);
     }
     to {
-      transform: translateY(-10px);
+      transform: translateY(-10px) scaleY($scale);
     }
-  }
-
-  &:hover {
-    animation: paused;
   }
 }
 
