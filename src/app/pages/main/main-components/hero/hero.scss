@@ -72,7 +72,26 @@
       width: 144px;
       height: 144px;
       margin-top: 92px;
-      background-color: rgb(236, 171, 111);
+
+      svg {
+        .animation-text path {
+          fill: $textLight;
+        }
+
+        .animation-arrow {
+          fill: $textLight;
+        }
+
+        .circle {
+          fill: $highlightMedium;
+        }
+
+        .rotate {
+          @include rotate-animation;
+          transform-box: fill-box;
+          transform-origin: center;
+        }
+      }
 
       @include tablet {
         margin-top: 0;
