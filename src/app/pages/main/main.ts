@@ -5,9 +5,10 @@ import { About } from './main-components/about/about';
 import { Projects } from './main-components/projects/projects';
 import { References } from './main-components/references/references';
 import { Contact } from './main-components/contact/contact';
+import { NavBar } from '../../shared/components/nav-bar/nav-bar';
 
 @Component({
-  imports: [Hero, About, Skills, Projects, References, Contact],
+  imports: [Hero, About, Skills, Projects, References, Contact, NavBar],
   selector: 'app-main',
   styleUrl: './main.scss',
   templateUrl: './main.html',
