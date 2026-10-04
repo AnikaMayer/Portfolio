@@ -5,7 +5,8 @@
   // height: calc(100dvh - 88px);
   // margin-top: 88px;
   @include sectionStart($bgMedium, $textLight);
-  // position: relative;
+  justify-content: flex-end;
+  position: relative;
 
   @include tablet {
     height: auto;
@@ -19,7 +20,8 @@
     height: 100%;
     // padding-block: 72px 0;
     display: flex;
-    position: relative;
+    // position: relative;
+    align-items: stretch;
 
     @include tablet {
       padding-block: clamp(40px, calc(18.667px + 5.333vw), 72px) 0;
@@ -112,9 +114,9 @@
     // height: 740px; //option 1
     flex: 1 1 auto; //option 2
     height: auto; //option 2
-    display: flex;
+    // display: flex;
     position: relative;
-    @include flex-center;
+    // @include flex-center;
 
     @include tablet {
       width: 100%;
@@ -158,8 +160,8 @@
 
     &--picture {
       width: 100%;
-      max-width: 1000px;
-      height: auto;
+      // max-width: 1000px;
+      // height: auto;
       position: absolute;
       bottom: 0;
     }
