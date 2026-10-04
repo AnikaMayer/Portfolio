@@ -12,6 +12,10 @@
   top: 50%;
   z-index: 10;
 
+  @include widescreen {
+    right: calc(50% - 720px + 72px);
+  }
+
   @include tablet {
     display: none;
   }
