@@ -82,6 +82,27 @@
       aspect-ratio: 1 / 1;
     }
 
+    &.theme-loco {
+      background-color: $bgMedium;
+      svg path {
+        fill: $highlightLight;
+      }
+    }
+
+    &.theme-join {
+      background-color: $highlightMedium;
+      svg path {
+        fill: $bgMedium;
+      }
+    }
+
+    &.theme-pokedex {
+      background-color: $highlightLight;
+      svg path {
+        fill: $highlightMedium;
+      }
+    }
+
     svg {
       position: absolute;
       bottom: 0;

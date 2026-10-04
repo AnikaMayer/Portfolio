@@ -9,6 +9,7 @@ interface Project {
   icon: string;
   gitUrl: string;
   liveUrl: string;
+  colorClass: string;
 }
 
 @Component({
@@ -28,6 +29,7 @@ export class Projects {
       icon: '/assets/images/icons/chicken_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
+      colorClass: 'theme-loco',
     },
     {
       title: 'Join',
@@ -38,6 +40,7 @@ export class Projects {
       icon: '/assets/images/icons/join_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
+      colorClass: 'theme-join',
     },
     {
       title: 'Pokédex',
@@ -48,6 +51,7 @@ export class Projects {
       icon: '/assets/images/icons/pokeball-icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/Pok-dex',
       liveUrl: 'https://anikamayer.developerakademie.net/Pok%C3%A9dex/index.html',
+      colorClass: 'theme-pokedex',
     },
   ];
 
@@ -55,6 +59,7 @@ export class Projects {
   currentProject = computed(() => this.projectList[this.currentIndex()]); // computed gibt aktuelles Projekt zurück
   firstProject = computed(() => this.currentIndex() === 0); //prev-Btn deaktivieren, wenn Index vom ersten Projekt
   lastProject = computed(() => this.currentIndex() === this.projectList.length - 1); // next-Btn deaktivieren, wenn index vom letzten Objekt
+  currentColorClass = computed(() => this.currentProject().colorClass);
 
   prevProject() {
     if (this.currentIndex() === 0) {
