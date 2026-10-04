@@ -20,7 +20,7 @@ export const appConfig: ApplicationConfig = {
       lang: (localStorage.getItem('lang') as 'en' | 'de') ?? 'en',
       fallbackLang: 'en',
       loader: provideTranslateHttpLoader({
-        prefix: '/i18n/',
+        prefix: 'i18n/',
         suffix: '.json',
       }),
     }),
