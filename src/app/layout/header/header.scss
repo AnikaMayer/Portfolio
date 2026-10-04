@@ -9,7 +9,14 @@
   top: 0;
   left: 0;
   @include flex-center;
-  background-color: rgba(0, 0, 0, 0.473);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.85) 0%,
+    rgba(0, 0, 0, 0.7) 30%,
+    rgba(0, 0, 0, 0.35) 60%,
+    rgba(0, 0, 0, 0.08) 85%,
+    rgba(0, 0, 0, 0) 100%
+  );
 
   @include mobile {
     height: 72px;
@@ -24,10 +31,6 @@
 
     @include tablet {
       padding: 16px clamp(16px, calc(-21.333px + 9.333vw), 72px);
-    }
-
-    @include mobile {
-      // padding: 16px clamp(10px, calc(5.714px + 1.339vw), 16px);
     }
   }
 
@@ -156,7 +159,6 @@
 
   &__overlay {
     width: 208px;
-    // height: 222px;
     font-family: Quicksand;
     font-weight: 700;
     font-size: 18px;
