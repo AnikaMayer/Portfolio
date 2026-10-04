@@ -1,6 +1,6 @@
 <section id="about-section" class="about" aria-labelledby="about-heading">
   <div class="content">
-    <h2 id="about-heading">About me</h2>
+    <h2 id="about-heading">{{ 'about.title' | translate }}</h2>
     <div class="about__wrapper">
       <div class="about__image">
         <img src="/assets/images/Anika-Mayer-Work.png" alt="Image of Anika Mayer working" />
@@ -9,16 +9,15 @@
         <div class="about__info">
           <div class="about__info--text">
             <p>
-              Hey there, I'm Hanna. Write some information about yourself that is IT related. Why
-              are you passionate about coding? What is your source of inspiration for improving your
-              programming skills? Do you learn from each challenge as you search for the most
-              efficient or elegant solution?
+              {{ 'about.text1' | translate }}
             </p>
-            <p>Let's connect and create something amazing together!</p>
+            <p>{{ 'about.text2' | translate }}</p>
           </div>
           <div class="about__btn">
             <app-button>
-              <a href="#contact-section" aria-label="Jump to contact form">Let's talk</a>
+              <a href="#contact-section" aria-label="Jump to contact form">{{
+                'about.btn' | translate
+              }}</a>
             </app-button>
             <button
               class="about__btn--more"
@@ -80,7 +79,7 @@
       </div>
     </div>
     <div id="about-more" class="about__more" [class.about__more--visible]="moreIsOpen">
-      <h3>More about me</h3>
+      <h3>{{ 'about.boxTitle' | translate }}</h3>
       <ul>
         @for (item of infoList; track item) {
           <li>

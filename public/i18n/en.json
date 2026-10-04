@@ -12,5 +12,16 @@
     "title1": "Hello there! I’m",
     "title2": "Frontend Developer",
     "btn": "Get in Touch"
+  },
+
+  "about": {
+    "title": "About me",
+    "text1": "Hey there, I'm Hanna. Write some information about yourself that is IT related. Why are you passionate about coding? What is your source of inspiration for improving your programming skills? Do you learn from each challenge as you search for the most efficient or elegant solution?",
+    "text2": "Let's connect and create something amazing together!",
+    "btn": "Let’s Talk",
+    "boxTitle": "More about me",
+    "items": {
+      "item1": "Team Player"
+    }
   }
 }

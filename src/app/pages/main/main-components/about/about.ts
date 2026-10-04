@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
+import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
-  imports: [Button],
+  imports: [Button, TranslatePipe],
   selector: 'app-about',
   styleUrl: './about.scss',
   templateUrl: './about.html',
