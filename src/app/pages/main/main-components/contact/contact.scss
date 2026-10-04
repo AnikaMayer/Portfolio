@@ -2,19 +2,24 @@
 
 .contact {
   @include sectionStart($bgDark, $textLight);
+  height: 100dvh;
+
+  @include tablet(1390px) {
+    height: auto;
+  }
 
   @include tablet {
-    height: auto;
     padding-top: 80px;
   }
 
   .content {
     width: 100%;
-    height: 80%;
+    height: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: clamp(32px, calc(8px + 6vw), 80px);
     position: relative;
+    margin-bottom: 78px;
 
     @include tablet(1390px) {
       height: auto;
