@@ -33,6 +33,26 @@
     height: 0;
     position: relative;
 
+    .gear-left,
+    .gear-right {
+      position: absolute;
+      bottom: 0;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .gear-left {
+      width: 48.6%;
+      aspect-ratio: 1;
+      left: 0;
+    }
+
+    .gear-right {
+      width: 71.1%;
+      aspect-ratio: 1;
+      right: 0;
+    }
+
     @include mobileFooter {
       width: 100%;
       height: $footerAnimationHeight;
@@ -48,7 +68,9 @@
 
     svg {
       position: absolute;
-      bottom: 0;
+      width: 100%;
+      height: 100%;
+      // overflow: clip;
     }
 
     &--left {
@@ -56,6 +78,7 @@
       width: 48.6%;
       height: auto;
       left: 0;
+      @include rotate-animation;
 
       @include mobileFooter {
         width: auto;
@@ -68,6 +91,7 @@
       width: 71.1%;
       height: auto;
       right: 0;
+      @include rotate-animation(reverse);
 
       @include mobileFooter {
         width: auto;
