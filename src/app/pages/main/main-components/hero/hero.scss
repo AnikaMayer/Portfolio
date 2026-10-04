@@ -2,29 +2,24 @@
 
 .hero {
   width: 100%;
-  height: calc(100dvh - 88px);
-  margin-top: 88px;
-  background-color: $bgMedium;
-  @include flex-column;
+  // height: calc(100dvh - 88px);
+  // margin-top: 88px;
+  @include sectionStart($bgMedium, $textLight);
+  // position: relative;
 
   @include tablet {
     height: auto;
   }
 
   @include mobile {
-    height: auto;
     margin-top: 72px;
   }
 
   .content {
     height: 100%;
-    padding-block: 7.9dvh 0;
     // padding-block: 72px 0;
-    // padding-block: clamp(72px, -386px + 50.93vh, 347px) 0;
     display: flex;
-    // justify-content: space-between;
     position: relative;
-    // background-color: rgba(58, 125, 202, 0.137);
 
     @include tablet {
       padding-block: clamp(40px, calc(18.667px + 5.333vw), 72px) 0;
@@ -35,14 +30,12 @@
   }
 
   &__title {
-    // width: 456px;
-    // height: auto;
+    // width: 456px; //width oder flex?
+    flex: 0 0 40%; //width oder flex?
+    height: auto;
     display: flex;
     flex-direction: column;
     gap: 32px;
-    // background-color: rgba(0, 255, 255, 0.514);
-    flex: 0 0 40%;
-    height: auto;
 
     @include tablet {
       width: 100%;
@@ -72,6 +65,7 @@
       width: 144px;
       height: 144px;
       margin-top: 92px;
+      margin-bottom: 96px;
 
       svg {
         .animation-text path {
@@ -114,18 +108,12 @@
   }
 
   &__images {
-    // width: 792px;
-    // height: 740px;
-    flex: 1 1 auto;
-    height: auto;
-    // margin: 20px 28px 0 40px;
+    // width: 792px; //option 1
+    // height: 740px; //option 1
+    flex: 1 1 auto; //option 2
+    height: auto; //option 2
     display: flex;
-    // position: absolute;
-    bottom: 0;
-    // right: 112px;
     position: relative;
-    // align-self: flex-end;
-    // background-color: rgba(240, 248, 255, 0.356);
     @include flex-center;
 
     @include tablet {
@@ -145,7 +133,7 @@
     svg {
       // width: 500px;
       // height: 500px;
-      width: 68%;
+      width: 68%; // aktuell das ohne width und height darüber
       height: auto;
       position: absolute;
 
@@ -169,7 +157,6 @@
     }
 
     &--picture {
-      // width: 720px;
       width: 100%;
       max-width: 1000px;
       height: auto;
@@ -177,33 +164,6 @@
       bottom: 0;
     }
   }
-
-  // &__picture {
-  //   // width: auto;
-  //   // height: 720px;
-  //   width: 720px;
-  //   max-width: 1000px;
-  //   height: auto;
-  //   position: absolute;
-  //   bottom: 0;
-  //   left: 608px;
-  //   // width: clamp(720px, 253px + 51.85dvh, 1000px);
-  //   // height: clamp(720px, 253px + 51.85dvh, 1000px);
-
-  //   // @include widescreen {
-  //   //   min-width: 720px;
-  //   //   width: 40vw;
-  //   //   max-width: 1000px;
-  //   //   height: auto;
-  //   // }
-
-  //   @include mobile {
-  //     width: 100%;
-  //     max-width: 390px;
-  //     height: auto;
-  //     left: 0;
-  //   }
-  // }
 
   &__section-bar {
     width: 12px;
