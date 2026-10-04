@@ -2,10 +2,13 @@
   <div class="content">
     <div class="hero__title">
       <h1>
-        Hello there! I’m<br /><span>Anika Mayer<br /></span>Frontend Developer
+        {{ 'hero.title1' | translate }}<br /><span>Anika Mayer<br /></span
+        >{{ 'hero.title2' | translate }}
       </h1>
       <app-button
-        ><a href="#contact-section" aria-label="Jump to contact form">Get in Touch</a></app-button
+        ><a href="#contact-section" aria-label="Jump to contact form">{{
+          'hero.btn' | translate
+        }}</a></app-button
       >
       <div class="hero__title--animation" aria-hidden="true">
         <svg

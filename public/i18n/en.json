@@ -6,5 +6,11 @@
     "projects": "Portfolio",
     "references": "References",
     "contact": "Contact me"
+  },
+
+  "hero": {
+    "title1": "Hello there! I’m",
+    "title2": "Frontend Developer",
+    "btn": "Get in Touch"
   }
 }
