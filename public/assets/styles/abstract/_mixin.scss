@@ -11,8 +11,8 @@
   }
 }
 
-@mixin rotate-animation {
-  animation: rotate 3500ms linear infinite;
+@mixin rotate-animation($direction: normal) {
+  animation: rotate 3500ms linear infinite $direction;
 
   @keyframes rotate {
     from {
