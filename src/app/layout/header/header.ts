@@ -1,20 +1,22 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
+import { LanguageService } from '../../shared/services/language-service';
 
 @Component({
-  imports: [],
+  imports: [TranslatePipe],
   selector: 'app-header',
   styleUrl: './header.scss',
   templateUrl: './header.html',
 })
 export class Header {
-  isEnglish = true;
+  langService = inject(LanguageService);
   overlayOpen = false;
   navList = [
-    { href: '#about-section', label: 'About me' },
-    { href: '#skills-section', label: 'Skillset' },
-    { href: '#portfolio-section', label: 'Portfolio' },
-    { href: '#reference-section', label: 'References' },
-    { href: '#contact-section', label: 'Contact me' },
+    { href: '#about-section', label: 'nav.about' },
+    { href: '#skills-section', label: 'nav.skills' },
+    { href: '#portfolio-section', label: 'nav.projects' },
+    { href: '#reference-section', label: 'nav.references' },
+    { href: '#contact-section', label: 'nav.contact' },
   ];
 
   openMenu() {
@@ -26,11 +28,12 @@ export class Header {
   }
 
   changeLanguageBtn() {
-    this.isEnglish = !this.isEnglish;
+    const next = this.langService.currentLang() === 'en' ? 'de' : 'en';
+    this.langService.changeLanguage(next);
     this.overlayOpen = false;
   }
 
   get languageText(): string {
-    return this.isEnglish ? 'EN' : 'DE';
+    return this.langService.currentLang() === 'en' ? 'EN' : 'DE';
   }
 }
