@@ -38,7 +38,7 @@
 }
 
 @mixin headline {
-  font-family: Eczar;
+  font-family: 'Eczar';
   font-weight: 700;
   font-size: clamp(40px, calc(24px + 4vw), 72px);
   line-height: 100%;
@@ -48,7 +48,7 @@
   min-height: 100dvh;
   padding-top: $top;
   background-color: #{$bgColor};
-  font-family: Quicksand;
+  font-family: 'Quicksand';
   color: #{$color};
   @include flex-column;
 }

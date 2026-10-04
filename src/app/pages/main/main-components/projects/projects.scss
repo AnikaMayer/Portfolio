@@ -220,7 +220,7 @@
 
         li {
           color: $highlightLight;
-          font-family: Karla;
+          font-family: 'Karla';
           line-height: 120%;
 
           &:not(:last-child)::after {
@@ -270,7 +270,7 @@
       height: auto;
       border: none;
       background: none;
-      font-family: Quicksand;
+      font-family: 'Quicksand';
       font-weight: 700;
       font-size: clamp(16px, calc(-6.667px + 6.667vw), 18px);
       line-height: 120%;

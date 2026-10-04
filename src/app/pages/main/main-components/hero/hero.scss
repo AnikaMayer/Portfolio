@@ -47,7 +47,7 @@
 
     h1 {
       width: 100%;
-      font-family: Quicksand;
+      font-family: 'Quicksand';
       font-weight: 400;
       font-size: clamp(30px, calc(18px + 3vw), 48px);
       line-height: 1;
@@ -57,7 +57,7 @@
       gap: 8px;
 
       span {
-        font-family: Eczar;
+        font-family: 'Eczar';
         font-weight: 700;
         font-size: clamp(70px, calc(52.667px + 4.333vw), 96px);
       }
