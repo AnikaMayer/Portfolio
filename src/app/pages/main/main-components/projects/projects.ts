@@ -25,8 +25,8 @@ export class Projects {
       technologies: ['JavaScript', 'HTML', 'CSS'],
       description:
         'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.',
-      image: '/assets/images/projects/El-Pollo-Loco.png',
-      icon: '/assets/images/icons/chicken_icon.svg',
+      image: 'assets/images/projects/El-Pollo-Loco.png',
+      icon: 'assets/images/icons/chicken_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
       colorClass: 'theme-loco',
@@ -36,8 +36,8 @@ export class Projects {
       technologies: ['HTML', 'CSS', 'Supabase', 'Angular', 'Typescript'],
       description:
         'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.',
-      image: '/assets/images/projects/join.jpg',
-      icon: '/assets/images/icons/join_icon.svg',
+      image: 'assets/images/projects/join.jpg',
+      icon: 'assets/images/icons/join_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
       colorClass: 'theme-join',
@@ -47,8 +47,8 @@ export class Projects {
       technologies: ['HTML', 'CSS', 'Javascript'],
       description:
         'Gotta catch ´em all — or at least look them up. This Pokédex pulls live data from the PokéAPI and lets you search, filter, and explore detailed cards for every Pokémon.',
-      image: '/assets/images/projects/Pokedex.png',
-      icon: '/assets/images/icons/pokeball-icon.svg',
+      image: 'assets/images/projects/Pokedex.png',
+      icon: 'assets/images/icons/pokeball-icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/Pok-dex',
       liveUrl: 'https://anikamayer.developerakademie.net/Pok%C3%A9dex/index.html',
       colorClass: 'theme-pokedex',
