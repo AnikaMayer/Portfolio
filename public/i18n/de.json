@@ -1,0 +1,10 @@
+{
+  "nav": {
+    "title": "Menü",
+    "about": "Über mich",
+    "skills": "Skillset",
+    "projects": "Portfolio",
+    "references": "Referenzen",
+    "contact": "Kontakt"
+  }
+}
