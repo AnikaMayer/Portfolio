@@ -1,0 +1,32 @@
+@use '../../../../../public/assets/styles/all_styles.scss' as *;
+
+.navbar {
+  width: 12px;
+  height: 168px;
+  @include flex-column;
+  justify-content: center;
+  gap: 20px;
+  background-color: rgba($bgDark, 0.4);
+  position: fixed;
+  right: 72px;
+  top: 50%;
+  z-index: 10;
+
+  @include tablet {
+    display: none;
+  }
+
+  &__section {
+    width: 8px;
+    height: 8px;
+    background-color: $textLight;
+    rotate: 45deg;
+    border-radius: 50px;
+    transition: border-radius 0.1s ease;
+  }
+
+  a.is-active &__section {
+    border-radius: 1px;
+    background-color: $highlightLight;
+  }
+}
