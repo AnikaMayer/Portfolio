@@ -91,4 +91,19 @@ export class Contact {
     }
     return 'Hello Anika, I am interested in...';
   });
+
+  protected readonly checkboxIcon = computed<string>(() => {
+    console.log('checkboxIcon neu berechnet, acceptPrivacy:', this.contactModel().acceptPrivacy);
+    return this.contactModel().acceptPrivacy
+      ? './assets/images/icons/icons.svg#checkbox-checked'
+      : './assets/images/icons/icons.svg#checkbox';
+  });
+
+  protected onCheckboxChange(event: Event): void {
+    const checked = (event.target as HTMLInputElement).checked;
+    console.log('Event feuert, checked:', checked);
+    this.contactModel.update((model) => ({ ...model, acceptPrivacy: checked }));
+    console.log('contactModel nach update:', this.contactModel().acceptPrivacy);
+    this.contactForm.acceptPrivacy().markAsTouched();
+  }
 }
