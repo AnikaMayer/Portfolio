@@ -199,6 +199,20 @@
           cursor: pointer;
           position: relative;
 
+          &::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background-color: rgba($highlightMedium, 0.3);
+            opacity: 0;
+            transition: opacity 200ms ease;
+          }
+
+          &:hover::before {
+            opacity: 1;
+          }
+
           &-icon {
             width: 20px;
             height: 20px;
