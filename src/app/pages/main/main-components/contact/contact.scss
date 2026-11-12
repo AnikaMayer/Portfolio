@@ -193,6 +193,27 @@
           }
         }
 
+        .checkbox {
+          width: 20px;
+          height: 20px;
+          cursor: pointer;
+          position: relative;
+
+          &-icon {
+            width: 20px;
+            height: 20px;
+            color: $highlightMedium;
+            flex-shrink: 0;
+          }
+
+          &-input {
+            position: absolute;
+            opacity: 0;
+            inset: 0;
+            cursor: pointer;
+          }
+        }
+
         &__error {
           position: absolute;
           bottom: 0;
