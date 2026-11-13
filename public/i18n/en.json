@@ -16,12 +16,81 @@
 
   "about": {
     "title": "About me",
-    "text1": "Hey there, I'm Hanna. Write some information about yourself that is IT related. Why are you passionate about coding? What is your source of inspiration for improving your programming skills? Do you learn from each challenge as you search for the most efficient or elegant solution?",
+    "text1": "Hey there, I'm Anika! Not long ago, coding was a completely foreign world to me – today, I’m building interactive web applications and crafting modern frontend projects in an intensive coding bootcamp. As a career changer, I’ve turned my initial curiosity into a genuine passion and a relentless thirst for knowledge. I’m not satisfied with just 'good enough' – every project is an opportunity to push my limits, refine my code, and craft clean, intuitive interfaces.",
     "text2": "Let's connect and create something amazing together!",
     "btn": "Let’s Talk",
     "boxTitle": "More about me",
     "items": {
-      "item1": "Team Player"
+      "item1": "Creative Problem-Solver",
+      "item2": "Continuous Learner",
+      "item3": "User-Focused",
+      "item4": "Aesthetic & UI Sense",
+      "item5": "Structured & Organized",
+      "item6": "Open to remote work"
     }
+  },
+
+  "skills": {
+    "title": "Core Competencies",
+    "text": "My skillset is rooted in hands-on frontend development. From interactive applications and dynamic API integrations to structured layouts and complex features, I build responsive, user-centric web applications with a strong emphasis on clean UI and smooth experiences.",
+    "title2": "Don't see the skill you are looking for?",
+    "text2": "Feel free to reach out! I pick up new technologies quickly and I’m always keen to learn. Currently, I’m especially curious about:"
+  },
+
+  "projects": {
+    "title": "My Work",
+    "text": "Here's a selection of projects I've built — feel free to interact with them and see my skills in action.",
+    "prev": "Previous",
+    "next": "Next",
+    "items": [
+      {
+        "description": "Jump, run and throw — El Pollo Loco was my first dive into object-oriented JavaScript. Help Pepe collect coins and tabasco bottles to take down the crazy hen."
+      },
+      {
+        "description": "Manage tasks, coordinate teams, keep projects on track — Join brings all your project management into one clear Kanban board. Create tasks, assign them to contacts, and stay on top of every step in your workflow."
+      }
+    ]
+  },
+
+  "reference": {
+    "title": "What my colleagues say about me",
+    "link": "To LinkedIn profile",
+    "items": [
+      {
+        "name": "Anastasia Roberz",
+        "ref": "",
+        "job": "Team Partner",
+        "link": ""
+      },
+      {
+        "name": "Wanja Müller",
+        "ref": "",
+        "job": "Team Partner",
+        "link": ""
+      },
+      {
+        "name": "Hermann Ejrich",
+        "ref": "Anika has a strong sense of quality and always keeps the end user in mind, including people who depend on assistive technology. She noticed problems nobody had asked her to look at, fixed them on her own initiative and invited feedback from the team. She is a thoughtful and careful developer.",
+        "job": "Team Partner",
+        "link": ""
+      }
+    ]
+  },
+
+  "contact": {
+    "title": "Let's build something Cool together!",
+    "subtitle": "Got a problem to solve?",
+    "text": "Whether it’s a new project, a frontend role, or just a quick question — I’m happy to hear from you. I’m looking for a team where I can grow, contribute, and build things worth showing off. Sound like a fit? Drop me a message!",
+    "form": [
+      { "label": "What's your name?", "placeholder": "Your name goes here" },
+      { "label": "What's your email?", "placeholder": "youremail@email.com" },
+      { "label": "How can I help you?", "placeholder": "Hello Anika, I am interested in..." }
+    ],
+    "check": {
+      "check1": "I've read the",
+      "link": "privacy policy",
+      "check2": "and agree to the processing of my data."
+    },
+    "submit": "Drop a Line"
   }
 }

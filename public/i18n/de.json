@@ -16,12 +16,83 @@
 
   "about": {
     "title": "Über mich",
-    "text1": "Hey there, I'm Hanna. Write some information about yourself that is IT related. Why are you passionate about coding? What is your source of inspiration for improving your programming skills? Do you learn from each challenge as you search for the most efficient or elegant solution?",
-    "text2": "Let's connect and create something amazing together!",
+    "text1": "Hey, ich bin Anika! Bis vor kurzem war Programmieren für mich noch eine komplett fremde Welt – heute baue ich im Rahmen eines intensiven Bootcamps interaktive Webanwendungen und entwickle moderne Frontend-Projekte. Als Quereinsteigerin habe ich meine anfängliche Neugier in echte Leidenschaft und einen riesigen Wissensdurst verwandelt. Mit 'läuft irgendwie' gebe ich mich nicht zufrieden: Jedes Projekt ist für mich ein Ansporn, über mich hinauszuwachsen, meinen Code weiter zu verfeinern und saubere, intuitive Oberflächen zu bauen.",
+    "text2": "Lass uns gerne vernetzen und gemeinsam etwas Großartiges erschaffen!",
     "btn": "Los geht's",
     "boxTitle": "Mehr über mich",
     "items": {
-      "item1": "Team Player"
+      "item1": "Kreative Lösungsfindung",
+      "item2": "Hohe Lernbereitschaft",
+      "item3": "Nutzerorientiert",
+      "item4": "Sinn für Ästhetik & UI",
+      "item5": "Strukturiert & organisier",
+      "item6": "Offen für Remote-Arbeit"
     }
+  },
+
+  "skills": {
+    "title": "Meine Skills",
+    "text": "Mein Schwerpunkt liegt auf praxisnaher Frontend-Entwicklung. Ich baue responsive Webanwendungen – von interaktiven Features und API-Anbindungen bis zu durchdachten Layouts – mit Fokus auf saubere UI und flüssige Nutzererfahrung.",
+    "title2": "Gesuchte Technologie nicht dabei?",
+    "text2": "Meld dich einfach! Ich eigne mir neue Technologien schnell an und lerne ständig dazu. Aktuell interessiere ich mich besonders für:"
+  },
+
+  "projects": {
+    "title": "Meine Projekte",
+    "text": "Hier findest du eine Auswahl meiner Projekte — schau dich um und probier sie aus.",
+    "prev": "Zurück",
+    "next": "Weiter",
+    "items": [
+      {
+        "title": "El Pollo Loco",
+        "description": "Rennen, springen, werfen — El Pollo Loco war mein erster Einstieg in objektorientiertes JavaScript. Hilf Pepe, Münzen und Tabascoflaschen zu sammeln, um das verrückte Huhn zu besiegen."
+      },
+      {
+        "title": "Join",
+        "description": "Aufgaben verwalten, Teams koordinieren, Projekte im Griff behalten — Join bringt dein gesamtes Projektmanagement in ein übersichtliches Kanban-Board. Erstelle Tasks, weise sie Kontakten zu und behalte den Überblick über jeden Schritt deines Workflows."
+      }
+    ]
+  },
+
+  "reference": {
+    "title": "Was Kollegen über mich sagen",
+    "link": "Zum LinkedIn-Profil",
+    "items": [
+      {
+        "name": "Anastasia Roberz",
+        "ref": "",
+        "job": "Team Partner",
+        "link": ""
+      },
+      {
+        "name": "Wanja Müller",
+        "ref": "",
+        "job": "Team Partner",
+        "link": ""
+      },
+      {
+        "name": "Hermann Ejrich",
+        "ref": "Anika hat ein ausgeprägtes Qualitätsbewusstsein und behält immer die Endnutzer im Blick – einschließlich Menschen, die auf assistive Technologien angewiesen sind. Sie erkennt Schwachstellen eigenständig, löst sie proaktiv und bindet das Team für Feedback ein. Sie ist eine vorausschauende und äußerst sorgfältige Entwicklerin.",
+        "job": "Team Partner",
+        "link": ""
+      }
+    ]
+  },
+
+  "contact": {
+    "title": "Lass uns sofort loslegen!",
+    "subtitle": "Hast du ein Projekt für mich?",
+    "text": "Ob neues Projekt, eine Stelle im Frontend-Bereich oder einfach eine Frage — meld dich gerne. Ich suche ein Team, in dem ich wachsen, mitgestalten und Dinge bauen kann, auf die man stolz ist. Klingt passend? Schreib mir!",
+    "form": [
+      { "label": "", "placeholder": "" },
+      { "label": "", "placeholder": "" },
+      { "label": "", "placeholder": "" }
+    ],
+    "check": {
+      "check1": "Ich habe die",
+      "link": "Datenschutzerklärung",
+      "check2": "gelesen und stimme der Verarbeitung meiner Daten zu."
+    },
+    "submit": "Schreib mir!"
   }
 }
