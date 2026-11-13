@@ -1,11 +1,10 @@
 <section id="portfolio-section" class="projects">
   <div class="content">
     <div class="projects__header">
-      <h2>My Work</h2>
+      <h2>{{ 'projects.title' | translate }}</h2>
       <div class="projects__header--text">
         <p>
-          Explore a selection of my work here - Interact with the projects to see my skills in
-          action.
+          {{ 'projects.text' | translate }}
         </p>
       </div>
     </div>
@@ -109,10 +108,10 @@
         </div>
         <div class="projects__navBtn">
           <button class="projects__navBtn--prev" (click)="prevProject()">
-            &lt;&lt; Previous project
+            &lt;&lt; {{ 'projects.prev' | translate }}
           </button>
           <button class="projects__navBtn--next" (click)="nextProject()">
-            Next project &gt;&gt;
+            {{ 'projects.next' | translate }} &gt;&gt;
           </button>
         </div>
       </div>
