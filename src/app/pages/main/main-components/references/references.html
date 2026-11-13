@@ -19,10 +19,10 @@
                 />
               </svg>
             </div>
-            <p>{{ ref.text }}</p>
-            <p>{{ ref.job }}</p>
+            <p>{{ ref.text | translate }}</p>
+            <p>{{ ref.job | translate }}</p>
           </div>
-          <a [href]="ref.link" target="_blank">To Linkedin profile &gt;&gt;</a>
+          <a [href]="ref.link" target="_blank">{{ 'reference.link' | translate }} &gt;&gt;</a>
         </div>
       }
     </div>
