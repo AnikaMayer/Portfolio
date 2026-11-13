@@ -1,12 +1,10 @@
 <section id="skills-section" class="skills" aria-labelledby="skills-heading">
   <div class="content">
     <div class="skills__info">
-      <h2 id="skills-heading">Core Competencies</h2>
+      <h2 id="skills-heading">{{ 'skills.title' | translate }}</h2>
       <div class="skills__info--text">
         <p>
-          Emphasise that you have used a variety of front-end technologies in your projects. Where
-          have you used these skills: static or dynamic websites, responsive layouts, data
-          visualization interfaces, smooth user experiences?
+          {{ 'skills.text' | translate }}
         </p>
       </div>
     </div>
@@ -85,11 +83,10 @@
             />
           </svg>
         </button>
-        <h3>Don't see the skill you are looking for?</h3>
+        <h3>{{ 'skills.title2' | translate }}</h3>
         <div>
           <p>
-            Feel free to contact me. I look forward to expanding on my previous knowledge. Also I
-            have a special interest in learning:
+            {{ 'skills.text2' | translate }}
           </p>
           <ul aria-label="Skills I want to learn">
             @for (item of learningSkills; track item.name) {
