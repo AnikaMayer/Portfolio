@@ -11,12 +11,12 @@ import { TranslatePipe } from '@ngx-translate/core';
 export class About {
   moreIsOpen = false;
   infoList = [
-    'Team player',
-    'Continuosly learning',
-    'Creative Thinker',
-    'Based in Munich',
-    'Open to work remote',
-    'Open to relocate',
+    'about.items.item1',
+    'about.items.item2',
+    'about.items.item3',
+    'about.items.item4',
+    'about.items.item5',
+    'about.items.item6',
   ];
 
   openMoreAbout() {
