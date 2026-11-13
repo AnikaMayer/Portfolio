@@ -10,6 +10,7 @@ import {
   FormRoot,
 } from '@angular/forms/signals';
 import { RouterLink } from '@angular/router';
+import { TranslatePipe } from '@ngx-translate/core';
 
 interface FormData {
   name: string;
@@ -21,7 +22,7 @@ interface FormData {
 type SendStatus = 'idle' | 'success' | 'error';
 
 @Component({
-  imports: [Button, FormField, RouterLink, FormRoot],
+  imports: [Button, FormField, RouterLink, FormRoot, TranslatePipe],
   selector: 'app-contact',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
