@@ -16,10 +16,20 @@ interface Feedback {
 })
 export class References {
   refList: Feedback[] = [
-    { name: 'Tanja Schulz', text: 'reference.items.0.ref', job: 'reference.items.0.job', link: '' },
-    { name: 'Hans Janisch', text: 'reference.items.1.ref', job: 'reference.items.1.job', link: '' },
     {
-      name: 'Anton Fischer',
+      name: 'reference.items.0.name',
+      text: 'reference.items.0.ref',
+      job: 'reference.items.0.job',
+      link: '',
+    },
+    {
+      name: 'reference.items.1.name',
+      text: 'reference.items.1.ref',
+      job: 'reference.items.1.job',
+      link: '',
+    },
+    {
+      name: 'reference.items.2.name',
       text: 'reference.items.2.ref',
       job: 'reference.items.2.job',
       link: '',
