@@ -90,13 +90,6 @@
     }
 
     &.theme-join {
-      background-color: $highlightMedium;
-      svg path {
-        fill: $bgMedium;
-      }
-    }
-
-    &.theme-pokedex {
       background-color: $highlightLight;
       svg path {
         fill: $highlightMedium;
