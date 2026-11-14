@@ -132,13 +132,15 @@
       height: 32px;
       border: none;
 
-      svg path {
+      svg {
+        width: 24px;
+        height: 16px;
         transition: 0.1s ease;
-        fill: $textLight;
+        color: $textLight;
       }
 
-      &:hover svg path {
-        fill: $highlightMedium;
+      &:hover svg {
+        color: $highlightMedium;
       }
     }
 
