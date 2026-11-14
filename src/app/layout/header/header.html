@@ -1,6 +1,6 @@
 <header class="header">
   <div class="content">
-    <div class="header__links">
+    <nav class="header__links" aria-label="Social media links">
       <ul>
         <li>
           <a
@@ -85,7 +85,7 @@
           </a>
         </li>
       </ul>
-    </div>
+    </nav>
     <div class="header__logo">
       <svg
         width="30"
@@ -160,7 +160,7 @@
             </svg>
           </button>
         </div>
-        <nav class="header__overlay-sections">
+        <nav class="header__overlay-sections" aria-label="page-navigation">
           <ul>
             @for (item of navList; track item.href) {
               <li (click)="closeMenu()">
