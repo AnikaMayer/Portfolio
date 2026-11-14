@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../../shared/services/language-service';
+import { ResponsiveService } from '../../shared/services/responsive';
 
 @Component({
   imports: [TranslatePipe],
@@ -9,6 +10,7 @@ import { LanguageService } from '../../shared/services/language-service';
   templateUrl: './header.html',
 })
 export class Header {
+  responsiveService = inject(ResponsiveService);
   langService = inject(LanguageService);
   overlayOpen = false;
   navList = [

@@ -54,9 +54,9 @@
 
         a {
           width: 100%;
-          @include flex-center;
           --icon-body: none;
           --icon-lines: #{$textLight};
+          transition: color 0.1s ease;
 
           svg {
             width: 17px;
@@ -193,8 +193,11 @@
 
     &-sections {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 23px;
 
-      ul {
+      &--page-nav {
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -228,13 +231,10 @@
           }
         }
       }
-    }
 
-    &-social {
-      display: none;
-
-      ul {
-        width: 100%;
+      &--social-nav {
+        display: flex;
+        gap: 23px;
         padding-inline: 16px;
 
         li {
@@ -242,25 +242,19 @@
 
           a {
             @include flex-center;
+            --icon-body: none;
+            --icon-lines: #{$textDark};
+            transition: color 0.1s ease;
 
-            svg path {
-              &:first-child {
-                fill: none;
-              }
-              &:last-child {
-                fill: $textDark;
-              }
+            svg {
+              width: 17px;
+              height: 19px;
+            }
+
+            &:hover {
+              --icon-body: #{$highlightMedium};
             }
           }
-        }
-      }
-
-      @include mobile {
-        display: flex;
-
-        ul {
-          display: flex;
-          gap: 23px;
         }
       }
     }
