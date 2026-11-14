@@ -49,23 +49,28 @@
       align-items: center;
       justify-content: space-around;
 
-      a {
-        @include flex-center;
+      li {
+        width: 100%;
 
-        svg path {
-          transition: 0.1s ease;
+        a {
+          width: 100%;
+          @include flex-center;
 
-          &:first-child {
-            fill: none;
+          svg path {
+            transition: 0.1s ease;
+
+            &:first-child {
+              fill: none;
+            }
+            &:last-child {
+              fill: $textLight;
+            }
           }
-          &:last-child {
-            fill: $textLight;
-          }
-        }
 
-        &:hover svg path {
-          &:first-child {
-            fill: $highlightMedium;
+          &:hover svg path {
+            &:first-child {
+              fill: $highlightMedium;
+            }
           }
         }
       }
@@ -162,7 +167,7 @@
     font-family: 'Quicksand';
     font-weight: 700;
     font-size: 18px;
-    padding: 16px;
+    padding-block: 16px;
     border: 1px solid black;
     border-radius: 4px;
     background-color: $bgLight;
@@ -180,8 +185,8 @@
     }
 
     &-header {
-      width: 176px;
-      height: 32px;
+      width: 100%;
+      padding-inline: 16px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -201,29 +206,30 @@
         gap: 8px;
 
         li {
-          display: flex;
           width: 100%;
 
-          svg {
-            display: none;
-          }
-
           a {
+            width: 100%;
+            display: flex;
+            padding-inline: 16px;
             line-height: 120%;
+
+            svg {
+              width: 20px;
+              height: 20px;
+              display: none;
+              color: $highlightMedium;
+            }
           }
 
           &:hover {
-            svg {
-              display: block;
-
-              path {
-                transition: 0.1s ease;
-                fill: $highlightMedium;
-              }
-            }
-
             a {
               color: $highlightLight;
+
+              svg {
+                display: block;
+                transition: 0.1s ease;
+              }
             }
           }
         }
@@ -235,9 +241,11 @@
 
       ul {
         width: 100%;
+        padding-inline: 16px;
 
         li {
           @include flex-center;
+
           a {
             @include flex-center;
 
