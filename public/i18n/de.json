@@ -81,7 +81,7 @@
 
   "contact": {
     "title": "Lass uns sofort loslegen!",
-    "subtitle": "Hast du ein Projekt für mich?",
+    "subtitle": "Was steht an?",
     "text": "Ob neues Projekt, eine Stelle im Frontend-Bereich oder einfach eine Frage — meld dich gerne. Ich suche ein Team, in dem ich wachsen, mitgestalten und Dinge bauen kann, auf die man stolz ist. Klingt passend? Schreib mir!",
     "form": [
       { "label": "Wie heißt du?", "placeholder": "Hier steht dein Name" },
