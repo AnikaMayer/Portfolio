@@ -40,19 +40,19 @@ export class Contact {
   protected readonly contactForm = form(
     this.contactModel,
     (contactPath) => {
-      required(contactPath.name, { message: 'Oops! It seems your name is missing.' });
-      minLength(contactPath.name, 2, { message: 'Please enter a valid name.' });
+      required(contactPath.name, { message: 'contact.errors.name_required' });
+      minLength(contactPath.name, 2, { message: 'contact.errors.name_valid' });
       pattern(contactPath.name, /^[a-zA-ZÀ-ž][a-zA-ZÀ-ž\s\-']*[a-zA-ZÀ-ž]$/, {
-        message: 'Please enter a valid name.',
+        message: 'contact.errors.name_valid',
       });
-      required(contactPath.email, { message: 'Uh-oh! Your email is required.' });
-      email(contactPath.email, { message: 'Please enter a valid email address.' });
+      required(contactPath.email, { message: 'contact.errors.email_required' });
+      email(contactPath.email, { message: 'contact.errors.email_valid' });
       pattern(contactPath.email, /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-z]{2,}$/, {
-        message: 'Please enter a valid email address.',
+        message: 'contact.errors.email_valid',
       });
-      required(contactPath.message, { message: 'What do you need to develop?' });
-      minLength(contactPath.message, 2, { message: 'Please enter a valid text.' });
-      required(contactPath.acceptPrivacy, { message: 'Please accept the privacy policy.' });
+      required(contactPath.message, { message: 'contact.errors.message_required' });
+      minLength(contactPath.message, 2, { message: 'contact.errors.message_valid' });
+      required(contactPath.acceptPrivacy, { message: 'contact.errors.privacy_required' });
     },
     {
       submission: {
@@ -71,27 +71,6 @@ export class Contact {
       },
     },
   );
-
-  namePlaceholder = computed(() => {
-    if (this.contactForm.name().touched() && this.contactForm.name().invalid()) {
-      return 'Oops! Your name is missing';
-    }
-    return 'Your name goes here';
-  });
-
-  emailPlaceholder = computed(() => {
-    if (this.contactForm.email().touched() && this.contactForm.email().invalid()) {
-      return 'Uh-oh! Your email is required.';
-    }
-    return 'youremail@email.com';
-  });
-
-  messagePlaceholder = computed(() => {
-    if (this.contactForm.message().touched() && this.contactForm.message().invalid()) {
-      return 'What do you need to develop?';
-    }
-    return 'Hello Anika, I am interested in...';
-  });
 
   protected readonly checkboxIcon = computed<string>(() => {
     return this.contactModel().acceptPrivacy

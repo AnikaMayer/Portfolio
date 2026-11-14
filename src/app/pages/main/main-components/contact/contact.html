@@ -1,12 +1,11 @@
 <section id="contact-section" class="contact">
   <div class="content">
     <div class="contact__intro">
-      <h2>Let's build something Cool together!</h2>
+      <h2>{{ 'contact.title' | translate }}</h2>
       <div class="contact__intro--text">
-        <h3>Got a problem to solve?</h3>
+        <h3>{{ 'contact.subtitle' | translate }}</h3>
         <p>
-          Encourage people to contact you and describe what role you are interested in. Show that
-          you will add value to their projects through your work.
+          {{ 'contact.text' | translate }}
         </p>
       </div>
     </div>
@@ -18,14 +17,24 @@
             contactForm.name().touched() && contactForm.name().invalid()
           "
         >
-          <h3>What's your name?</h3>
-          <input type="text" [formField]="contactForm.name" [placeholder]="namePlaceholder()" />
+          <h3>{{ 'contact.form.0.label' | translate }}</h3>
+          <input
+            type="text"
+            [formField]="contactForm.name"
+            [placeholder]="
+              contactForm.name().touched() && contactForm.name().invalid()
+                ? ('contact.errors.name_required' | translate)
+                : ('contact.form.0.placeholder' | translate)
+            "
+          />
           @if (
             contactForm.name().touched() &&
             contactForm.name().invalid() &&
             contactForm.name().value()
           ) {
-            <p class="contact__form--error">{{ contactForm.name().errors()?.[0]?.message }}</p>
+            <p class="contact__form--error">
+              {{ contactForm.name().errors()?.[0]?.message | translate }}
+            </p>
           }
         </div>
         <div
@@ -34,14 +43,24 @@
             contactForm.email().touched() && contactForm.email().invalid()
           "
         >
-          <h3>What's your email?</h3>
-          <input type="email" [formField]="contactForm.email" [placeholder]="emailPlaceholder()" />
+          <h3>{{ 'contact.form.1.label' | translate }}</h3>
+          <input
+            type="email"
+            [formField]="contactForm.email"
+            [placeholder]="
+              contactForm.email().touched() && contactForm.email().invalid()
+                ? ('contact.errors.email_required' | translate)
+                : ('contact.form.1.placeholder' | translate)
+            "
+          />
           @if (
             contactForm.email().touched() &&
             contactForm.email().invalid() &&
             contactForm.email().value()
           ) {
-            <p class="contact__form--error">{{ contactForm.email().errors()?.[0]?.message }}</p>
+            <p class="contact__form--error">
+              {{ contactForm.email().errors()?.[0]?.message | translate }}
+            </p>
           }
         </div>
       </div>
@@ -51,14 +70,24 @@
           contactForm.message().touched() && contactForm.message().invalid()
         "
       >
-        <h3>How can I help you?</h3>
-        <input type="text" [formField]="contactForm.message" [placeholder]="messagePlaceholder()" />
+        <h3>{{ 'contact.form.2.label' | translate }}</h3>
+        <input
+          type="text"
+          [formField]="contactForm.message"
+          [placeholder]="
+            contactForm.message().touched() && contactForm.message().invalid()
+              ? ('contact.errors.message_required' | translate)
+              : ('contact.form.2.placeholder' | translate)
+          "
+        />
         @if (
           contactForm.message().touched() &&
           contactForm.message().invalid() &&
           contactForm.message().value()
         ) {
-          <p class="contact__form--error">{{ contactForm.message().errors()?.[0]?.message }}</p>
+          <p class="contact__form--error">
+            {{ contactForm.message().errors()?.[0]?.message | translate }}
+          </p>
         }
       </div>
       <div class="contact__form--send">
@@ -75,12 +104,13 @@
             />
           </label>
           <p>
-            I've read the <a routerLink="/privacy-policy">privacy policy</a> and agree to the
-            processing of my data.
+            {{ 'contact.check.check1' | translate }}
+            <a routerLink="/privacy-policy">{{ 'contact.check.link' | translate }}</a>
+            {{ 'contact.check.check2' | translate }}
           </p>
           @if (contactForm.acceptPrivacy().dirty() && contactForm.acceptPrivacy().invalid()) {
             <p class="contact__form--error checkbox-line__error">
-              {{ contactForm.acceptPrivacy().errors()?.[0]?.message }}
+              {{ contactForm.acceptPrivacy().errors()?.[0]?.message | translate }}
             </p>
           }
         </div>
