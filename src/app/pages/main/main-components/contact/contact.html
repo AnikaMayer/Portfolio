@@ -21,6 +21,7 @@
           <input
             type="text"
             [formField]="contactForm.name"
+            autocomplete="name"
             [placeholder]="
               contactForm.name().touched() && contactForm.name().invalid()
                 ? ('contact.errors.name_required' | translate)
@@ -47,6 +48,7 @@
           <input
             type="email"
             [formField]="contactForm.email"
+            autocomplete="email"
             [placeholder]="
               contactForm.email().touched() && contactForm.email().invalid()
                 ? ('contact.errors.email_required' | translate)
@@ -74,6 +76,7 @@
         <input
           type="text"
           [formField]="contactForm.message"
+          autocomplete="off"
           [placeholder]="
             contactForm.message().touched() && contactForm.message().invalid()
               ? ('contact.errors.message_required' | translate)
@@ -119,18 +122,18 @@
           [disabled]="!contactForm().valid() || contactForm().submitting()"
           >{{ contactForm().submitting() ? 'sending...' : 'Drop a Line' }}</app-button
         >
-        @switch (sendStatus()) {
-          @case ('success') {
-            <div class="contact__form--feedback contact__form--feedback-success">
-              <p>Thank you! Your message has been sent!</p>
-            </div>
-          }
-          @case ('error') {
-            <div class="contact__form--feedback contact__form--feedback-error">
-              <p>Oh no, something went wrong. Please try again later.</p>
-            </div>
-          }
-        }
+        <div
+          class="contact__form--feedback contact__form--feedback-success"
+          [class.is-open]="sendStatus() === 'success'"
+        >
+          <p>{{ 'contact.success' | translate }}</p>
+        </div>
+        <div
+          class="contact__form--feedback contact__form--feedback-error"
+          [class.is-open]="sendStatus() === 'error'"
+        >
+          <p>{{ 'contact.failed' | translate }}</p>
+        </div>
       </div>
     </form>
     <button class="contact__startbtn">

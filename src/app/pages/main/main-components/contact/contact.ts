@@ -62,10 +62,16 @@ export class Contact {
             await new Promise((resolve) => setTimeout(resolve, 1000));
 
             this.sendStatus.set('success');
+            setTimeout(() => {
+              this.sendStatus.set('idle');
+            }, 3000);
             this.contactModel.set({ name: '', email: '', message: '', acceptPrivacy: false });
             this.contactForm().reset();
           } catch {
             this.sendStatus.set('error');
+            setTimeout(() => {
+              this.sendStatus.set('idle');
+            }, 3000);
           }
         },
       },
