@@ -55,22 +55,16 @@
         a {
           width: 100%;
           @include flex-center;
+          --icon-body: none;
+          --icon-lines: #{$textLight};
 
-          svg path {
-            transition: 0.1s ease;
-
-            &:first-child {
-              fill: none;
-            }
-            &:last-child {
-              fill: $textLight;
-            }
+          svg {
+            width: 17px;
+            height: 19px;
           }
 
-          &:hover svg path {
-            &:first-child {
-              fill: $highlightMedium;
-            }
+          &:hover {
+            --icon-body: #{$highlightMedium};
           }
         }
       }

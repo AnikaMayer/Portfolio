@@ -19,6 +19,24 @@ export class Header {
     { href: '#contact-section', label: 'nav.contact' },
   ];
 
+  socialMediaLinks = [
+    {
+      href: 'https://github.com/AnikaMayer',
+      label: 'Open GitHub profile in new tab',
+      icon: './assets/images/icons/icons.svg#github',
+    },
+    {
+      href: 'https://www.linkedin.com/in/anika-mayer',
+      label: 'Open LinkedIn profile in new tab',
+      icon: './assets/images/icons/icons.svg#linkedin',
+    },
+    {
+      href: 'mailto:mayer.anika@protonmail.com',
+      label: 'Send an email',
+      icon: './assets/images/icons/icons.svg#email',
+    },
+  ];
+
   openMenu() {
     this.overlayOpen = true;
   }
