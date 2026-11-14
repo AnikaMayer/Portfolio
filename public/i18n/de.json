@@ -60,7 +60,7 @@
     "items": [
       {
         "name": "Anastasia Roberz",
-        "ref": "",
+        "ref": "Anika verband eine starke Projektorganisation mit schnellen, gründlichen Code-Reviews und hielt so unseren Workflow stets reibungslos am Laufen. Ihr ausgeprägtes Auge fürs Detail sowie ihre saubere, responsive Umsetzung waren entscheidend dafür, dass wir durchweg eine erstklassige UI und eine rundum durchdachte UX liefern konnten.",
         "job": "Team Partner",
         "link": ""
       },
@@ -84,15 +84,29 @@
     "subtitle": "Hast du ein Projekt für mich?",
     "text": "Ob neues Projekt, eine Stelle im Frontend-Bereich oder einfach eine Frage — meld dich gerne. Ich suche ein Team, in dem ich wachsen, mitgestalten und Dinge bauen kann, auf die man stolz ist. Klingt passend? Schreib mir!",
     "form": [
-      { "label": "", "placeholder": "" },
-      { "label": "", "placeholder": "" },
-      { "label": "", "placeholder": "" }
+      { "label": "Wie heißt du?", "placeholder": "Hier steht dein Name" },
+      { "label": "Wie ist deine E-Mail?", "placeholder": "deineemail@email.com" },
+      {
+        "label": "Wie kann ich dir helfen?",
+        "placeholder": "Hallo Anika, ich bin interessiert an..."
+      }
     ],
+    "errors": {
+      "name_required": "Ups! Dein Name fehlt noch.",
+      "name_valid": "Bitte gib einen gültigen Namen ein.",
+      "email_required": "Huch! Deine E-Mail fehlt.",
+      "email_valid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "message_required": "Was möchtest du entwickeln?",
+      "message_valid": "Bitte gib eine gültige Nachricht ein.",
+      "privacy_required": "Bitte akzeptiere die Datenschutzerklärung."
+    },
     "check": {
       "check1": "Ich habe die",
       "link": "Datenschutzerklärung",
       "check2": "gelesen und stimme der Verarbeitung meiner Daten zu."
     },
-    "submit": "Schreib mir!"
+    "submit": "Schreib mir!",
+    "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
+    "failed": "Uff, das hat leider nicht geklappt. Versuch’s später noch mal."
   }
 }

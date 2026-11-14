@@ -58,7 +58,7 @@
     "items": [
       {
         "name": "Anastasia Roberz",
-        "ref": "",
+        "ref": "Anika combined strong project organization with fast, thorough code reviews that kept our workflow moving smoothly. Her keen eye for detail and clean, responsive implementation were key to delivering a polished UI and a well-thought-out UX across the board.",
         "job": "Team Partner",
         "link": ""
       },
@@ -70,7 +70,7 @@
       },
       {
         "name": "Hermann Ejrich",
-        "ref": "Anika has a strong sense of quality and always keeps the end user in mind, including people who depend on assistive technology. She noticed problems nobody had asked her to look at, fixed them on her own initiative and invited feedback from the team. She is a thoughtful and careful developer.",
+        "ref": "Anika has a strong sense of quality and always keeps the end user in mind, including people who depend on assistive technology. She caught issues that had gone unnoticed, fixed them on her own initiative and invited feedback from the team. She is a thoughtful and careful developer.",
         "job": "Team Partner",
         "link": ""
       }
@@ -86,11 +86,22 @@
       { "label": "What's your email?", "placeholder": "youremail@email.com" },
       { "label": "How can I help you?", "placeholder": "Hello Anika, I am interested in..." }
     ],
+    "errors": {
+      "name_required": "Oops! Your name is missing",
+      "name_valid": "Please enter a valid name",
+      "email_required": "Uh-oh! Your email is required.",
+      "email_valid": "Please enter a valid email",
+      "message_required": "What do you need to develop?",
+      "message_valid": "Please enter a valid text.",
+      "privacy_required": "Please accept the privacy policy."
+    },
     "check": {
       "check1": "I've read the",
       "link": "privacy policy",
       "check2": "and agree to the processing of my data."
     },
-    "submit": "Drop a Line"
+    "submit": "Drop a Line",
+    "success": "Thank you! Your message has been sent!",
+    "failed": "Oh no, something went wrong. Please try again later."
   }
 }
