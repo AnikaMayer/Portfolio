@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
 @Component({
@@ -9,6 +9,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class Skills {
   isOpen = false;
+  isHovered = signal(false);
 
   skillList = [
     { name: 'HTML', path: 'assets/images/logo/html_icon.svg', text: 'HTML Logo' },
@@ -34,9 +35,11 @@ export class Skills {
 
   openMissingSkills() {
     this.isOpen = true;
+    this.isHovered.set(true);
   }
 
   closeMissingSkills() {
     this.isOpen = false;
+    this.isHovered.set(false);
   }
 }

@@ -83,8 +83,11 @@
 
     &--graphic {
       @include rotate-animation;
+      color: $highlightMedium;
 
-      fill: $highlightMedium;
+      &.paused {
+        animation-play-state: paused;
+      }
     }
 
     &--btn {
