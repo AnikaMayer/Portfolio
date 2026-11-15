@@ -311,17 +311,14 @@
 
     svg {
       @include bounce-animation(500ms, 1.2);
-
-      path {
-        fill: $textLight;
-      }
+      color: $textLight;
     }
 
     &:hover {
       border-bottom: 1px solid $highlightMedium;
 
-      svg path {
-        fill: $highlightMedium;
+      svg {
+        color: $highlightMedium;
       }
     }
   }
