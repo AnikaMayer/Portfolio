@@ -39,11 +39,7 @@
       <div class="about__more--header">
         <h3>{{ 'about.boxTitle' | translate }}</h3>
         @if (responsiveService.isMobile() || responsiveService.isTablet()) {
-          <button aria-label="Close info-box">
-            <svg width="18" height="18">
-              <use href="./assets/images/icons/icons.svg#close"></use>
-            </svg>
-          </button>
+          <button app-close (closed)="closeMoreAbout()" aria-label="Close info box"></button>
         }
       </div>
       <ul>

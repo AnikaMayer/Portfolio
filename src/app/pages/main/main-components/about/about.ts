@@ -2,9 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ResponsiveService } from '../../../../shared/services/responsive';
+import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
 
 @Component({
-  imports: [Button, TranslatePipe],
+  imports: [Button, TranslatePipe, CloseBtn],
   selector: 'app-about',
   styleUrl: './about.scss',
   templateUrl: './about.html',

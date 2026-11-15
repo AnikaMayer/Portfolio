@@ -75,11 +75,7 @@
             [attr.aria-hidden]="infoIsOpen() ? null : 'true'"
           >
             @if (responsiveService.isMobile() || responsiveService.isTablet()) {
-              <button (click)="closeInfo()" aria-label="Close project info">
-                <svg>
-                  <use href="./assets/images/icons/icons.svg#close"></use>
-                </svg>
-              </button>
+              <button app-close (closed)="closeInfo()" aria-label="Close project info"></button>
             }
             <p>{{ currentProject().info | translate }}</p>
           </div>

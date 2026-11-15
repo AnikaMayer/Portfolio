@@ -1,13 +1,17 @@
-import { Component, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
+import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
+import { ResponsiveService } from '../../../../shared/services/responsive';
 
 @Component({
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, CloseBtn],
   selector: 'app-skills',
   styleUrl: './skills.scss',
   templateUrl: './skills.html',
 })
 export class Skills {
+  responsiveService = inject(ResponsiveService);
+
   isOpen = signal(false);
   isHovered = signal(false);
 

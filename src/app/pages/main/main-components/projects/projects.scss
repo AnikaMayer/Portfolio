@@ -260,7 +260,7 @@
         height: auto;
         border: 1px solid $textLight;
         border-radius: 4px;
-        padding: 32px;
+        padding: 40px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -273,19 +273,9 @@
       }
 
       button {
-        width: 32px;
-        height: 32px;
-        border: none;
-        background: none;
-        @include flex-center;
-        align-self: flex-end;
-
-        svg {
-          width: 18px;
-          height: 18px;
-          transition: 0.1s ease;
-          color: $textLight;
-        }
+        position: absolute;
+        top: 9px;
+        right: 16px;
       }
     }
   }

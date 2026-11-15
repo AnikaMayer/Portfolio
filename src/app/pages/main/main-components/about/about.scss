@@ -187,15 +187,6 @@
         // text-align: center;
         text-align: start;
       }
-
-      button {
-        background: none;
-        @include flex-center;
-        width: 32px;
-        height: 32px;
-        border: none;
-        color: $textLight;
-      }
     }
 
     ul {

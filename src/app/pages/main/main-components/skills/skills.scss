@@ -128,23 +128,23 @@
       @include hoverEnter;
     }
 
-    button {
-      width: 32px;
-      height: 32px;
-      align-self: flex-end;
-      border: none;
-      background: none;
-      @include flex-center;
-      display: none;
+    // button {
+    //   width: 32px;
+    //   height: 32px;
+    //   align-self: flex-end;
+    //   border: none;
+    //   background: none;
+    //   @include flex-center;
+    //   display: none;
 
-      @include tablet {
-        display: unset;
-      }
+    //   @include tablet {
+    //     display: unset;
+    //   }
 
-      svg {
-        color: $textLight;
-      }
-    }
+    //   svg {
+    //     color: $textLight;
+    //   }
+    // }
 
     h3 {
       font-weight: 700;

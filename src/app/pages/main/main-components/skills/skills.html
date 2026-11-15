@@ -41,11 +41,9 @@
         [class.skills__overlay--visible]="isOpen()"
         [attr.aria-hidden]="isOpen() ? null : 'true'"
       >
-        <button (click)="closeMissingSkills()" aria-label="Close overlay">
-          <svg aria-hidden="true" width="18" height="18">
-            <use href="./assets/images/icons/icons.svg#close"></use>
-          </svg>
-        </button>
+        @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+          <button app-close (closed)="closeMissingSkills()" aria-label="Close overlay"></button>
+        }
         <h3>{{ 'skills.title2' | translate }}</h3>
         <div>
           <p>

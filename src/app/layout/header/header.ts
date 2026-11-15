@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 import { LanguageService } from '../../shared/services/language-service';
 import { ResponsiveService } from '../../shared/services/responsive';
+import { CloseBtn } from '../../shared/components/close-btn/close-btn';
 
 @Component({
-  imports: [TranslatePipe],
+  imports: [TranslatePipe, CloseBtn],
   selector: 'app-header',
   styleUrl: './header.scss',
   templateUrl: './header.html',

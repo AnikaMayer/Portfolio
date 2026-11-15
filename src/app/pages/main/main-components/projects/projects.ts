@@ -2,6 +2,7 @@ import { Component, computed, inject, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ResponsiveService } from '../../../../shared/services/responsive';
+import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
 
 interface Project {
   title: string;
@@ -16,7 +17,7 @@ interface Project {
 }
 
 @Component({
-  imports: [Button, TranslatePipe],
+  imports: [Button, TranslatePipe, CloseBtn],
   selector: 'app-projects',
   styleUrl: './projects.scss',
   templateUrl: './projects.html',
