@@ -84,15 +84,17 @@
 
     &.theme-loco {
       background-color: $bgMedium;
-      svg path {
-        fill: $highlightLight;
+
+      svg {
+        color: $highlightLight;
       }
     }
 
     &.theme-join {
       background-color: $highlightLight;
-      svg path {
-        fill: $highlightMedium;
+
+      svg {
+        color: $highlightMedium;
       }
     }
 
@@ -102,10 +104,7 @@
       left: 0;
       z-index: 0;
       @include rotate-animation;
-
-      path {
-        fill: $highlightLight;
-      }
+      color: $highlightLight;
 
       @include mobile {
         width: 132px;
