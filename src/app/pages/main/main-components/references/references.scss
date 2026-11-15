@@ -97,6 +97,10 @@
           font-size: clamp(20px, calc(18px + 0.5vw), 24px);
           line-height: 120%;
         }
+
+        svg {
+          color: transparent;
+        }
       }
 
       :last-child {
@@ -105,8 +109,8 @@
       }
 
       &:hover {
-        > div svg path {
-          fill: $highlightLight;
+        > div svg {
+          color: $highlightLight;
         }
       }
     }
