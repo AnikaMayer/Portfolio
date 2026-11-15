@@ -1,11 +1,13 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ResponsiveService } from '../../../../shared/services/responsive';
 
 interface Project {
   title: string;
   technologies: string[];
   description: string;
+  info: string;
   image: string;
   icon: string;
   gitUrl: string;
@@ -20,11 +22,16 @@ interface Project {
   templateUrl: './projects.html',
 })
 export class Projects {
+  responsiveService = inject(ResponsiveService);
+
+  infoIsOpen = signal(false);
+
   projectList: Project[] = [
     {
       title: 'El Pollo Loco',
       technologies: ['JavaScript', 'HTML', 'CSS'],
       description: 'projects.items.0.description',
+      info: 'projects.items.0.info',
       image: 'assets/images/projects/El-Pollo-Loco.png',
       icon: 'assets/images/icons/chicken_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
@@ -35,6 +42,7 @@ export class Projects {
       title: 'Join',
       technologies: ['HTML', 'CSS', 'Supabase', 'Angular', 'Typescript'],
       description: 'projects.items.1.description',
+      info: 'projects.items.1.info',
       image: 'assets/images/projects/join.jpg',
       icon: 'assets/images/icons/join_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
@@ -63,5 +71,17 @@ export class Projects {
     } else {
       this.currentIndex.update((i) => i + 1);
     }
+  }
+
+  openInfo() {
+    this.infoIsOpen.set(true);
+  }
+
+  closeInfo() {
+    this.infoIsOpen.set(false);
+  }
+
+  toggleInfo() {
+    this.infoIsOpen.update((v) => !v);
   }
 }

@@ -22,7 +22,16 @@
           <div class="projects__info--text">
             <div>
               <h3>{{ currentProject().title }}</h3>
-              <button>
+              <button
+                aria-label="Show project info"
+                [attr.aria-expanded]="infoIsOpen()"
+                aria-controls="project-info"
+                (mouseenter)="openInfo()"
+                (mouseleave)="closeInfo()"
+                (touchstart)="toggleInfo(); $event.preventDefault()"
+                (focus)="openInfo()"
+                (blur)="closeInfo()"
+              >
                 <img [src]="currentProject().icon" [alt]="'Icon of ' + currentProject().title" />
               </button>
             </div>
@@ -37,7 +46,7 @@
           </div>
           <div class="projects__info--btn">
             <a
-              appBtn
+              app-btn
               [href]="currentProject().gitUrl"
               target="_blank"
               [attr.aria-label]="'Open ' + currentProject().title + '-repository in new tab'"
@@ -48,7 +57,7 @@
               </svg>
             </a>
             <a
-              appBtn
+              app-btn
               [href]="currentProject().liveUrl"
               target="_blank"
               [attr.aria-label]="'Open ' + currentProject().title + ' in new Tab'"
@@ -58,6 +67,21 @@
                 <use href="./assets/images/icons/icons.svg#arrow"></use>
               </svg>
             </a>
+          </div>
+          <div
+            id="project-info"
+            class="projects__info--overlay"
+            [class.projects__info--overlay-visible]="infoIsOpen()"
+            [attr.aria-hidden]="infoIsOpen() ? null : 'true'"
+          >
+            @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+              <button (click)="closeInfo()" aria-label="Close project info">
+                <svg>
+                  <use href="./assets/images/icons/icons.svg#close"></use>
+                </svg>
+              </button>
+            }
+            <p>{{ currentProject().info | translate }}</p>
           </div>
         </div>
         <div class="projects__navBtn">
