@@ -100,14 +100,14 @@
     }
 
     &--svg-left {
-      fill: $highlightLight;
+      color: $highlightLight;
       position: absolute;
       bottom: 0;
       left: 0;
     }
 
     &--svg-right {
-      fill: $highlightMedium;
+      color: $highlightMedium;
       position: absolute;
       top: 0;
       right: 0;
