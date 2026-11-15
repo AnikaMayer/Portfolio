@@ -33,7 +33,7 @@
   "skills": {
     "title": "Meine Skills",
     "text": "Mein Schwerpunkt liegt auf praxisnaher Frontend-Entwicklung. Ich baue responsive Webanwendungen – von interaktiven Features und API-Anbindungen bis zu durchdachten Layouts – mit Fokus auf saubere UI und flüssige Nutzererfahrung.",
-    "title2": "Gesuchte Technologie nicht dabei?",
+    "title2": "Gesuchter Skill nicht dabei?",
     "text2": "Meld dich einfach! Ich eigne mir neue Technologien schnell an und lerne ständig dazu. Aktuell interessiere ich mich besonders für:"
   },
 
@@ -76,7 +76,7 @@
         "name": "Hermann Ejrich",
         "ref": "Anika hat ein ausgeprägtes Qualitätsbewusstsein und behält immer die Endnutzer im Blick – einschließlich Menschen, die auf assistive Technologien angewiesen sind. Sie erkennt Schwachstellen eigenständig, löst sie proaktiv und bindet das Team für Feedback ein. Sie ist eine vorausschauende und äußerst sorgfältige Entwicklerin.",
         "job": "Team Partner",
-        "link": ""
+        "link": "https://www.linkedin.com/in/hermann-ejrich-7225913b8/"
       }
     ]
   },
