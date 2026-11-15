@@ -1,0 +1,46 @@
+@use '../../../../../../../public/assets/styles/all_styles.scss' as *;
+
+:host {
+  width: 144px;
+  height: 144px;
+  margin-top: 92px;
+  margin-bottom: 96px;
+
+  svg {
+    .animation-text path {
+      fill: $textLight;
+    }
+
+    .animation-arrow {
+      fill: $textLight;
+    }
+
+    .circle {
+      fill: $highlightMedium;
+    }
+
+    .rotate {
+      @include rotate-animation;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+  }
+
+  @include tablet {
+    margin-top: 0;
+    position: absolute;
+    bottom: 25px;
+    left: 29px;
+    z-index: 5;
+  }
+
+  @include mobile {
+    width: clamp(80px, calc(-5.333px + 21.333vw), 144px);
+    height: clamp(80px, calc(-5.333px + 21.333vw), 144px);
+    margin-top: 0;
+    position: absolute;
+    bottom: 5px;
+    left: 9px;
+    z-index: 5;
+  }
+}
