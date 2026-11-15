@@ -1,6 +1,6 @@
-@function calcClamp($min, $max, $start: 1440, $end: 320, $axis: width) {
-  @if $start <= $end {
-    @error "calcClamp: $start (#{$start}) must be greater than $end (#{$end}).";
+@function calcClamp($min, $max, $start: 320, $end: 1440, $axis: width) {
+  @if $start >= $end {
+    @error "calcClamp: $end (#{$end}) must be greater than $start (#{$start}).";
   }
 
   $viewport: 100svw;
@@ -10,7 +10,7 @@
 
   @return clamp(
     $min * 1px,
-    calc(($viewport - $end * 1px) * ($max - $min) / ($start - $end) + $min * 1px),
+    calc(($viewport - $start * 1px) * ($max - $min) / ($end - $start) + $min * 1px),
     $max * 1px
   );
 }
