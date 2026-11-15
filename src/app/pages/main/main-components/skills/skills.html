@@ -28,7 +28,8 @@
           (mouseenter)="openMissingSkills()"
           (mouseleave)="closeMissingSkills()"
           (touchstart)="toggleMissingSkills()"
-          (click)="toggleMissingSkills()"
+          (focus)="openMissingSkills()"
+          (blur)="closeMissingSkills()"
         >
           <svg aria-hidden="true" width="32" height="29">
             <use href="./assets/images/icons/icons.svg#learning"></use>
@@ -38,7 +39,7 @@
       <div
         class="skills__overlay"
         [class.skills__overlay--visible]="isOpen()"
-        [attr.aria-hidden]="!isOpen()"
+        [attr.aria-hidden]="isOpen() ? null : 'true'"
       >
         <button (click)="closeMissingSkills()" aria-label="Close overlay">
           <svg aria-hidden="true" width="18" height="18">
