@@ -1,20 +1,25 @@
-<section id="reference-section" class="ref">
+<section id="reference-section" class="ref" aria-labelledby="ref-heading">
   <div class="content">
-    <h2>What my colleagues say about me</h2>
+    <h2 id="ref-heading">{{ 'reference.title' | translate }}</h2>
     <div class="ref__wrapper">
       @for (ref of refList; track ref.name; let i = $index) {
         <div class="ref__box ref__box--box{{ i + 1 }}">
           <div class="ref__box--content">
             <div>
               <h3>{{ ref.name | translate }}</h3>
-              <svg width="40" height="40" viewBox="0 0 40 40">
+              <svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true">
                 <use href="./assets/images/icons/icons.svg#radialburst"></use>
               </svg>
             </div>
             <p>{{ ref.text | translate }}</p>
             <p>{{ ref.job | translate }}</p>
           </div>
-          <a [href]="ref.link" target="_blank">{{ 'reference.link' | translate }} &gt;&gt;</a>
+          <a
+            [href]="ref.link"
+            target="_blank"
+            [attr.aria-label]="'Open ' + (ref.name | translate) + ' LinkedIn profile in new tab'"
+            >{{ 'reference.link' | translate }} &gt;&gt;</a
+          >
         </div>
       }
     </div>
