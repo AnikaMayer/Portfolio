@@ -104,6 +104,7 @@
               type="checkbox"
               [checked]="contactModel().acceptPrivacy"
               (change)="onCheckboxChange($event)"
+              aria-label="Accept privacy policy"
             />
           </label>
           <p>
@@ -117,11 +118,13 @@
             </p>
           }
         </div>
-        <app-button
+        <button
+          app-btn
           type="submit"
           [disabled]="!contactForm().valid() || contactForm().submitting()"
-          >{{ contactForm().submitting() ? 'sending...' : 'Drop a Line' }}</app-button
         >
+          {{ contactForm().submitting() ? 'sending...' : 'Drop a Line' }}
+        </button>
         <div
           class="contact__form--feedback contact__form--feedback-success"
           [class.is-open]="sendStatus() === 'success'"
@@ -136,13 +139,11 @@
         </div>
       </div>
     </form>
-    <button class="contact__startbtn">
-      <a href="#hero-section">
-        <svg width="8" height="17">
-          <use href="./assets/images/icons/icons.svg#arrow-up"></use>
-          >
-        </svg>
-      </a>
-    </button>
+    <a href="#hero-section" class="contact__startbtn">
+      <svg width="8" height="17">
+        <use href="./assets/images/icons/icons.svg#arrow-up"></use>
+        >
+      </svg>
+    </a>
   </div>
 </section>
