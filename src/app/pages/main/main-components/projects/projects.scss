@@ -253,24 +253,23 @@
     }
 
     &--overlay {
-      width: 520px;
-      height: auto;
-      border: 1px solid $textLight;
-      border-radius: 4px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      background-color: $bgMedium;
-      color: $textLight;
-      position: absolute;
-      right: 5%;
-      top: -20%;
       display: none;
 
       &-visible {
-        display: block;
+        width: 520px;
+        height: auto;
+        border: 1px solid $textLight;
+        border-radius: 4px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: $bgMedium;
+        color: $textLight;
+        position: absolute;
+        right: 5%;
+        top: -20%;
       }
 
       button {
