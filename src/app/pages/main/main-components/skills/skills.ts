@@ -8,7 +8,7 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './skills.html',
 })
 export class Skills {
-  isOpen = false;
+  isOpen = signal(false);
   isHovered = signal(false);
 
   skillList = [
@@ -34,12 +34,17 @@ export class Skills {
   ];
 
   openMissingSkills() {
-    this.isOpen = true;
+    this.isOpen.set(true);
     this.isHovered.set(true);
   }
 
   closeMissingSkills() {
-    this.isOpen = false;
+    this.isOpen.set(false);
     this.isHovered.set(false);
+  }
+
+  toggleMissingSkills() {
+    this.isOpen.update((value) => !value);
+    this.isHovered.update((value) => !value);
   }
 }

@@ -24,9 +24,11 @@
         <button
           class="skills__animation--btn"
           aria-label="Show missing skills"
-          [attr.aria-expanded]="isOpen"
+          [attr.aria-expanded]="isOpen()"
           (mouseenter)="openMissingSkills()"
           (mouseleave)="closeMissingSkills()"
+          (touchstart)="toggleMissingSkills()"
+          (click)="toggleMissingSkills()"
         >
           <svg
             aria-hidden="true"
@@ -64,8 +66,8 @@
       </div>
       <div
         class="skills__overlay"
-        [class.skills__overlay--visible]="isOpen"
-        [attr.aria-hidden]="!isOpen"
+        [class.skills__overlay--visible]="isOpen()"
+        [attr.aria-hidden]="!isOpen()"
       >
         <button (click)="closeMissingSkills()" aria-label="Close overlay">
           <svg
