@@ -44,10 +44,14 @@
     "next": "Next",
     "items": [
       {
-        "description": "Jump, run and throw — El Pollo Loco was my first dive into object-oriented JavaScript. Help Pepe collect coins and tabasco bottles to take down the crazy hen."
+        "title": "El Pollo Loco",
+        "description": "Jump, run and throw — El Pollo Loco was my first dive into object-oriented JavaScript. Help Pepe collect coins and tabasco bottles to take down the crazy hen.",
+        "info": "My first browser game, developed solo during the frontend bootcamp. The focus was on object-oriented JavaScript – with an emphasis on clean structure and consistent refactoring."
       },
       {
-        "description": "Manage tasks, coordinate teams, keep projects on track — Join brings all your project management into one clear Kanban board. Create tasks, assign them to contacts, and stay on top of every step in your workflow."
+        "title": "Join",
+        "description": "Manage tasks, coordinate teams, keep projects on track — Join brings all your project management into one clear Kanban board. Create tasks, assign them to contacts, and stay on top of every step in your workflow.",
+        "info": "My final project in the frontend bootcamp, built as a team. We shared responsibility across every area – from logic and responsive design to code reviews. We organised ourselves using Trello."
       }
     ]
   },

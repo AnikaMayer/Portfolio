@@ -45,11 +45,13 @@
     "items": [
       {
         "title": "El Pollo Loco",
-        "description": "Rennen, springen, werfen — El Pollo Loco war mein erster Einstieg in objektorientiertes JavaScript. Hilf Pepe, Münzen und Tabascoflaschen zu sammeln, um das verrückte Huhn zu besiegen."
+        "description": "Rennen, springen, werfen — El Pollo Loco war mein erster Einstieg in objektorientiertes JavaScript. Hilf Pepe, Münzen und Tabascoflaschen zu sammeln, um das verrückte Huhn zu besiegen.",
+        "info": "Mein erstes Browsergame, das ich solo im Frontend-Bootcamp entwickelt habe. Der Fokus lag auf objektorientiertem JavaScript – mit Augenmerk auf saubere Struktur und konsequentem Refactoring."
       },
       {
         "title": "Join",
-        "description": "Aufgaben verwalten, Teams koordinieren, Projekte im Griff behalten — Join bringt dein gesamtes Projektmanagement in ein übersichtliches Kanban-Board. Erstelle Tasks, weise sie Kontakten zu und behalte den Überblick über jeden Schritt deines Workflows."
+        "description": "Aufgaben verwalten, Teams koordinieren, Projekte im Griff behalten — Join bringt dein gesamtes Projektmanagement in ein übersichtliches Kanban-Board. Erstelle Tasks, weise sie Kontakten zu und behalte den Überblick über jeden Schritt deines Workflows.",
+        "info": "Mein Abschlussprojekt im Frontend-Bootcamp, welches ich im Team umgesetzt habe. Wir haben jeden Bereich gemeinsam verantwortet – von Logik und Responsive Design bis hin zu Reviews. Organisiert haben wir uns über Trello."
       }
     ]
   },
