@@ -126,7 +126,7 @@
     display: flex;
     justify-content: space-between;
 
-    app-button {
+    a {
       --btn-width: clamp(131px, calc(35px + 24vw), 155px);
     }
 
@@ -141,7 +141,7 @@
       @include bounce-animation;
 
       &:hover {
-        animation: paused;
+        animation-play-state: paused;
       }
     }
   }
@@ -178,8 +178,24 @@
       left: clamp(16px, calc(-32px + 12vw), 112px);
     }
 
-    h3 {
-      text-align: center;
+    &--header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      h3 {
+        // text-align: center;
+        text-align: start;
+      }
+
+      button {
+        background: none;
+        @include flex-center;
+        width: 32px;
+        height: 32px;
+        border: none;
+        color: $textLight;
+      }
     }
 
     ul {

@@ -14,17 +14,18 @@
             <p>{{ 'about.text2' | translate }}</p>
           </div>
           <div class="about__btn">
-            <app-button>
-              <a href="#contact-section" aria-label="Jump to contact form">{{
-                'about.btn' | translate
-              }}</a>
-            </app-button>
+            <a app-btn href="#contact-section" aria-label="Jump to contact form">
+              {{ 'about.btn' | translate }}
+            </a>
             <button
               class="about__btn--more"
-              [attr.aria-expanded]="moreIsOpen"
+              [attr.aria-expanded]="moreIsOpen()"
               aria-controls="about-more"
               (mouseenter)="openMoreAbout()"
               (mouseleave)="closeMoreAbout()"
+              (touchstart)="toggleMoreAbout()"
+              (focus)="openMoreAbout()"
+              (blur)="closeMoreAbout()"
             >
               <svg width="29" height="30">
                 <use href="./assets/images/icons/icons.svg#emoji"></use>
@@ -34,8 +35,17 @@
         </div>
       </div>
     </div>
-    <div id="about-more" class="about__more" [class.about__more--visible]="moreIsOpen">
-      <h3>{{ 'about.boxTitle' | translate }}</h3>
+    <div id="about-more" class="about__more" [class.about__more--visible]="moreIsOpen()">
+      <div class="about__more--header">
+        <h3>{{ 'about.boxTitle' | translate }}</h3>
+        @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+          <button aria-label="Close info-box">
+            <svg width="18" height="18">
+              <use href="./assets/images/icons/icons.svg#close"></use>
+            </svg>
+          </button>
+        }
+      </div>
       <ul>
         @for (item of infoList; track item) {
           <li>

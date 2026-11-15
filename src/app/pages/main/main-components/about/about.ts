@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
 import { TranslatePipe } from '@ngx-translate/core';
+import { ResponsiveService } from '../../../../shared/services/responsive';
 
 @Component({
   imports: [Button, TranslatePipe],
@@ -9,7 +10,8 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './about.html',
 })
 export class About {
-  moreIsOpen = false;
+  responsiveService = inject(ResponsiveService);
+  moreIsOpen = signal(false);
   infoList = [
     'about.items.item1',
     'about.items.item2',
@@ -20,10 +22,14 @@ export class About {
   ];
 
   openMoreAbout() {
-    this.moreIsOpen = true;
+    this.moreIsOpen.set(true);
   }
 
   closeMoreAbout() {
-    this.moreIsOpen = false;
+    this.moreIsOpen.set(false);
+  }
+
+  toggleMoreAbout() {
+    this.moreIsOpen.update((v) => !v);
   }
 }
