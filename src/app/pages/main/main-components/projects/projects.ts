@@ -52,7 +52,9 @@ export class Projects {
   prevProject() {
     if (this.currentIndex() === 0) {
       this.currentIndex.set(this.projectList.length - 1);
-    } else [this.currentIndex.update((i) => i - 1)];
+    } else {
+      this.currentIndex.update((i) => i - 1);
+    }
   }
 
   nextProject() {

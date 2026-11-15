@@ -36,29 +36,39 @@
             </p>
           </div>
           <div class="projects__info--btn">
-            <app-button
-              ><a [href]="currentProject().gitUrl" target="_blank"
-                >GitHub
-                <svg width="20" height="20">
-                  <use href="./assets/images/icons/icons.svg#arrow"></use>
-                </svg>
-              </a>
-            </app-button>
-            <app-button
-              ><a [href]="currentProject().liveUrl" target="_blank"
-                >Live Test
-                <svg width="20" height="20">
-                  <use href="./assets/images/icons/icons.svg#arrow"></use>
-                </svg>
-              </a>
-            </app-button>
+            <a
+              appBtn
+              [href]="currentProject().gitUrl"
+              target="_blank"
+              [attr.aria-label]="'Open ' + currentProject().title + '-repository in new tab'"
+            >
+              GitHub
+              <svg width="20" height="20" aria-hidden="true">
+                <use href="./assets/images/icons/icons.svg#arrow"></use>
+              </svg>
+            </a>
+            <a
+              appBtn
+              [href]="currentProject().liveUrl"
+              target="_blank"
+              [attr.aria-label]="'Open ' + currentProject().title + ' in new Tab'"
+            >
+              Live Test
+              <svg width="20" height="20" aria-hidden="true">
+                <use href="./assets/images/icons/icons.svg#arrow"></use>
+              </svg>
+            </a>
           </div>
         </div>
         <div class="projects__navBtn">
-          <button class="projects__navBtn--prev" (click)="prevProject()">
+          <button
+            class="projects__navBtn--prev"
+            aria-label="Previous project"
+            (click)="prevProject()"
+          >
             &lt;&lt; {{ 'projects.prev' | translate }}
           </button>
-          <button class="projects__navBtn--next" (click)="nextProject()">
+          <button class="projects__navBtn--next" aria-label="Next project" (click)="nextProject()">
             {{ 'projects.next' | translate }} &gt;&gt;
           </button>
         </div>

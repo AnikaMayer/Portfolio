@@ -231,12 +231,12 @@
         justify-content: space-between;
         gap: 0;
 
-        app-button {
+        a {
           --btn-width: clamp(120px, calc(-144.444px + 77.778vw), 155px);
         }
       }
 
-      app-button a {
+      a {
         @include flex-center;
         gap: 4px;
 
@@ -244,10 +244,10 @@
           line-height: 1;
           transition: 0.2s ease;
         }
-      }
 
-      app-button:hover svg {
-        transform: rotate(-45deg);
+        &:hover svg {
+          transform: rotate(-45deg);
+        }
       }
     }
   }
