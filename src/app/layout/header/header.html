@@ -5,7 +5,7 @@
         <ul>
           @for (link of socialMediaLinks; track $index) {
             <li>
-              <a [href]="link.href" target="_blank" aria-label="link.label">
+              <a [href]="link.href" target="_blank" [attr.aria-label]="link.label">
                 <svg aria-hidden="true">
                   <use [attr.href]="link.icon"></use>
                 </svg>
@@ -61,8 +61,8 @@
         <nav class="header__overlay-sections" aria-label="page-navigation">
           <ul class="header__overlay-sections--page-nav">
             @for (item of navList; track item.href) {
-              <li (click)="closeMenu()">
-                <a [href]="item.href">
+              <li>
+                <a [href]="item.href" (click)="closeMenu()">
                   <svg class="hide">
                     <use href="./assets/images/icons/icons.svg#radialburst"></use>
                   </svg>
@@ -91,6 +91,7 @@
   <div
     class="header__backdrop"
     [class.header__backdrop--visible]="overlayOpen"
+    aria-hidden="true"
     (click)="closeMenu()"
   ></div>
 </header>
