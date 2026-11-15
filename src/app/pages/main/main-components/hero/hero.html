@@ -5,11 +5,9 @@
         {{ 'hero.title1' | translate }}<br /><span>Anika Mayer<br /></span
         >{{ 'hero.title2' | translate }}
       </h1>
-      <app-button
-        ><a href="#contact-section" aria-label="Jump to contact form">{{
-          'hero.btn' | translate
-        }}</a></app-button
-      >
+      <a app-btn href="#contact-section" aria-label="Jump to contact form">{{
+        'hero.btn' | translate
+      }}</a>
       <app-scroll-animation aria-hidden="true"></app-scroll-animation>
     </div>
     <div class="hero__images">
