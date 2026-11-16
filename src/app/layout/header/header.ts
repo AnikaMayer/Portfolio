@@ -6,7 +6,7 @@ import { CloseBtn } from '../../shared/components/close-btn/close-btn';
 
 @Component({
   imports: [TranslatePipe, CloseBtn],
-  selector: 'app-header',
+  selector: 'header[app-header]',
   styleUrl: './header.scss',
   templateUrl: './header.html',
 })

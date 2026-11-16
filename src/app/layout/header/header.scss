@@ -1,6 +1,6 @@
 @use '../../../../public/assets/styles/all_styles.scss' as *;
 
-.header {
+:host {
   z-index: 10;
   width: 100%;
   height: 88px;
@@ -34,230 +34,29 @@
     }
   }
 
-  &__links {
-    width: 112px;
-    height: 32px;
-    @include flex-center;
+  .header {
+    &__links {
+      width: 112px;
+      height: 32px;
+      @include flex-center;
 
-    @include mobile {
-      display: none;
-    }
+      @include mobile {
+        display: none;
+      }
 
-    ul {
-      width: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: space-around;
-
-      li {
+      ul {
         width: 100%;
-
-        a {
-          width: 100%;
-          --icon-body: none;
-          --icon-lines: #{$textLight};
-          transition: color 0.1s ease;
-
-          svg {
-            width: 17px;
-            height: 19px;
-          }
-
-          &:hover {
-            --icon-body: #{$highlightMedium};
-          }
-        }
-      }
-    }
-  }
-
-  &__logo {
-    width: auto;
-    height: 40px;
-    @include flex-center;
-    gap: 10px;
-
-    svg {
-      width: 30px;
-      height: 40px;
-      color: $highlightMedium;
-    }
-
-    a {
-      color: $textLight;
-      font-family: 'Quicksand';
-      font-weight: 600;
-      font-size: 24px;
-
-      &:hover {
-        color: $highlightMedium;
-      }
-    }
-  }
-
-  &__nav {
-    width: clamp(80px, calc(77.714px + 0.714vw), 88px);
-    height: 40px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  &__btn {
-    background: none;
-    @include flex-center;
-
-    &--language {
-      width: 40px;
-      height: 40px;
-      border: 1px solid $textLight;
-      border-radius: 50%;
-
-      p {
-        color: $textLight;
-        font-family: 'Quicksand';
-        font-weight: 600;
-        font-size: 18px;
-      }
-
-      &:hover {
-        transition: 0.1s ease;
-        background: $highlightMedium;
-      }
-    }
-
-    &--menu {
-      width: 32px;
-      height: 32px;
-      border: none;
-
-      svg {
-        width: 24px;
-        height: 16px;
-        transition: 0.1s ease;
-        color: $textLight;
-      }
-
-      &:hover svg {
-        color: $highlightMedium;
-      }
-    }
-
-    &--close {
-      width: 32px;
-      height: 32px;
-      border: none;
-
-      svg {
-        width: 18px;
-        height: 18px;
-        transition: 0.1s ease;
-        color: $highlightLight;
-      }
-
-      &:hover svg {
-        color: $highlightDark;
-      }
-    }
-  }
-
-  &__overlay {
-    width: 208px;
-    font-family: 'Quicksand';
-    font-weight: 700;
-    font-size: 18px;
-    padding-block: 16px;
-    border: 1px solid black;
-    border-radius: 4px;
-    background-color: $bgLight;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    position: absolute;
-    top: -30%;
-    right: -20%;
-    z-index: 11;
-    @include hoverDefault(X);
-
-    &--open {
-      @include hoverEnter(X);
-    }
-
-    &-header {
-      width: 100%;
-      padding-inline: 16px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-
-      h3 {
-        font-size: 24px;
-        color: $highlightMedium;
-      }
-
-      button {
-        --close-btn-color: #{$highlightMedium};
-
-        &:hover {
-          --close-btn-color: #{$highlightLight};
-        }
-      }
-    }
-
-    &-sections {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 23px;
-
-      &--page-nav {
         display: flex;
-        flex-direction: column;
-        gap: 8px;
+        align-items: center;
+        justify-content: space-around;
 
         li {
           width: 100%;
 
           a {
             width: 100%;
-            display: flex;
-            padding-inline: 16px;
-            line-height: 120%;
-
-            svg {
-              width: 20px;
-              height: 20px;
-              display: none;
-              color: $highlightMedium;
-            }
-          }
-
-          &:hover {
-            a {
-              color: $highlightLight;
-
-              svg {
-                display: block;
-                transition: 0.1s ease;
-              }
-            }
-          }
-        }
-      }
-
-      &--social-nav {
-        display: flex;
-        gap: 23px;
-        padding-inline: 16px;
-
-        li {
-          @include flex-center;
-
-          a {
-            @include flex-center;
             --icon-body: none;
-            --icon-lines: #{$textDark};
+            --icon-lines: #{$textLight};
             transition: color 0.1s ease;
 
             svg {
@@ -272,19 +71,222 @@
         }
       }
     }
-  }
 
-  &__backdrop {
-    display: none;
+    &__logo {
+      width: auto;
+      height: 40px;
+      @include flex-center;
+      gap: 10px;
 
-    &--visible {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: 9;
+      svg {
+        width: 30px;
+        height: 40px;
+        color: $highlightMedium;
+      }
+
+      a {
+        color: $textLight;
+        font-family: 'Quicksand';
+        font-weight: 600;
+        font-size: 24px;
+
+        &:hover {
+          color: $highlightMedium;
+        }
+      }
+    }
+
+    &__nav {
+      width: clamp(80px, calc(77.714px + 0.714vw), 88px);
+      height: 40px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    &__btn {
+      background: none;
+      @include flex-center;
+
+      &--language {
+        width: 40px;
+        height: 40px;
+        border: 1px solid $textLight;
+        border-radius: 50%;
+
+        p {
+          color: $textLight;
+          font-family: 'Quicksand';
+          font-weight: 600;
+          font-size: 18px;
+        }
+
+        &:hover {
+          transition: 0.1s ease;
+          background: $highlightMedium;
+        }
+      }
+
+      &--menu {
+        width: 32px;
+        height: 32px;
+        border: none;
+
+        svg {
+          width: 24px;
+          height: 16px;
+          transition: 0.1s ease;
+          color: $textLight;
+        }
+
+        &:hover svg {
+          color: $highlightMedium;
+        }
+      }
+
+      &--close {
+        width: 32px;
+        height: 32px;
+        border: none;
+
+        svg {
+          width: 18px;
+          height: 18px;
+          transition: 0.1s ease;
+          color: $highlightLight;
+        }
+
+        &:hover svg {
+          color: $highlightDark;
+        }
+      }
+    }
+
+    &__overlay {
+      width: 208px;
+      font-family: 'Quicksand';
+      font-weight: 700;
+      font-size: 18px;
+      padding-block: 16px;
+      border: 1px solid black;
+      border-radius: 4px;
+      background-color: $bgLight;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: absolute;
+      top: -30%;
+      right: -20%;
+      z-index: 11;
+      @include hoverDefault(X);
+
+      &--open {
+        @include hoverEnter(X);
+      }
+
+      &-header {
+        width: 100%;
+        padding-inline: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h3 {
+          font-size: 24px;
+          color: $highlightMedium;
+        }
+
+        button {
+          --close-btn-color: #{$highlightMedium};
+
+          &:hover {
+            --close-btn-color: #{$highlightLight};
+          }
+        }
+      }
+
+      &-sections {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 23px;
+
+        &--page-nav {
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+
+          li {
+            width: 100%;
+
+            a {
+              width: 100%;
+              display: flex;
+              padding-inline: 16px;
+              line-height: 120%;
+
+              svg {
+                width: 20px;
+                height: 20px;
+                display: none;
+                color: $highlightMedium;
+              }
+            }
+
+            &:hover {
+              a {
+                color: $highlightLight;
+
+                svg {
+                  display: block;
+                  transition: 0.1s ease;
+                }
+              }
+            }
+          }
+        }
+
+        &--social-nav {
+          display: flex;
+          gap: 23px;
+          padding-inline: 16px;
+
+          li {
+            @include flex-center;
+
+            a {
+              @include flex-center;
+              --icon-body: none;
+              --icon-lines: #{$textDark};
+              transition: color 0.1s ease;
+
+              svg {
+                width: 17px;
+                height: 19px;
+              }
+
+              &:hover {
+                --icon-body: #{$highlightMedium};
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &__backdrop {
+      display: none;
+
+      &--visible {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+      }
     }
   }
 }
