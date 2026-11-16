@@ -1,98 +1,96 @@
-<section id="portfolio-section" class="projects">
-  <div class="content">
-    <div class="projects__header">
-      <h2>{{ 'projects.title' | translate }}</h2>
-      <div class="projects__header--text">
-        <p>
-          {{ 'projects.text' | translate }}
-        </p>
+<div class="content projects">
+  <div class="projects__header">
+    <h2>{{ 'projects.title' | translate }}</h2>
+    <div class="projects__header--text">
+      <p>
+        {{ 'projects.text' | translate }}
+      </p>
+    </div>
+  </div>
+  <div class="projects__wrapper">
+    <div class="projects__img" [class]="currentColorClass()">
+      <svg width="180" height="180" viewBox="0 0 180 180">
+        <use href="./assets/images/icons/icons.svg#radialburst"></use>
+      </svg>
+      <div class="projects__img--box">
+        <img [src]="currentProject().image" [alt]="'Image of ' + currentProject().title" />
       </div>
     </div>
-    <div class="projects__wrapper">
-      <div class="projects__img" [class]="currentColorClass()">
-        <svg width="180" height="180" viewBox="0 0 180 180">
-          <use href="./assets/images/icons/icons.svg#radialburst"></use>
-        </svg>
-        <div class="projects__img--box">
-          <img [src]="currentProject().image" [alt]="'Image of ' + currentProject().title" />
+    <div class="projects__info-wrapper">
+      <div class="projects__info">
+        <div class="projects__info--text">
+          <div>
+            <h3>{{ currentProject().title }}</h3>
+            <button
+              aria-label="Show project info"
+              [attr.aria-expanded]="infoIsOpen()"
+              aria-controls="project-info"
+              (mouseenter)="openInfo()"
+              (mouseleave)="closeInfo()"
+              (touchstart)="toggleInfo(); $event.preventDefault()"
+              (focus)="openInfo()"
+              (blur)="closeInfo()"
+            >
+              <img [src]="currentProject().icon" [alt]="'Icon of ' + currentProject().title" />
+            </button>
+          </div>
+          <ul>
+            @for (item of currentProject().technologies; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+          <p>
+            {{ currentProject().description | translate }}
+          </p>
+        </div>
+        <div class="projects__info--btn">
+          <a
+            app-btn
+            [href]="currentProject().gitUrl"
+            target="_blank"
+            [attr.aria-label]="'Open ' + currentProject().title + '-repository in new tab'"
+          >
+            GitHub
+            <svg width="20" height="20" aria-hidden="true">
+              <use href="./assets/images/icons/icons.svg#arrow"></use>
+            </svg>
+          </a>
+          <a
+            app-btn
+            [href]="currentProject().liveUrl"
+            target="_blank"
+            [attr.aria-label]="'Open ' + currentProject().title + ' in new Tab'"
+          >
+            Live Test
+            <svg width="20" height="20" aria-hidden="true">
+              <use href="./assets/images/icons/icons.svg#arrow"></use>
+            </svg>
+          </a>
+        </div>
+        <div
+          id="project-info"
+          class="projects__info--overlay"
+          [class.projects__info--overlay-visible]="infoIsOpen()"
+          [attr.aria-hidden]="infoIsOpen() ? null : 'true'"
+        >
+          @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+            <button app-close (closed)="closeInfo()" aria-label="Close project info"></button>
+          }
+          <p>{{ currentProject().info | translate }}</p>
         </div>
       </div>
-      <div class="projects__info-wrapper">
-        <div class="projects__info">
-          <div class="projects__info--text">
-            <div>
-              <h3>{{ currentProject().title }}</h3>
-              <button
-                aria-label="Show project info"
-                [attr.aria-expanded]="infoIsOpen()"
-                aria-controls="project-info"
-                (mouseenter)="openInfo()"
-                (mouseleave)="closeInfo()"
-                (touchstart)="toggleInfo(); $event.preventDefault()"
-                (focus)="openInfo()"
-                (blur)="closeInfo()"
-              >
-                <img [src]="currentProject().icon" [alt]="'Icon of ' + currentProject().title" />
-              </button>
-            </div>
-            <ul>
-              @for (item of currentProject().technologies; track item) {
-                <li>{{ item }}</li>
-              }
-            </ul>
-            <p>
-              {{ currentProject().description | translate }}
-            </p>
-          </div>
-          <div class="projects__info--btn">
-            <a
-              app-btn
-              [href]="currentProject().gitUrl"
-              target="_blank"
-              [attr.aria-label]="'Open ' + currentProject().title + '-repository in new tab'"
-            >
-              GitHub
-              <svg width="20" height="20" aria-hidden="true">
-                <use href="./assets/images/icons/icons.svg#arrow"></use>
-              </svg>
-            </a>
-            <a
-              app-btn
-              [href]="currentProject().liveUrl"
-              target="_blank"
-              [attr.aria-label]="'Open ' + currentProject().title + ' in new Tab'"
-            >
-              Live Test
-              <svg width="20" height="20" aria-hidden="true">
-                <use href="./assets/images/icons/icons.svg#arrow"></use>
-              </svg>
-            </a>
-          </div>
-          <div
-            id="project-info"
-            class="projects__info--overlay"
-            [class.projects__info--overlay-visible]="infoIsOpen()"
-            [attr.aria-hidden]="infoIsOpen() ? null : 'true'"
-          >
-            @if (responsiveService.isMobile() || responsiveService.isTablet()) {
-              <button app-close (closed)="closeInfo()" aria-label="Close project info"></button>
-            }
-            <p>{{ currentProject().info | translate }}</p>
-          </div>
-        </div>
-        <div class="projects__navBtn">
-          <button
-            class="projects__navBtn--prev"
-            aria-label="Previous project"
-            (click)="prevProject()"
-          >
-            &lt;&lt; {{ 'projects.prev' | translate }}
-          </button>
-          <button class="projects__navBtn--next" aria-label="Next project" (click)="nextProject()">
-            {{ 'projects.next' | translate }} &gt;&gt;
-          </button>
-        </div>
+      <div class="projects__navBtn">
+        <button
+          class="projects__navBtn--prev"
+          aria-label="Previous project"
+          (click)="prevProject()"
+        >
+          &lt;&lt; {{ 'projects.prev' | translate }}
+        </button>
+        <button class="projects__navBtn--next" aria-label="Next project" (click)="nextProject()">
+          {{ 'projects.next' | translate }} &gt;&gt;
+        </button>
       </div>
     </div>
   </div>
-</section>
+</div>

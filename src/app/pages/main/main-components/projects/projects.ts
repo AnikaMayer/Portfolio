@@ -18,9 +18,12 @@ interface Project {
 
 @Component({
   imports: [Button, TranslatePipe, CloseBtn],
-  selector: 'app-projects',
+  selector: 'section[app-projects]',
   styleUrl: './projects.scss',
   templateUrl: './projects.html',
+  host: {
+    id: 'portfolio-section',
+  },
 })
 export class Projects {
   responsiveService = inject(ResponsiveService);
