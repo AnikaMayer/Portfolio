@@ -10,9 +10,13 @@ interface Feedback {
 
 @Component({
   imports: [TranslatePipe],
-  selector: 'app-references',
+  selector: 'section[app-references]',
   styleUrl: './references.scss',
   templateUrl: './references.html',
+  host: {
+    id: 'reference-section',
+    'aria-labelledby': 'ref-heading',
+  },
 })
 export class References {
   refList: Feedback[] = [

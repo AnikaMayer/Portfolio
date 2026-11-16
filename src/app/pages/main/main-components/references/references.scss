@@ -1,6 +1,6 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
-.ref {
+:host {
   @include sectionStart($bgMedium, $textLight, 180px);
   padding-bottom: 128px;
 
@@ -22,109 +22,111 @@
     }
   }
 
-  h2 {
-    @include headline;
+  .ref {
+    h2 {
+      @include headline;
 
-    @include tablet(1372px) {
-      width: 80%;
-    }
+      @include tablet(1372px) {
+        width: 80%;
+      }
 
-    @include mobile {
-      width: 100%;
-    }
-  }
-
-  &__wrapper {
-    width: 100%;
-    height: 472px;
-    display: grid;
-    gap: 32px;
-    grid-template-columns: repeat(3, 1fr);
-    align-items: flex-start;
-
-    @include tablet(1150px) {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-    }
-
-    @include mobile {
-      gap: 24px;
-    }
-  }
-
-  &__box {
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 32px;
-
-    @include tablet(1150px) {
-      width: 384px;
-    }
-
-    @include mobile {
-      width: 100%;
-    }
-
-    a:hover {
-      color: $highlightMedium;
-    }
-
-    &--content {
-      width: 100%;
-      height: auto;
-      border: 1px solid $textLight;
-      border-radius: 4px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      line-height: 120%;
-
-      > div {
+      @include mobile {
         width: 100%;
-        height: 40px;
+      }
+    }
+
+    &__wrapper {
+      width: 100%;
+      height: 472px;
+      display: grid;
+      gap: 32px;
+      grid-template-columns: repeat(3, 1fr);
+      align-items: flex-start;
+
+      @include tablet(1150px) {
+        height: auto;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column;
+        gap: 32px;
+      }
 
-        h3 {
+      @include mobile {
+        gap: 24px;
+      }
+    }
+
+    &__box {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 32px;
+
+      @include tablet(1150px) {
+        width: 384px;
+      }
+
+      @include mobile {
+        width: 100%;
+      }
+
+      a:hover {
+        color: $highlightMedium;
+      }
+
+      &--content {
+        width: 100%;
+        height: auto;
+        border: 1px solid $textLight;
+        border-radius: 4px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        line-height: 120%;
+
+        > div {
+          width: 100%;
+          height: 40px;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h3 {
+            font-weight: 700;
+            font-size: clamp(20px, calc(18px + 0.5vw), 24px);
+            line-height: 120%;
+          }
+
+          svg {
+            color: transparent;
+          }
+        }
+
+        :last-child {
           font-weight: 700;
-          font-size: clamp(20px, calc(18px + 0.5vw), 24px);
-          line-height: 120%;
+          font-size: 18px;
         }
 
-        svg {
-          color: transparent;
+        &:hover {
+          > div svg {
+            color: $highlightLight;
+          }
         }
       }
 
-      :last-child {
-        font-weight: 700;
-        font-size: 18px;
+      &--box1 {
+        align-self: flex-start;
       }
 
-      &:hover {
-        > div svg {
-          color: $highlightLight;
-        }
+      &--box2 {
+        align-self: center;
       }
-    }
 
-    &--box1 {
-      align-self: flex-start;
-    }
-
-    &--box2 {
-      align-self: center;
-    }
-
-    &--box3 {
-      align-self: flex-end;
+      &--box3 {
+        align-self: flex-end;
+      }
     }
   }
 }
