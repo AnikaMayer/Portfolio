@@ -1,18 +1,12 @@
 @use '../../../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
-  // width: 144px;
-  // width: calcClamp(80, 144, 768, 1024);
   width: min(clamp(80px, 10vh, 144px), calcClamp(80, 144, 375, 1024));
-  // height: 144px;
   aspect-ratio: 1/1;
-  // margin-top: 92px;
-  // margin-top: calcClamp(0, 92, 768, 1024);
-  // margin-bottom: 96px;
-  // margin-bottom: calcClamp(0, 96, 1024, 1440);
   position: absolute;
-  bottom: clamp(5px, 6vh, 96px); // 5px Mobile → 96px Desktop
-  left: clamp(9px, 7vw, 112px); // 9px Mobile → 112px Desktop
+  bottom: clamp(5px, 6vh, 96px);
+  left: clamp(9px, 7vw, 112px);
+  z-index: 2;
 
   svg {
     width: 100%;
@@ -37,27 +31,16 @@
   }
 
   @media (max-height: 900px) {
-    // display: none; // bei sehr wenig Höhe einfach ausblenden
     bottom: 5px;
-    // width: 80px;
-    // height: 80px;
   }
 
   @include tablet {
-    // margin-top: 0;
-    position: absolute;
     bottom: 25px;
     left: 29px;
-    z-index: 5;
   }
 
   @include mobile {
-    // width: clamp(80px, calc(-5.333px + 21.333vw), 144px);
-    // height: clamp(80px, calc(-5.333px + 21.333vw), 144px);
-    // margin-top: 0;
-    position: absolute;
     bottom: 5px;
     left: 9px;
-    z-index: 5;
   }
 }
