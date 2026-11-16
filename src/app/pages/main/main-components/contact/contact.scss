@@ -1,6 +1,6 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
-.contact {
+:host {
   @include sectionStart($bgDark, $textLight);
   height: 100dvh;
 
@@ -33,292 +33,294 @@
     }
   }
 
-  &__intro {
-    width: 100%;
-    max-width: 528px;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(32px, calc(16px + 4vw), 64px);
-
-    @include tablet(1150px) {
-      max-width: 80%;
-    }
-
-    @include mobile(890px) {
-      max-width: 100%;
-    }
-
-    h2 {
-      @include headline;
-      color: $highlightLight;
-    }
-
-    &--text {
+  .contact {
+    &__intro {
       width: 100%;
+      max-width: 528px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
-
-      h3 {
-        color: $highlightMedium;
-        font-weight: 700;
-        font-size: clamp(20px, calc(18px + 0.5vw), 24px);
-      }
-    }
-  }
-
-  &__form {
-    width: 100%;
-    max-width: 600px;
-    align-self: flex-end;
-    height: 370px;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-
-    @include tablet(1150px) {
-      max-width: 100%;
-      height: auto;
-    }
-
-    @include mobile {
-      height: 495px;
-    }
-
-    &--personal {
-      width: 100%;
-      display: flex;
-      gap: 32px;
-
-      @include tablet {
-        flex-direction: column;
-      }
-    }
-
-    &--input {
-      width: 50%;
-      height: clamp(82px, calc(78px + 1vw), 90px);
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      gap: 10px;
-      border-bottom: 1px solid $highlightLight;
-      position: relative;
+      gap: clamp(32px, calc(16px + 4vw), 64px);
 
       @include tablet(1150px) {
+        max-width: 80%;
+      }
+
+      @include mobile(890px) {
+        max-width: 100%;
+      }
+
+      h2 {
+        @include headline;
+        color: $highlightLight;
+      }
+
+      &--text {
         width: 100%;
-      }
-
-      h3 {
-        line-height: 120%;
-        font-weight: 700;
-        font-size: clamp(20px, calc(18px + 0.5vw), 24px);
-      }
-
-      &:hover,
-      &:focus-within {
-        border-bottom: 1px solid $highlightMedium;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
 
         h3 {
           color: $highlightMedium;
+          font-weight: 700;
+          font-size: clamp(20px, calc(18px + 0.5vw), 24px);
         }
       }
-
-      input {
-        width: 100%;
-        background: none;
-        border: none;
-        font-family: 'Quicksand';
-        font-size: 16px;
-        line-height: 120%;
-        color: $textLight;
-        caret-color: $highlightLight;
-        text-overflow: ellipsis;
-      }
-
-      input:-webkit-autofill,
-      input:-webkit-autofill:hover,
-      input:-webkit-autofill:focus,
-      input:-webkit-autofill:active {
-        -webkit-box-shadow: 0 0 0px 1000px $bgDark inset;
-        -webkit-text-fill-color: $textLight;
-        transition: background-color 9999s ease-in-out 0s;
-      }
-
-      input::placeholder {
-        color: $textLight;
-        opacity: 0.8;
-        font-size: clamp(14px, calc(13px + 0.25vw), 16px);
-        text-overflow: ellipsis;
-      }
     }
 
-    &--mail {
+    &__form {
       width: 100%;
-    }
+      max-width: 600px;
+      align-self: flex-end;
+      height: 370px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
 
-    &--invalid {
-      border-bottom: 1px solid $highlightMedium;
-
-      input::placeholder {
-        color: rgba(236, 123, 123, 1);
+      @include tablet(1150px) {
+        max-width: 100%;
+        height: auto;
       }
-    }
 
-    &--error {
-      font-size: 13px;
-      color: rgba(236, 123, 123, 0.8);
-      position: absolute;
-      bottom: 0;
-    }
+      @include mobile {
+        height: 495px;
+      }
 
-    &--send {
-      width: 100%;
-      height: 110px;
-      @include flex-column;
-      gap: 41px;
-
-      .checkbox-line {
+      &--personal {
         width: 100%;
         display: flex;
-        justify-content: flex-start;
-        gap: 4px;
-        position: relative;
+        gap: 32px;
 
-        p a {
-          color: $highlightMedium;
-          font-weight: 700;
-
-          &:hover {
-            color: $textLight;
-          }
-        }
-
-        .checkbox {
-          width: 20px;
-          height: 20px;
-          cursor: pointer;
-          position: relative;
-
-          &::before {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            background-color: rgba($highlightMedium, 0.3);
-            opacity: 0;
-            transition: opacity 200ms ease;
-          }
-
-          &:hover::before {
-            opacity: 1;
-          }
-
-          &-icon {
-            width: 20px;
-            height: 20px;
-            color: $highlightMedium;
-            flex-shrink: 0;
-          }
-
-          &-input {
-            position: absolute;
-            opacity: 0;
-            inset: 0;
-            cursor: pointer;
-          }
-        }
-
-        &__error {
-          position: absolute;
-          bottom: 0;
-          transform: translateY(30px);
+        @include tablet {
+          flex-direction: column;
         }
       }
-    }
 
-    &--checkbox {
-      width: 20px;
-      height: 20px;
-      border: 2px solid $highlightMedium;
-      border-radius: 2px;
-    }
+      &--input {
+        width: 50%;
+        height: clamp(82px, calc(78px + 1vw), 90px);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        gap: 10px;
+        border-bottom: 1px solid $highlightLight;
+        position: relative;
 
-    &--feedback {
-      position: fixed;
-      bottom: 20%;
-      left: 50%;
-      transform: translateX(-50%); // zentriert horizontal
+        @include tablet(1150px) {
+          width: 100%;
+        }
 
-      display: inline-flex; // ← das fehlt
-      align-items: center;
+        h3 {
+          line-height: 120%;
+          font-weight: 700;
+          font-size: clamp(20px, calc(18px + 0.5vw), 24px);
+        }
 
-      font-size: calcClamp(16, 20, 760, 320);
-      font-weight: 700;
-      white-space: nowrap;
-      background-color: $bgLight;
-      padding: 24px calcClamp(24, 32);
-      box-shadow: 0px 0px 4px 0px #00000026;
-      border-radius: 50px;
-      pointer-events: none;
-      z-index: 10;
+        &:hover,
+        &:focus-within {
+          border-bottom: 1px solid $highlightMedium;
 
-      opacity: 0;
-      visibility: hidden;
-      transform: translateX(calc(-50% + 100dvw));
-      transition:
-        opacity 0.2s ease,
-        transform 0.4s ease,
-        visibility 0s linear 0.2s;
+          h3 {
+            color: $highlightMedium;
+          }
+        }
 
-      &.is-open {
-        opacity: 1;
-        visibility: visible;
-        transform: translateX(-50%);
+        input {
+          width: 100%;
+          background: none;
+          border: none;
+          font-family: 'Quicksand';
+          font-size: 16px;
+          line-height: 120%;
+          color: $textLight;
+          caret-color: $highlightLight;
+          text-overflow: ellipsis;
+        }
+
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover,
+        input:-webkit-autofill:focus,
+        input:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0px 1000px $bgDark inset;
+          -webkit-text-fill-color: $textLight;
+          transition: background-color 9999s ease-in-out 0s;
+        }
+
+        input::placeholder {
+          color: $textLight;
+          opacity: 0.8;
+          font-size: clamp(14px, calc(13px + 0.25vw), 16px);
+          text-overflow: ellipsis;
+        }
+      }
+
+      &--mail {
+        width: 100%;
+      }
+
+      &--invalid {
+        border-bottom: 1px solid $highlightMedium;
+
+        input::placeholder {
+          color: rgba(236, 123, 123, 1);
+        }
+      }
+
+      &--error {
+        font-size: 13px;
+        color: rgba(236, 123, 123, 0.8);
+        position: absolute;
+        bottom: 0;
+      }
+
+      &--send {
+        width: 100%;
+        height: 110px;
+        @include flex-column;
+        gap: 41px;
+
+        .checkbox-line {
+          width: 100%;
+          display: flex;
+          justify-content: flex-start;
+          gap: 4px;
+          position: relative;
+
+          p a {
+            color: $highlightMedium;
+            font-weight: 700;
+
+            &:hover {
+              color: $textLight;
+            }
+          }
+
+          .checkbox {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            position: relative;
+
+            &::before {
+              content: '';
+              position: absolute;
+              inset: -4px;
+              border-radius: 50%;
+              background-color: rgba($highlightMedium, 0.3);
+              opacity: 0;
+              transition: opacity 200ms ease;
+            }
+
+            &:hover::before {
+              opacity: 1;
+            }
+
+            &-icon {
+              width: 20px;
+              height: 20px;
+              color: $highlightMedium;
+              flex-shrink: 0;
+            }
+
+            &-input {
+              position: absolute;
+              opacity: 0;
+              inset: 0;
+              cursor: pointer;
+            }
+          }
+
+          &__error {
+            position: absolute;
+            bottom: 0;
+            transform: translateY(30px);
+          }
+        }
+      }
+
+      &--checkbox {
+        width: 20px;
+        height: 20px;
+        border: 2px solid $highlightMedium;
+        border-radius: 2px;
+      }
+
+      &--feedback {
+        position: fixed;
+        bottom: 20%;
+        left: 50%;
+        transform: translateX(-50%); // zentriert horizontal
+
+        display: inline-flex; // ← das fehlt
+        align-items: center;
+
+        font-size: calcClamp(16, 20, 320, 760);
+        font-weight: 700;
+        white-space: nowrap;
+        background-color: $bgLight;
+        padding: 24px calcClamp(24, 32);
+        box-shadow: 0px 0px 4px 0px #00000026;
+        border-radius: 50px;
+        pointer-events: none;
+        z-index: 10;
+
+        opacity: 0;
+        visibility: hidden;
+        transform: translateX(calc(-50% + 100dvw));
         transition:
           opacity 0.2s ease,
           transform 0.4s ease,
-          visibility 0s linear 0s;
-      }
+          visibility 0s linear 0.2s;
 
-      &-success {
-        background-color: $highlightDark;
-        color: $textLight;
-      }
+        &.is-open {
+          opacity: 1;
+          visibility: visible;
+          transform: translateX(-50%);
+          transition:
+            opacity 0.2s ease,
+            transform 0.4s ease,
+            visibility 0s linear 0s;
+        }
 
-      &-error {
-        color: $textLight;
-        background-color: $highlightMedium;
+        &-success {
+          background-color: $highlightDark;
+          color: $textLight;
+        }
+
+        &-error {
+          color: $textLight;
+          background-color: $highlightMedium;
+        }
       }
     }
-  }
 
-  &__startbtn {
-    width: 30px;
-    height: 48px;
-    border: none;
-    background: none;
-    position: absolute;
-    top: 0;
-    right: clamp(16px, calc(-12px + 7vw), 72px);
-    @include flex-center(flex-end);
+    &__startbtn {
+      width: 30px;
+      height: 48px;
+      border: none;
+      background: none;
+      position: absolute;
+      top: 0;
+      right: clamp(16px, calc(-12px + 7vw), 72px);
+      @include flex-center(flex-end);
 
-    @include tablet {
-      top: unset;
-      bottom: 30px;
-    }
-
-    svg {
-      @include bounce-animation(500ms, 1.2);
-      color: $textLight;
-    }
-
-    &:hover {
-      border-bottom: 1px solid $highlightMedium;
+      @include tablet {
+        top: unset;
+        bottom: 30px;
+      }
 
       svg {
-        color: $highlightMedium;
+        @include bounce-animation(500ms, 1.2);
+        color: $textLight;
+      }
+
+      &:hover {
+        border-bottom: 1px solid $highlightMedium;
+
+        svg {
+          color: $highlightMedium;
+        }
       }
     }
   }

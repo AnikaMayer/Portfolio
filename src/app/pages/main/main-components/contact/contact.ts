@@ -23,9 +23,12 @@ type SendStatus = 'idle' | 'success' | 'error';
 
 @Component({
   imports: [Button, FormField, RouterLink, FormRoot, TranslatePipe],
-  selector: 'app-contact',
+  selector: 'section[app-contact]',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
+  host: {
+    id: 'contact-section',
+  },
 })
 export class Contact {
   protected readonly sendStatus = signal<SendStatus>('idle');
