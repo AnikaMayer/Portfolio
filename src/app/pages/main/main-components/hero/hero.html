@@ -1,29 +1,27 @@
-<section id="hero-section" class="hero" aria-label="Introduction">
-  <div class="content">
-    <div class="hero__title">
-      <h1>
-        {{ 'hero.title1' | translate }}<br /><span>Anika Mayer<br /></span
-        >{{ 'hero.title2' | translate }}
-      </h1>
-      <a app-btn href="#contact-section" aria-label="Jump to contact form">{{
-        'hero.btn' | translate
-      }}</a>
-      <app-scroll-animation aria-hidden="true"></app-scroll-animation>
-    </div>
-    <div class="hero__images">
-      <svg viewBox="0 0 120 120" aria-hidden="true" class="hero__images--svg-left">
-        <use href="./assets/images/icons/icons.svg#radialburst"></use>
-        >
-      </svg>
-      <svg viewBox="0 0 120 120" aria-hidden="true" class="hero__images--svg-right">
-        <use href="./assets/images/icons/icons.svg#radialburst"></use>
-        >
-      </svg>
-      <img
-        class="hero__images--picture"
-        src="assets/images/Anika-Mayer.png"
-        alt="Profile picture of Anika Mayer"
-      />
-    </div>
+<div class="content hero">
+  <div class="hero__title">
+    <h1>
+      {{ 'hero.title1' | translate }}<br /><span>Anika Mayer<br /></span
+      >{{ 'hero.title2' | translate }}
+    </h1>
+    <a app-btn href="#contact-section" aria-label="Jump to contact form">{{
+      'hero.btn' | translate
+    }}</a>
+    <app-scroll-animation aria-hidden="true"></app-scroll-animation>
   </div>
-</section>
+  <div class="hero__images">
+    <svg viewBox="0 0 120 120" aria-hidden="true" class="hero__images--svg-left">
+      <use href="./assets/images/icons/icons.svg#radialburst"></use>
+      >
+    </svg>
+    <svg viewBox="0 0 120 120" aria-hidden="true" class="hero__images--svg-right">
+      <use href="./assets/images/icons/icons.svg#radialburst"></use>
+      >
+    </svg>
+    <img
+      class="hero__images--picture"
+      src="assets/images/Anika-Mayer.png"
+      alt="Profile picture of Anika Mayer"
+    />
+  </div>
+</div>

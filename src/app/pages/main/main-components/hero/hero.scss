@@ -1,6 +1,6 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
-.hero {
+:host {
   width: 100%;
   // height: calc(100dvh - 88px);
   // margin-top: 88px;
@@ -31,104 +31,106 @@
     }
   }
 
-  &__title {
-    // width: 456px; //width oder flex?
-    flex: 0 0 40%; //width oder flex?
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-
-    @include tablet {
-      width: 100%;
-      position: unset;
-      padding-inline: clamp(16px, calc(-21.333px + 9.333vw), 72px);
-    }
-
-    h1 {
-      width: 100%;
-      font-family: 'Quicksand';
-      font-weight: 400;
-      font-size: clamp(30px, calc(18px + 3vw), 48px);
-      line-height: 1;
-      color: $textLight;
+  .hero {
+    &__title {
+      // width: 456px; //width oder flex?
+      flex: 0 0 40%; //width oder flex?
+      height: auto;
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 32px;
 
-      span {
-        font-family: 'Eczar';
-        font-weight: 700;
-        font-size: clamp(70px, calc(52.667px + 4.333vw), 96px);
+      @include tablet {
+        width: 100%;
+        position: unset;
+        padding-inline: clamp(16px, calc(-21.333px + 9.333vw), 72px);
+      }
+
+      h1 {
+        width: 100%;
+        font-family: 'Quicksand';
+        font-weight: 400;
+        font-size: clamp(30px, calc(18px + 3vw), 48px);
+        line-height: 1;
+        color: $textLight;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+
+        span {
+          font-family: 'Eczar';
+          font-weight: 700;
+          font-size: clamp(70px, calc(52.667px + 4.333vw), 96px);
+        }
       }
     }
-  }
 
-  &__images {
-    // width: 792px; //option 1
-    // height: 740px; //option 1
-    flex: 1 1 auto; //option 2
-    height: auto; //option 2
-    // display: flex;
-    position: relative;
-    // @include flex-center;
-
-    @include tablet {
-      width: 100%;
-      height: 100dvw;
+    &__images {
+      // width: 792px; //option 1
+      // height: 740px; //option 1
+      flex: 1 1 auto; //option 2
+      height: auto; //option 2
+      // display: flex;
       position: relative;
-      right: 0;
-    }
+      // @include flex-center;
 
-    @include mobile {
-      width: 100%;
-      height: 100vw;
-      position: relative;
-      right: 0;
-    }
-
-    svg {
-      // width: 500px;
-      // height: 500px;
-      width: 68%; // aktuell das ohne width und height darüber
-      height: auto;
-      position: absolute;
+      @include tablet {
+        width: 100%;
+        height: 100dvw;
+        position: relative;
+        right: 0;
+      }
 
       @include mobile {
-        width: 70%;
+        width: 100%;
+        height: 100vw;
+        position: relative;
+        right: 0;
+      }
+
+      svg {
+        // width: 500px;
+        // height: 500px;
+        width: 68%; // aktuell das ohne width und height darüber
+        height: auto;
+        position: absolute;
+
+        @include mobile {
+          width: 70%;
+        }
+      }
+
+      &--svg-left {
+        color: $highlightLight;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+      }
+
+      &--svg-right {
+        color: $highlightMedium;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+
+      &--picture {
+        width: 100%;
+        // max-width: 1000px;
+        // height: auto;
+        position: absolute;
+        bottom: 0;
       }
     }
 
-    &--svg-left {
-      color: $highlightLight;
+    &__section-bar {
+      width: 12px;
+      height: 168px;
       position: absolute;
-      bottom: 0;
-      left: 0;
+      right: 72px;
+      top: calc(50% - 88px);
+      background-color: pink;
+      display: none;
     }
-
-    &--svg-right {
-      color: $highlightMedium;
-      position: absolute;
-      top: 0;
-      right: 0;
-    }
-
-    &--picture {
-      width: 100%;
-      // max-width: 1000px;
-      // height: auto;
-      position: absolute;
-      bottom: 0;
-    }
-  }
-
-  &__section-bar {
-    width: 12px;
-    height: 168px;
-    position: absolute;
-    right: 72px;
-    top: calc(50% - 88px);
-    background-color: pink;
-    display: none;
   }
 }
