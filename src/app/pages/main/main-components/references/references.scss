@@ -1,7 +1,7 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
-  @include sectionStart($bgMedium, $textLight, 180px);
+  @include sectionStart($bgMedium, $textLight);
   padding-bottom: 128px;
 
   @include tablet(1150px) {

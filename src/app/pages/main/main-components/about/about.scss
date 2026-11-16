@@ -1,7 +1,7 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
-  @include sectionStart($bgLight, $textDark, 160px);
+  @include sectionStart($bgLight, $textDark);
   position: relative;
 
   @include tablet {
