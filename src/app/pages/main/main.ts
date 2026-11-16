@@ -9,7 +9,7 @@ import { NavBar } from '../../shared/components/nav-bar/nav-bar';
 
 @Component({
   imports: [Hero, About, Skills, Projects, References, Contact, NavBar],
-  selector: 'app-main',
+  selector: 'main[app-main]',
   styleUrl: './main.scss',
   templateUrl: './main.html',
 })
