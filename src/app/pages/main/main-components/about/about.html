@@ -1,57 +1,55 @@
-<section id="about-section" class="about" aria-labelledby="about-heading">
-  <div class="content">
-    <h2 id="about-heading">{{ 'about.title' | translate }}</h2>
-    <div class="about__wrapper">
-      <div class="about__image">
-        <img src="assets/images/Anika-Mayer-Work.png" alt="Image of Anika Mayer" />
-      </div>
-      <div class="about__info-wrap">
-        <div class="about__info">
-          <div class="about__info--text">
-            <p>
-              {{ 'about.text1' | translate }}
-            </p>
-            <p>{{ 'about.text2' | translate }}</p>
-          </div>
-          <div class="about__btn">
-            <a app-btn href="#contact-section" aria-label="Jump to contact form">
-              {{ 'about.btn' | translate }}
-            </a>
-            <button
-              class="about__btn--more"
-              [attr.aria-expanded]="moreIsOpen()"
-              aria-controls="about-more"
-              (mouseenter)="openMoreAbout()"
-              (mouseleave)="closeMoreAbout()"
-              (touchstart)="toggleMoreAbout()"
-              (focus)="openMoreAbout()"
-              (blur)="closeMoreAbout()"
-            >
-              <svg width="29" height="30">
-                <use href="./assets/images/icons/icons.svg#emoji"></use>
-              </svg>
-            </button>
-          </div>
+<div class="content about">
+  <h2 id="about-heading">{{ 'about.title' | translate }}</h2>
+  <div class="about__wrapper">
+    <div class="about__image">
+      <img src="assets/images/Anika-Mayer-Work.png" alt="Image of Anika Mayer" />
+    </div>
+    <div class="about__info-wrap">
+      <div class="about__info">
+        <div class="about__info--text">
+          <p>
+            {{ 'about.text1' | translate }}
+          </p>
+          <p>{{ 'about.text2' | translate }}</p>
+        </div>
+        <div class="about__btn">
+          <a app-btn href="#contact-section" aria-label="Jump to contact form">
+            {{ 'about.btn' | translate }}
+          </a>
+          <button
+            class="about__btn--more"
+            [attr.aria-expanded]="moreIsOpen()"
+            aria-controls="about-more"
+            (mouseenter)="openMoreAbout()"
+            (mouseleave)="closeMoreAbout()"
+            (touchstart)="toggleMoreAbout()"
+            (focus)="openMoreAbout()"
+            (blur)="closeMoreAbout()"
+          >
+            <svg width="29" height="30">
+              <use href="./assets/images/icons/icons.svg#emoji"></use>
+            </svg>
+          </button>
         </div>
       </div>
     </div>
-    <div id="about-more" class="about__more" [class.about__more--visible]="moreIsOpen()">
-      <div class="about__more--header">
-        <h3>{{ 'about.boxTitle' | translate }}</h3>
-        @if (responsiveService.isMobile() || responsiveService.isTablet()) {
-          <button app-close (closed)="closeMoreAbout()" aria-label="Close info box"></button>
-        }
-      </div>
-      <ul>
-        @for (item of infoList; track item) {
-          <li>
-            <svg aria-hidden="true" width="14" height="14">
-              <use href="./assets/images/icons/icons.svg#check-circle"></use>
-            </svg>
-            <p>{{ item | translate }}</p>
-          </li>
-        }
-      </ul>
-    </div>
   </div>
-</section>
+  <div id="about-more" class="about__more" [class.about__more--visible]="moreIsOpen()">
+    <div class="about__more--header">
+      <h3>{{ 'about.boxTitle' | translate }}</h3>
+      @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+        <button app-close (closed)="closeMoreAbout()" aria-label="Close info box"></button>
+      }
+    </div>
+    <ul>
+      @for (item of infoList; track item) {
+        <li>
+          <svg aria-hidden="true" width="14" height="14">
+            <use href="./assets/images/icons/icons.svg#check-circle"></use>
+          </svg>
+          <p>{{ item | translate }}</p>
+        </li>
+      }
+    </ul>
+  </div>
+</div>

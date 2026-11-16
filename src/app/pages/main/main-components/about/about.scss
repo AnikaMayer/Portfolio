@@ -1,6 +1,6 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
-.about {
+:host {
   @include sectionStart($bgLight, $textDark, 160px);
   position: relative;
 
@@ -27,176 +27,178 @@
     }
   }
 
-  h2 {
-    color: $textDark;
-    @include headline;
-    align-self: flex-start;
+  .about {
+    h2 {
+      color: $textDark;
+      @include headline;
+      align-self: flex-start;
 
-    @include tablet {
-      position: unset;
-      align-self: flex-end;
-      margin-bottom: 32px;
+      @include tablet {
+        position: unset;
+        align-self: flex-end;
+        margin-bottom: 32px;
+      }
     }
-  }
 
-  &__wrapper {
-    width: 528px;
-    height: 740px;
-    position: relative;
+    &__wrapper {
+      width: 528px;
+      height: 740px;
+      position: relative;
 
-    @include tablet {
+      @include tablet {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-direction: column;
+      }
+    }
+
+    &__image {
+      width: 528px;
+      height: 740px;
+
+      @include tablet(1200px) {
+        width: 67%;
+        height: auto;
+        aspect-ratio: 240 / 336;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    &__info-wrap {
       width: 100%;
       height: auto;
+      position: relative;
+
+      @include tablet {
+        width: 100%;
+        height: auto;
+        min-height: 500px;
+      }
+    }
+
+    &__info {
+      width: 600px;
+      max-width: 600px;
+      // height: 250px;
+      background-color: $bgDark;
+      color: $textLight;
+      font-family: 'Quicksand';
+      font-size: 16px;
+      border-radius: 4px;
+      padding: 32px;
       display: flex;
       flex-direction: column;
+      gap: 32px;
+      position: absolute;
+      bottom: 322px;
+      left: 450px;
+
+      @include tablet(1200px) {
+        width: clamp(400px, calc(-449.286px + 82.857vw), 545px);
+        height: auto;
+        bottom: 0;
+      }
+
+      @include tablet {
+        width: 67%;
+        min-width: 240px;
+
+        left: unset;
+        bottom: unset;
+        top: -10%;
+        right: 0;
+      }
+
+      &--text {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
     }
-  }
 
-  &__image {
-    width: 528px;
-    height: 740px;
-
-    @include tablet(1200px) {
-      width: 67%;
-      height: auto;
-      aspect-ratio: 240 / 336;
-    }
-
-    img {
+    &__btn {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
+      display: flex;
+      justify-content: space-between;
 
-  &__info-wrap {
-    width: 100%;
-    height: auto;
-    position: relative;
+      a {
+        --btn-width: clamp(131px, calc(35px + 24vw), 155px);
+      }
 
-    @include tablet {
-      width: 100%;
-      height: auto;
-      min-height: 500px;
-    }
-  }
+      &--more {
+        width: 40px;
+        height: auto;
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        border: none;
+        background: none;
+        @include bounce-animation;
 
-  &__info {
-    width: 600px;
-    max-width: 600px;
-    // height: 250px;
-    background-color: $bgDark;
-    color: $textLight;
-    font-family: 'Quicksand';
-    font-size: 16px;
-    border-radius: 4px;
-    padding: 32px;
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-    position: absolute;
-    bottom: 322px;
-    left: 450px;
-
-    @include tablet(1200px) {
-      width: clamp(400px, calc(-449.286px + 82.857vw), 545px);
-      height: auto;
-      bottom: 0;
+        &:hover {
+          animation-play-state: paused;
+        }
+      }
     }
 
-    @include tablet {
-      width: 67%;
-      min-width: 240px;
-
-      left: unset;
-      bottom: unset;
-      top: -10%;
-      right: 0;
-    }
-
-    &--text {
+    &__more {
+      width: 272px;
+      height: fit-content;
+      border-radius: 4px;
+      border: 1px solid $textLight;
+      padding: 32px;
+      font-family: 'Quicksand';
+      font-size: 16px;
+      line-height: 120%;
+      color: $textLight;
+      background-color: $bgMedium;
       display: flex;
       flex-direction: column;
       gap: 16px;
-    }
-  }
-
-  &__btn {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-
-    a {
-      --btn-width: clamp(131px, calc(35px + 24vw), 155px);
-    }
-
-    &--more {
-      width: 40px;
-      height: auto;
-      display: flex;
-      justify-content: center;
-      align-items: flex-end;
-      border: none;
-      background: none;
-      @include bounce-animation;
-
-      &:hover {
-        animation-play-state: paused;
-      }
-    }
-  }
-
-  &__more {
-    width: 272px;
-    height: fit-content;
-    border-radius: 4px;
-    border: 1px solid $textLight;
-    padding: 32px;
-    font-family: 'Quicksand';
-    font-size: 16px;
-    line-height: 120%;
-    color: $textLight;
-    background-color: $bgMedium;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    position: absolute;
-    bottom: 80px;
-    right: 120px;
-    @include hoverDefault;
-
-    &--visible {
-      @include hoverEnter;
-    }
-
-    @include tablet(1200px) {
-      bottom: 10px;
-    }
-
-    @include tablet {
+      position: absolute;
       bottom: 80px;
-      left: clamp(16px, calc(-32px + 12vw), 112px);
-    }
+      right: 120px;
+      @include hoverDefault;
 
-    &--header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      h3 {
-        // text-align: center;
-        text-align: start;
+      &--visible {
+        @include hoverEnter;
       }
-    }
 
-    ul {
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
+      @include tablet(1200px) {
+        bottom: 10px;
+      }
 
-      li {
+      @include tablet {
+        bottom: 80px;
+        left: clamp(16px, calc(-32px + 12vw), 112px);
+      }
+
+      &--header {
         display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        h3 {
+          // text-align: center;
+          text-align: start;
+        }
+      }
+
+      ul {
+        display: flex;
+        flex-direction: column;
         gap: 8px;
+
+        li {
+          display: flex;
+          gap: 8px;
+        }
       }
     }
   }

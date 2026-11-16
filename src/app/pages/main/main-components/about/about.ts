@@ -6,9 +6,13 @@ import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
 
 @Component({
   imports: [Button, TranslatePipe, CloseBtn],
-  selector: 'app-about',
+  selector: 'section[app-about]',
   styleUrl: './about.scss',
   templateUrl: './about.html',
+  host: {
+    id: 'about-section',
+    'aria-labelledby': 'about-heading',
+  },
 })
 export class About {
   responsiveService = inject(ResponsiveService);
