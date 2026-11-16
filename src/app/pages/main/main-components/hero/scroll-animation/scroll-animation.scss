@@ -1,7 +1,7 @@
 @use '../../../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
-  width: min(clamp(80px, 10vh, 144px), calcClamp(80, 144, 375, 1024));
+  width: calcClamp(80, 144, 768, 1024);
   aspect-ratio: 1/1;
   position: absolute;
   bottom: clamp(5px, 6vh, 96px);
@@ -30,8 +30,8 @@
     }
   }
 
-  @media (max-height: 900px) {
-    bottom: 5px;
+  @media (max-height: 600px) {
+    width: min(calcClamp(80, 144, 768, 1024), calcClamp(80, 144, 500, 600, height));
   }
 
   @include tablet {

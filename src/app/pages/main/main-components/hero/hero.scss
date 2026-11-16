@@ -29,7 +29,12 @@
       display: flex;
       flex-direction: column;
       gap: 32px;
-      align-self: center;
+      align-self: start;
+      padding-top: 80px;
+
+      @media (max-height: 900px) {
+        padding-top: 0;
+      }
 
       @include tablet {
         width: 100%;
@@ -41,7 +46,7 @@
         width: 100%;
         font-family: 'Quicksand';
         font-weight: 400;
-        font-size: clamp(30px, calc(18px + 3vw), 48px);
+        font-size: min(clamp(30px, calc(18px + 3vw), 48px), calcClamp(30, 48, 500, 900, height));
         line-height: 1;
         color: $textLight;
         display: flex;
@@ -51,7 +56,10 @@
         span {
           font-family: 'Eczar';
           font-weight: 700;
-          font-size: clamp(70px, calc(52.667px + 4.333vw), 96px);
+          font-size: min(
+            clamp(70px, calc(52.667px + 4.333vw), 96px),
+            calcClamp(70, 96, 500, 900, height)
+          );
         }
       }
     }
