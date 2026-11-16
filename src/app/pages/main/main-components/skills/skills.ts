@@ -5,9 +5,13 @@ import { ResponsiveService } from '../../../../shared/services/responsive';
 
 @Component({
   imports: [TranslatePipe, CloseBtn],
-  selector: 'app-skills',
+  selector: 'section[app-skills]',
   styleUrl: './skills.scss',
   templateUrl: './skills.html',
+  host: {
+    id: 'skills-section',
+    'aria-labelledby': 'skills-heading',
+  },
 })
 export class Skills {
   responsiveService = inject(ResponsiveService);

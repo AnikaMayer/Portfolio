@@ -1,74 +1,72 @@
-<section id="skills-section" class="skills" aria-labelledby="skills-heading">
-  <div class="content">
-    <div class="skills__info">
-      <h2 id="skills-heading">{{ 'skills.title' | translate }}</h2>
-      <div class="skills__info--text">
-        <p>
-          {{ 'skills.text' | translate }}
-        </p>
-      </div>
+<div class="content skills">
+  <div class="skills__info">
+    <h2 id="skills-heading">{{ 'skills.title' | translate }}</h2>
+    <div class="skills__info--text">
+      <p>
+        {{ 'skills.text' | translate }}
+      </p>
     </div>
-    <div class="skills__wrapper">
-      <div class="skills__animation">
-        <svg
-          class="skills__animation--graphic"
-          [class.paused]="isHovered()"
-          aria-hidden="true"
-          width="120"
-          height="120"
-          viewBox="0 0 120 120"
-        >
-          <use href="./assets/images/icons/icons.svg#radialburst"></use>
-          >
-        </svg>
-        <button
-          class="skills__animation--btn"
-          aria-label="Show missing skills"
-          [attr.aria-expanded]="isOpen()"
-          (mouseenter)="openMissingSkills()"
-          (mouseleave)="closeMissingSkills()"
-          (touchstart)="toggleMissingSkills()"
-          (focus)="openMissingSkills()"
-          (blur)="closeMissingSkills()"
-        >
-          <svg aria-hidden="true" width="32" height="29">
-            <use href="./assets/images/icons/icons.svg#learning"></use>
-          </svg>
-        </button>
-      </div>
-      <div
-        class="skills__overlay"
-        [class.skills__overlay--visible]="isOpen()"
-        [attr.aria-hidden]="isOpen() ? null : 'true'"
+  </div>
+  <div class="skills__wrapper">
+    <div class="skills__animation">
+      <svg
+        class="skills__animation--graphic"
+        [class.paused]="isHovered()"
+        aria-hidden="true"
+        width="120"
+        height="120"
+        viewBox="0 0 120 120"
       >
-        @if (responsiveService.isMobile() || responsiveService.isTablet()) {
-          <button app-close (closed)="closeMissingSkills()" aria-label="Close overlay"></button>
-        }
-        <h3>{{ 'skills.title2' | translate }}</h3>
-        <div>
-          <p>
-            {{ 'skills.text2' | translate }}
-          </p>
-          <ul aria-label="Skills I want to learn">
-            @for (item of learningSkills; track item.name) {
-              <li>
-                <img [src]="item.path" [alt]="item.text" />
-                <p>{{ item.name }}</p>
-              </li>
-            }
-          </ul>
-        </div>
-      </div>
-      <div class="skills__list">
-        <ul aria-label="Skill list">
-          @for (item of skillList; track item.name) {
+        <use href="./assets/images/icons/icons.svg#radialburst"></use>
+        >
+      </svg>
+      <button
+        class="skills__animation--btn"
+        aria-label="Show missing skills"
+        [attr.aria-expanded]="isOpen()"
+        (mouseenter)="openMissingSkills()"
+        (mouseleave)="closeMissingSkills()"
+        (touchstart)="toggleMissingSkills()"
+        (focus)="openMissingSkills()"
+        (blur)="closeMissingSkills()"
+      >
+        <svg aria-hidden="true" width="32" height="29">
+          <use href="./assets/images/icons/icons.svg#learning"></use>
+        </svg>
+      </button>
+    </div>
+    <div
+      class="skills__overlay"
+      [class.skills__overlay--visible]="isOpen()"
+      [attr.aria-hidden]="isOpen() ? null : 'true'"
+    >
+      @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+        <button app-close (closed)="closeMissingSkills()" aria-label="Close overlay"></button>
+      }
+      <h3>{{ 'skills.title2' | translate }}</h3>
+      <div>
+        <p>
+          {{ 'skills.text2' | translate }}
+        </p>
+        <ul aria-label="Skills I want to learn">
+          @for (item of learningSkills; track item.name) {
             <li>
-              <div><img [src]="item.path" [alt]="item.text" /></div>
+              <img [src]="item.path" [alt]="item.text" />
               <p>{{ item.name }}</p>
             </li>
           }
         </ul>
       </div>
     </div>
+    <div class="skills__list">
+      <ul aria-label="Skill list">
+        @for (item of skillList; track item.name) {
+          <li>
+            <div><img [src]="item.path" [alt]="item.text" /></div>
+            <p>{{ item.name }}</p>
+          </li>
+        }
+      </ul>
+    </div>
   </div>
-</section>
+</div>
