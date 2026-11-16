@@ -1,6 +1,6 @@
 @use '../../../../../public/assets/styles/all_styles.scss' as *;
 
-.navbar {
+:host {
   width: 12px;
   height: 168px;
   @include flex-column;
@@ -20,7 +20,7 @@
     display: none;
   }
 
-  &__section {
+  .nav-section {
     width: 8px;
     height: 8px;
     background-color: $textLight;
@@ -30,7 +30,7 @@
   }
 }
 
-a.is-active .navbar__section {
+a.is-active .nav-section {
   border-radius: 1px;
   background-color: $highlightLight;
 }

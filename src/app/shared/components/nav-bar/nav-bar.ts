@@ -2,7 +2,7 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 
 @Component({
   imports: [],
-  selector: 'app-nav-bar',
+  selector: 'nav[app-nav-bar]',
   styleUrl: './nav-bar.scss',
   templateUrl: './nav-bar.html',
 })
