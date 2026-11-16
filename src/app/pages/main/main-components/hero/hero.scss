@@ -33,6 +33,7 @@
     grid-template-columns: 1fr 1.5fr; // Text: 40%, Bild: 60%
     align-items: end; // Inhalte unten ausrichten (Bild geht bis unten)
     background-color: rgba(0, 255, 255, 0.571);
+    position: relative;
 
     @include tablet {
       // padding-block: clamp(40px, calc(18.667px + 5.333vw), 72px) 0;
@@ -60,6 +61,7 @@
       gap: 32px;
       align-self: center; // ← Text: vertikal zentriert
       // padding-bottom: 10%; // ← leicht nach unten versetzt (optional)
+      // padding-bottom: clamp(32px, 8vh, 96px); // ← Abstand vom Boden
 
       @include tablet {
         width: 100%;
