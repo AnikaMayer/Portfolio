@@ -95,9 +95,9 @@
     ],
     "errors": {
       "name_required": "Ups! Dein Name fehlt noch.",
-      "name_valid": "Bitte gib einen gültigen Namen ein.",
+      "name_valid": "Der Name ist leider ungültig.",
       "email_required": "Huch! Deine E-Mail fehlt.",
-      "email_valid": "Bitte gib eine gültige E-Mail-Adresse ein.",
+      "email_valid": "Die E-Mail ist leider ungültig.",
       "message_required": "Was möchtest du entwickeln?",
       "message_valid": "Bitte gib eine gültige Nachricht ein.",
       "privacy_required": "Bitte akzeptiere die Datenschutzerklärung."
