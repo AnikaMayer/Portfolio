@@ -43,7 +43,8 @@
 @mixin headline {
   font-family: 'Eczar';
   font-weight: 700;
-  font-size: calcClamp(40, 72, 390, 1200);
+  // font-size: calcClamp(40, 72, 390, 1200);
+  font-size: min(clamp(40px, calc(24px + 4vw), 72px), 13cqi, calcClamp(40, 72, 600, 900, height));
   line-height: 100%;
   margin-top: 40px;
 
