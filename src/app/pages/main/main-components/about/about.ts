@@ -16,7 +16,7 @@ import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
 })
 export class About {
   responsiveService = inject(ResponsiveService);
-  moreIsOpen = signal(false);
+  moreIsOpen = signal(true);
   infoList = [
     'about.items.item1',
     'about.items.item2',
