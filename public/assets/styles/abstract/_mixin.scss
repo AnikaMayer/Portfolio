@@ -1,4 +1,5 @@
 @use 'variables' as *;
+@use 'functions' as *;
 
 @mixin bounce-animation($time: 450ms, $scale: 1) {
   animation: bounce $time ease infinite alternate;
@@ -42,8 +43,13 @@
 @mixin headline {
   font-family: 'Eczar';
   font-weight: 700;
-  font-size: clamp(40px, calc(24px + 4vw), 72px);
+  font-size: calcClamp(40, 72, 390, 1200);
   line-height: 100%;
+  margin-top: 40px;
+
+  @include mobile {
+    margin-top: 30px;
+  }
 }
 
 @mixin sectionStart($bgColor, $color) {
