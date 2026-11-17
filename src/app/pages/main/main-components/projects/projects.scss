@@ -3,20 +3,25 @@
 :host {
   @include sectionStart($bgLight, $textDark);
 
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 1fr;
+  align-items: stretch;
+
   @include tablet {
-    height: auto;
     padding-block: 80px;
   }
 
   .content {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    align-content: center;
+    row-gap: 40px;
+    padding-bottom: 40px;
 
     @include tablet {
-      height: auto;
-      gap: 32px;
+      row-gap: 32px;
+      padding-bottom: 0;
     }
   }
 
@@ -37,8 +42,10 @@
       }
 
       &--text {
-        width: clamp(450px, calc(-180px + 60vw), 600px);
-        padding: 32px;
+        flex: 1;
+        min-width: 0;
+        max-width: 600px;
+        padding-top: 32px;
 
         @include tablet {
           width: 100%;
@@ -48,24 +55,20 @@
     }
 
     &__wrapper {
-      display: flex;
-      gap: 40px;
+      display: grid;
+      // Bild 488 : Info 688, schrumpft proportional mit
+      grid-template-columns: minmax(0, 488fr) minmax(0, 688fr);
+      column-gap: 40px;
+      align-items: center;
 
       @include tablet {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 32px;
-      }
-
-      @include mobile {
-        flex-direction: column;
-        gap: 32px;
+        grid-template-columns: minmax(0, 1fr);
+        row-gap: 32px;
       }
     }
 
     &__img {
       width: 100%;
-      max-width: 488px;
       aspect-ratio: 1 / 1;
       border-radius: 4px;
       border: 1px solid $textDark;
@@ -79,7 +82,6 @@
       }
 
       @include mobile {
-        max-width: 688px;
         aspect-ratio: 1 / 1;
       }
 
@@ -100,6 +102,8 @@
       }
 
       svg {
+        width: 37%;
+        height: auto;
         position: absolute;
         bottom: 0;
         left: 0;
@@ -109,7 +113,7 @@
 
         @include mobile {
           width: 132px;
-          height: auto;
+          max-width: 46%;
         }
       }
 
@@ -137,26 +141,22 @@
     }
 
     &__info-wrapper {
+      width: 100%;
       display: flex;
       flex-direction: column;
       justify-content: center;
       gap: 32px;
 
       @include tablet {
-        align-self: flex-end;
-      }
-
-      @include mobile {
-        width: 100%;
-        height: auto;
+        max-width: 688px;
+        justify-self: end;
       }
     }
 
     &__info {
       width: 100%;
       max-width: 688px;
-      height: 100%;
-      max-height: 368px;
+      height: 300px;
       border-radius: 4px;
       padding: 32px;
       display: flex;
@@ -168,6 +168,7 @@
       position: relative;
 
       @include mobile {
+        height: 368px;
         padding: 16px;
       }
 
@@ -193,12 +194,12 @@
             @include flex-center;
             background: none;
             border: none;
+            @include bounce-animation;
 
             img {
               width: 30px;
               height: 30px;
               object-fit: cover;
-              @include bounce-animation;
 
               &:hover {
                 animation: paused;
@@ -257,7 +258,7 @@
         display: none;
 
         &-visible {
-          width: 520px;
+          width: min(620px, 95%);
           height: auto;
           border: 1px solid $textLight;
           border-radius: 4px;
@@ -270,13 +271,20 @@
           color: $textLight;
           position: absolute;
           right: 5%;
-          top: -20%;
-        }
+          bottom: calc(100% - 20px);
+          z-index: 10;
 
-        button {
-          position: absolute;
-          top: 9px;
-          right: 16px;
+          @include tablet(1200px) {
+            padding: 24px;
+          }
+
+          @include tablet {
+            right: 0;
+            width: min(520px, 100%);
+            bottom: calc(100% + 5px);
+            padding-top: 9px;
+            padding-inline: 16px;
+          }
         }
       }
     }
