@@ -2,10 +2,17 @@
 
 :host {
   @include sectionStart($bgDark, $textLight);
-  height: 100dvh;
+  // Contact + Footer füllen zusammen mindestens einen Screen. Der Footer liegt
+  // im Fluss darunter, die Section wächst bei wenig Höhe einfach mit.
+  min-height: calc(100svh - #{$footerHeight} + #{$footerOverlap} + #{$contactPaddingBottom});
 
-  @include tablet(1390px) {
-    height: auto;
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 1fr;
+  align-items: stretch;
+
+  @include tablet(1150px) {
+    min-height: 0;
   }
 
   @include tablet {
@@ -14,22 +21,19 @@
 
   .content {
     width: 100%;
-    height: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: clamp(32px, calc(8px + 6vw), 80px);
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: clamp(32px, calc(8px + 6vw), 80px);
+    align-items: start;
     position: relative;
-    margin-bottom: 78px;
+    z-index: 1; // über dem Footer, der unten in die Section hineinragt
+    padding-block: 24px $contactPaddingBottom;
 
-    @include tablet(1390px) {
-      height: auto;
-      display: flex;
-      flex-direction: column;
-      margin-bottom: 120px;
-    }
-
-    @include mobile {
-      margin-bottom: 80px;
+    @include tablet(1150px) {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 48px;
+      align-content: start;
+      padding-bottom: 48px;
     }
   }
 
@@ -37,6 +41,12 @@
     &__intro {
       width: 100%;
       max-width: 528px;
+
+      // Platz für den Footer, der unten links (Zahnräder) in die Section ragt
+      @media (min-width: 1151px) {
+        margin-bottom: $footerOverlap;
+      }
+
       display: flex;
       flex-direction: column;
       gap: clamp(32px, calc(16px + 4vw), 64px);
@@ -71,19 +81,17 @@
     &__form {
       width: 100%;
       max-width: 600px;
-      align-self: flex-end;
-      height: 370px;
+      align-self: end;
       display: flex;
       flex-direction: column;
       gap: 40px;
 
       @include tablet(1150px) {
-        max-width: 100%;
-        height: auto;
+        align-self: start;
       }
 
-      @include mobile {
-        height: 495px;
+      @include tablet(1150px) {
+        max-width: 100%;
       }
 
       &--personal {
@@ -176,7 +184,6 @@
 
       &--send {
         width: 100%;
-        height: 110px;
         @include flex-column;
         gap: 41px;
 
@@ -250,9 +257,9 @@
         position: fixed;
         bottom: 20%;
         left: 50%;
-        transform: translateX(-50%); // zentriert horizontal
+        transform: translateX(-50%);
 
-        display: inline-flex; // ← das fehlt
+        display: inline-flex;
         align-items: center;
 
         font-size: calcClamp(16, 20, 320, 760);
@@ -301,13 +308,17 @@
       border: none;
       background: none;
       position: absolute;
-      top: 0;
-      right: clamp(16px, calc(-12px + 7vw), 72px);
+      top: 10%;
+      right: vwClamp(10, 7, 320, 1440);
       @include flex-center(flex-end);
 
-      @include tablet {
+      @include tablet(1150px) {
         top: unset;
-        bottom: 30px;
+        bottom: 48px;
+      }
+
+      @include tablet {
+        right: clamp(16px, calc(-12px + 7vw), 72px);
       }
 
       svg {
