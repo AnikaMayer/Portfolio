@@ -47,7 +47,7 @@ export class Projects {
       technologies: ['HTML', 'CSS', 'Supabase', 'Angular', 'Typescript'],
       description: 'projects.items.1.description',
       info: 'projects.items.1.info',
-      image: 'assets/images/projects/join.jpg',
+      image: 'assets/images/projects/join.png',
       icon: 'assets/images/icons/join_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
       liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
