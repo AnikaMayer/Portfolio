@@ -11,6 +11,10 @@
   position: relative;
   background-color: $bgDark;
 
+  @media (min-width: 1151px) {
+    margin-top: calc(-1 * (#{$footerOverlap} + #{$contactPaddingBottom}));
+  }
+
   .content {
     display: flex;
     justify-content: space-between;
@@ -30,8 +34,8 @@
 
   .footer {
     &__animation {
-      width: clamp(200px, calc(-72px + 34vw), 370px);
-      height: 0;
+      width: $footerAnimationWidth;
+      aspect-ratio: 1 / 0.711;
       position: relative;
 
       .gear-left,
@@ -55,13 +59,11 @@
       }
 
       @include mobileFooter {
-        width: 100%;
-        height: $footerAnimationHeight;
+        width: min(100%, 370px);
       }
 
       @include mobile {
-        width: 100%;
-        height: $footerAnimationHeight;
+        width: min(100%, 370px);
         position: relative;
         bottom: 0;
         margin-top: 24px;
@@ -71,7 +73,6 @@
         position: absolute;
         width: 100%;
         height: 100%;
-        // overflow: clip;
       }
 
       &--left {
