@@ -2,8 +2,6 @@
 
 :host {
   @include sectionStart($bgDark, $textLight);
-  // Contact + Footer füllen zusammen mindestens einen Screen. Der Footer liegt
-  // im Fluss darunter, die Section wächst bei wenig Höhe einfach mit.
   min-height: calc(100svh - #{$footerHeight} + #{$footerOverlap} + #{$contactPaddingBottom});
 
   display: grid;
@@ -26,8 +24,9 @@
     column-gap: clamp(16px, calc(8px + 3vw), 80px);
     align-items: start;
     position: relative;
-    z-index: 1; // über dem Footer, der unten in die Section hineinragt
+    z-index: 1;
     padding-block: 24px $contactPaddingBottom;
+    --arrow-top: clamp(0px, calc((100svh - 700px) * 0.25), 80px);
 
     @include tablet(1150px) {
       grid-template-columns: minmax(0, 1fr);
@@ -42,7 +41,6 @@
       width: 100%;
       max-width: 528px;
 
-      // Platz für den Footer, der unten links (Zahnräder) in die Section ragt
       @media (min-width: 1151px) {
         margin-bottom: $footerOverlap;
       }
@@ -50,7 +48,6 @@
       display: flex;
       flex-direction: column;
       gap: clamp(32px, calc(16px + 4vw), 64px);
-      // Die Überschrift richtet sich nach der Spaltenbreite (cqi), nicht nach dem Viewport.
       container-type: inline-size;
 
       @include tablet(1150px) {
@@ -63,8 +60,6 @@
 
       h2 {
         @include headline;
-        // auf niedrigen Screens (kleine Laptops) kleiner, damit nicht unnötig gescrollt wird
-        // 13cqi: "something Cool" (ca. 7,3em) passt immer in die Spalte -> 3 Zeilen statt 4
         font-size: min(
           clamp(40px, calc(24px + 4vw), 72px),
           13cqi,
@@ -92,11 +87,15 @@
       max-width: 600px;
       justify-self: end;
       align-self: end;
-      // Container für @container-Regeln und cqi-Einheiten der Eingabefelder
       container-type: inline-size;
       display: flex;
       flex-direction: column;
       gap: 48px;
+
+      @media (min-width: 1151px) {
+        margin-top: calc(var(--arrow-top) + 60px);
+        gap: clamp(32px, 5svh, 48px);
+      }
 
       @include tablet(1150px) {
         align-self: start;
@@ -106,24 +105,26 @@
         max-width: 100%;
       }
 
-      // Name und E-Mail stehen nur nebeneinander, wenn jedes Feld genug Platz hat
-      // (auch für die längsten deutschen Labels). Sonst untereinander.
       &--personal {
         width: 100%;
         display: flex;
         flex-direction: column;
         gap: 48px;
 
+        @media (min-width: 1151px) {
+          gap: clamp(32px, 5svh, 48px);
+        }
+
         > * {
           min-width: 0;
         }
 
-        @container (min-width: 540px) {
+        @container (min-width: 460px) {
           flex-direction: row;
           gap: 24px;
 
           > * {
-            flex: 1 1 0; // gleich breite Felder
+            flex: 1 1 0;
           }
         }
 
@@ -132,7 +133,7 @@
           gap: 48px;
 
           > * {
-            flex: 0 0 auto; // untereinander: Höhe richtet sich nach dem Inhalt
+            flex: 0 0 auto;
           }
         }
       }
@@ -140,7 +141,7 @@
       &--input {
         width: 100%;
         min-height: clamp(82px, calc(78px + 1vw), 90px);
-        padding: 16px 12px;
+        padding: 16px 8px;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
@@ -153,10 +154,8 @@
           font-weight: 700;
           font-size: clamp(18px, 4.5cqi, 24px);
 
-          // nebeneinander: Schrift an die Feldbreite koppeln, damit "Wie ist deine E-Mail?"
-          // nicht umbricht (Feldbreite = 50cqi - 36px, Label ca. 12,6em lang)
-          @container (min-width: 540px) {
-            font-size: clamp(18px, calc((50cqi - 36px) / 12.6), 24px);
+          @container (min-width: 460px) {
+            font-size: clamp(16px, calc((50cqi - 28px) / 12.6), 24px);
           }
 
           @include tablet {
@@ -199,6 +198,10 @@
           opacity: 0.8;
           font-size: clamp(14px, calc(13px + 0.25vw), 16px);
           text-overflow: ellipsis;
+
+          @container (min-width: 460px) and (max-width: 539.98px) {
+            font-size: 14px;
+          }
         }
       }
 
@@ -215,15 +218,12 @@
         }
       }
 
-      // Fehlermeldung steht UNTER der Linie und ist absolut positioniert, sie liegt also im
-      // 40px-Abstand zwischen den Feldern. Dadurch ändert sich das Layout nicht, wenn sie
-      // erscheint. $errorColor: Kontrast ca. 7:1 auf $bgDark (WCAG AA verlangt 4,5:1).
       &--error {
         position: absolute;
         top: 100%;
-        left: 12px;
-        right: 12px;
-        margin-top: 8px; // Luft zur Linie (Border 1px + 7px)
+        left: 8px;
+        right: 8px;
+        margin-top: 8px;
         font-size: 14px;
         line-height: 120%;
         color: $errorColor;
@@ -242,7 +242,6 @@
           flex-wrap: wrap;
           position: relative;
 
-          // Text schrumpft neben der Checkbox, statt in eine neue Zeile zu rutschen
           > p:not(.checkbox-line__error) {
             flex: 1 1 0;
             min-width: 0;
@@ -292,7 +291,6 @@
             }
           }
 
-          // unter dem Text, im 41px-Abstand zum Button (kein Layout-Sprung)
           &__error {
             position: absolute;
             top: 100%;
@@ -368,11 +366,10 @@
       border: none;
       background: none;
       position: absolute;
-      top: 10%;
+      top: var(--arrow-top);
       right: vwClamp(10, 7, 320, 1440);
       @include flex-center(flex-end);
 
-      // Tablet/Mobile: neben dem Absenden-Button, am unteren Rand des Contents
       @include tablet(1150px) {
         top: unset;
         bottom: 48px;
