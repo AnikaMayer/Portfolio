@@ -23,7 +23,7 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    column-gap: clamp(32px, calc(8px + 6vw), 80px);
+    column-gap: clamp(16px, calc(8px + 3vw), 80px);
     align-items: start;
     position: relative;
     z-index: 1; // über dem Footer, der unten in die Section hineinragt
@@ -50,6 +50,8 @@
       display: flex;
       flex-direction: column;
       gap: clamp(32px, calc(16px + 4vw), 64px);
+      // Die Überschrift richtet sich nach der Spaltenbreite (cqi), nicht nach dem Viewport.
+      container-type: inline-size;
 
       @include tablet(1150px) {
         max-width: 80%;
@@ -61,6 +63,13 @@
 
       h2 {
         @include headline;
+        // auf niedrigen Screens (kleine Laptops) kleiner, damit nicht unnötig gescrollt wird
+        // 13cqi: "something Cool" (ca. 7,3em) passt immer in die Spalte -> 3 Zeilen statt 4
+        font-size: min(
+          clamp(40px, calc(24px + 4vw), 72px),
+          13cqi,
+          calcClamp(40, 72, 600, 900, height)
+        );
         color: $highlightLight;
       }
 
@@ -81,10 +90,13 @@
     &__form {
       width: 100%;
       max-width: 600px;
+      justify-self: end;
       align-self: end;
+      // Container für @container-Regeln und cqi-Einheiten der Eingabefelder
+      container-type: inline-size;
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 48px;
 
       @include tablet(1150px) {
         align-self: start;
@@ -94,35 +106,62 @@
         max-width: 100%;
       }
 
+      // Name und E-Mail stehen nur nebeneinander, wenn jedes Feld genug Platz hat
+      // (auch für die längsten deutschen Labels). Sonst untereinander.
       &--personal {
         width: 100%;
         display: flex;
-        gap: 32px;
+        flex-direction: column;
+        gap: 48px;
+
+        > * {
+          min-width: 0;
+        }
+
+        @container (min-width: 540px) {
+          flex-direction: row;
+          gap: 24px;
+
+          > * {
+            flex: 1 1 0; // gleich breite Felder
+          }
+        }
 
         @include tablet {
           flex-direction: column;
+          gap: 48px;
+
+          > * {
+            flex: 0 0 auto; // untereinander: Höhe richtet sich nach dem Inhalt
+          }
         }
       }
 
       &--input {
-        width: 50%;
-        height: clamp(82px, calc(78px + 1vw), 90px);
-        padding: 16px;
+        width: 100%;
+        min-height: clamp(82px, calc(78px + 1vw), 90px);
+        padding: 16px 12px;
         display: flex;
         flex-direction: column;
-        justify-content: flex-end;
+        justify-content: flex-start;
         gap: 10px;
         border-bottom: 1px solid $highlightLight;
         position: relative;
 
-        @include tablet(1150px) {
-          width: 100%;
-        }
-
         h3 {
           line-height: 120%;
           font-weight: 700;
-          font-size: clamp(20px, calc(18px + 0.5vw), 24px);
+          font-size: clamp(18px, 4.5cqi, 24px);
+
+          // nebeneinander: Schrift an die Feldbreite koppeln, damit "Wie ist deine E-Mail?"
+          // nicht umbricht (Feldbreite = 50cqi - 36px, Label ca. 12,6em lang)
+          @container (min-width: 540px) {
+            font-size: clamp(18px, calc((50cqi - 36px) / 12.6), 24px);
+          }
+
+          @include tablet {
+            font-size: clamp(18px, 4.5cqi, 24px);
+          }
         }
 
         &:hover,
@@ -171,15 +210,23 @@
         border-bottom: 1px solid $highlightMedium;
 
         input::placeholder {
-          color: rgba(236, 123, 123, 1);
+          color: $errorColor;
+          opacity: 1;
         }
       }
 
+      // Fehlermeldung steht UNTER der Linie und ist absolut positioniert, sie liegt also im
+      // 40px-Abstand zwischen den Feldern. Dadurch ändert sich das Layout nicht, wenn sie
+      // erscheint. $errorColor: Kontrast ca. 7:1 auf $bgDark (WCAG AA verlangt 4,5:1).
       &--error {
-        font-size: 13px;
-        color: rgba(236, 123, 123, 0.8);
         position: absolute;
-        bottom: 0;
+        top: 100%;
+        left: 12px;
+        right: 12px;
+        margin-top: 8px; // Luft zur Linie (Border 1px + 7px)
+        font-size: 14px;
+        line-height: 120%;
+        color: $errorColor;
       }
 
       &--send {
@@ -192,7 +239,14 @@
           display: flex;
           justify-content: flex-start;
           gap: 4px;
+          flex-wrap: wrap;
           position: relative;
+
+          // Text schrumpft neben der Checkbox, statt in eine neue Zeile zu rutschen
+          > p:not(.checkbox-line__error) {
+            flex: 1 1 0;
+            min-width: 0;
+          }
 
           p a {
             color: $highlightMedium;
@@ -238,10 +292,13 @@
             }
           }
 
+          // unter dem Text, im 41px-Abstand zum Button (kein Layout-Sprung)
           &__error {
             position: absolute;
-            bottom: 0;
-            transform: translateY(30px);
+            top: 100%;
+            left: 24px;
+            right: 0;
+            margin-top: 6px;
           }
         }
       }
@@ -315,6 +372,7 @@
       right: vwClamp(10, 7, 320, 1440);
       @include flex-center(flex-end);
 
+      // Tablet/Mobile: neben dem Absenden-Button, am unteren Rand des Contents
       @include tablet(1150px) {
         top: unset;
         bottom: 48px;
