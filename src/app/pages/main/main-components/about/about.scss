@@ -1,8 +1,5 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
-// Layout-Idee: KEINE absolute Positionierung mehr für die Hauptelemente.
-// Alles sitzt als Grid-Item im Fluss, Überlappungen entstehen über negative
-// Margins bzw. Grid-Zellen, die sich teilen. So wächst die Section immer mit.
 :host {
   @include sectionStart($bgLight, $textDark);
   position: relative;
@@ -13,12 +10,11 @@
   align-items: stretch;
 
   .content {
-    --overlap: clamp(48px, 9vw, 120px); // wie weit die Info-Box ins Bild ragt
-    --more-overhang: 64px; // wie weit die More-Box unter der Info-Box hängt
+    --overlap: clamp(48px, 9vw, 120px);
+    --more-overhang: 64px;
 
     display: grid;
     grid-template-columns: minmax(240px, 43%) 1fr;
-    // Titel | Info-Box | More-Box | Rest
     grid-template-rows: auto auto auto 1fr;
     column-gap: clamp(16px, 4vw, 64px);
     align-items: start;
@@ -49,11 +45,10 @@
       }
 
       @include mobile {
-        margin-top: $headerHeightMobile;
+        margin-top: 0;
       }
     }
 
-    // Wrapper/Container lösen sich im Layout auf, ihre Kinder sind direkte Grid-Items
     &__wrapper,
     &__info-wrap,
     &__info-container {
@@ -84,7 +79,6 @@
       grid-column: 2;
       grid-row: 2;
       z-index: 1;
-      // ragt nach links ins Bild
       width: calc(100% + var(--overlap));
       max-width: 600px;
       margin-left: calc(-1 * var(--overlap));
@@ -106,7 +100,6 @@
         justify-self: end;
         width: clamp(240px, 85%, 545px);
         margin-left: 0;
-        // ragt nach oben ins Bild
         margin-top: -60px;
         padding: clamp(20px, 5vw, 32px);
       }
@@ -144,8 +137,6 @@
     }
 
     &__more {
-      // Desktop: eigene Grid-Zeile unter der Info-Box, rechtsbündig,
-      // leicht über die Info-Box gezogen (wie im Mockup).
       grid-column: 2;
       grid-row: 3;
       justify-self: end;
@@ -172,8 +163,6 @@
         @include hoverEnter;
       }
 
-      // Tablet/Mobile: teilt sich die Zelle mit der Info-Box und überlagert
-      // deren unteren linken Bereich. Es ist ein Overlay mit Close-Button.
       @include tablet {
         grid-column: 1;
         grid-row: 3;
@@ -181,7 +170,6 @@
         align-self: end;
         margin-top: 0;
         margin-left: clamp(0px, 2vw, 16px);
-        // hängt unten über die Info-Box hinaus; Platz dafür liegt im padding-bottom von .content
         margin-bottom: calc(-1 * var(--more-overhang));
         width: min(272px, 80%);
         padding: clamp(20px, 5vw, 32px);
