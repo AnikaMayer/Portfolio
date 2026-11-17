@@ -257,16 +257,19 @@
         position: fixed;
         bottom: 20%;
         left: 50%;
-        transform: translateX(-50%);
 
         display: inline-flex;
         align-items: center;
+        text-align: center;
+
+        min-width: calcClamp(200, 300, 320, 760);
+        max-width: min(90dvw, 480px);
+        width: max-content;
 
         font-size: calcClamp(16, 20, 320, 760);
         font-weight: 700;
-        white-space: nowrap;
         background-color: $bgLight;
-        padding: 24px calcClamp(24, 32);
+        padding: calcClamp(16, 24, 320, 760) calcClamp(24, 32, 320, 760);
         box-shadow: 0px 0px 4px 0px #00000026;
         border-radius: 50px;
         pointer-events: none;
