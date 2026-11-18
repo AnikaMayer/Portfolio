@@ -17,12 +17,14 @@
   }
 
   .content {
+    @include sizeContainer;
     display: grid;
     grid-template-rows: auto 1fr;
-    row-gap: clamp(50px, calc(31px + 4.75vw), 88px);
+    // bei wenig Höhe enger (kleine Laptops), sonst unnötiger Scroll
+    row-gap: min(clamp(50px, calc(31px + 4.75vw), 88px), max(40px, 8svh));
 
     @media (min-width: 1025px) {
-      padding-bottom: calcClamp(40, 117, 1025, 1440);
+      padding-bottom: min(calcClamp(40, 117, 1025, 1440), max(32px, 9svh));
     }
   }
 
