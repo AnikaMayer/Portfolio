@@ -1,4 +1,13 @@
-@function calcClamp($min, $max, $start: 320, $end: 1440, $axis: width) {
+@use 'sass:math';
+
+// px -> rem (Basis: 16px). Beispiel: rem(24) => 1.5rem
+@function rem($px) {
+  @return math.div($px, 16) * 1rem;
+}
+
+// Fluid-Wert: $min bei Viewport-$start, $max bei Viewport-$end, dazwischen linear.
+// $axis: width | height. $unit: px | rem (rem für font-size, skaliert mit der Browser-Schrift).
+@function calcClamp($min, $max, $start: 320, $end: 1440, $axis: width, $unit: px) {
   @if $start >= $end {
     @error "calcClamp: $end (#{$end}) must be greater than $start (#{$start}).";
   }
@@ -8,10 +17,17 @@
     $viewport: 100svh;
   }
 
+  $minValue: $min * 1px;
+  $maxValue: $max * 1px;
+  @if $unit == rem {
+    $minValue: rem($min);
+    $maxValue: rem($max);
+  }
+
   @return clamp(
-    $min * 1px,
-    calc(($viewport - $start * 1px) * ($max - $min) / ($end - $start) + $min * 1px),
-    $max * 1px
+    $minValue,
+    calc(($viewport - $start * 1px) * ($max - $min) / ($end - $start) + $minValue),
+    $maxValue
   );
 }
 
