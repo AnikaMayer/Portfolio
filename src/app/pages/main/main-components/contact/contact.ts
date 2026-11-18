@@ -12,6 +12,7 @@ import {
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/** Values of the contact form. */
 interface FormData {
   name: string;
   email: string;
@@ -19,8 +20,13 @@ interface FormData {
   acceptPrivacy: boolean;
 }
 
+/** State of the last send attempt; drives the feedback toast. */
 type SendStatus = 'idle' | 'success' | 'error';
 
+/**
+ * Contact section with a signal-based form (name, email, message, privacy consent).
+ * Error messages are translation keys. The send action is simulated for now.
+ */
 @Component({
   imports: [Button, FormField, RouterLink, FormRoot, TranslatePipe],
   selector: 'section[app-contact]',
@@ -31,8 +37,10 @@ type SendStatus = 'idle' | 'success' | 'error';
   },
 })
 export class Contact {
+  /** Result of the last send attempt; resets to `idle` after 3 seconds. */
   protected readonly sendStatus = signal<SendStatus>('idle');
 
+  /** Form model holding the current field values. */
   protected readonly contactModel = signal<FormData>({
     name: '',
     email: '',
@@ -40,6 +48,7 @@ export class Contact {
     acceptPrivacy: false,
   });
 
+  /** Signal form: validation rules and the (simulated) submit action. */
   protected readonly contactForm = form(
     this.contactModel,
     (contactPath) => {
@@ -81,12 +90,17 @@ export class Contact {
     },
   );
 
+  /** Icon reference for the privacy checkbox (checked or unchecked). */
   protected readonly checkboxIcon = computed<string>(() => {
     return this.contactModel().acceptPrivacy
       ? './assets/images/icons/icons.svg#checkbox-checked'
       : './assets/images/icons/icons.svg#checkbox';
   });
 
+  /**
+   * Writes the checkbox state into the model and marks the field as touched.
+   * @param event The `change` event of the checkbox input.
+   */
   protected onCheckboxChange(event: Event): void {
     const checked = (event.target as HTMLInputElement).checked;
     this.contactModel.update((model) => ({ ...model, acceptPrivacy: checked })); // ← contactModel wird gesetzt

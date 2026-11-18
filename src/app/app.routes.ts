@@ -3,6 +3,7 @@ import { Main } from './pages/main/main';
 import { LegalNotice } from './pages/legal-notice/legal-notice';
 import { PrivacyPolicy } from './pages/privacy-policy/privacy-policy';
 
+/** Top-level routes: the one-page portfolio plus the two legal pages. */
 export const routes: Routes = [
   { path: '', component: Main },
   { path: 'legal-notice', component: LegalNotice },

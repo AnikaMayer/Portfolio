@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslatePipe } from '@ngx-translate/core';
 
+/** A reference from a colleague. `name`, `text` and `job` are translation keys. */
 interface Feedback {
   name: string;
   text: string;
@@ -8,6 +9,7 @@ interface Feedback {
   link: string;
 }
 
+/** References section: feedback from colleagues. */
 @Component({
   imports: [TranslatePipe],
   selector: 'section[app-references]',
@@ -19,6 +21,7 @@ interface Feedback {
   },
 })
 export class References {
+  /** All references in display order. */
   refList: Feedback[] = [
     {
       name: 'reference.items.0.name',

@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
 
+/** Side navigation dots; highlights the section that is at least half visible. */
 @Component({
   imports: [],
   selector: 'nav[app-nav-bar]',
@@ -7,9 +8,12 @@ import { Component, OnDestroy, OnInit, signal } from '@angular/core';
   templateUrl: './nav-bar.html',
 })
 export class NavBar implements OnInit, OnDestroy {
+  /** Id of the section currently in view. */
   activeSection = signal<string>('hero-section');
+  /** Watches all sections with an id. */
   private observer!: IntersectionObserver;
 
+  /** Starts observing every `section[id]` of the page. */
   ngOnInit() {
     const sections = document.querySelectorAll('section[id]');
 
@@ -27,6 +31,7 @@ export class NavBar implements OnInit, OnDestroy {
     sections.forEach((section) => this.observer.observe(section));
   }
 
+  /** Stops observing to avoid leaks. */
   ngOnDestroy() {
     this.observer.disconnect();
   }

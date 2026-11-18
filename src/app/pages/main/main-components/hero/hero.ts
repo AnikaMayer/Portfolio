@@ -3,6 +3,7 @@ import { Button } from '../../../../shared/components/button/button';
 import { TranslatePipe } from '@ngx-translate/core';
 import { ScrollAnimation } from './scroll-animation/scroll-animation';
 
+/** Hero section with the introduction and the call to action. */
 @Component({
   imports: [Button, TranslatePipe, ScrollAnimation],
   selector: 'section[app-hero]',

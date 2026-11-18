@@ -5,6 +5,11 @@ import { provideHttpClient } from '@angular/common/http';
 import { provideTranslateService } from '@ngx-translate/core';
 import { provideTranslateHttpLoader } from '@ngx-translate/http-loader';
 
+/**
+ * Application-wide providers: router with scroll restoration and anchor scrolling,
+ * HTTP client, and ngx-translate (language from `localStorage`, fallback `en`,
+ * translation files loaded from `i18n/<lang>.json`).
+ */
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),

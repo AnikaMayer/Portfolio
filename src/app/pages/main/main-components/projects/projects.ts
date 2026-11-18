@@ -4,6 +4,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 import { ResponsiveService } from '../../../../shared/services/responsive';
 import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
 
+/** A portfolio project. Texts are translation keys, except `title` and `technologies`. */
 interface Project {
   title: string;
   technologies: string[];
@@ -16,6 +17,7 @@ interface Project {
   colorClass: string;
 }
 
+/** Projects section: shows one project at a time with previous/next navigation. */
 @Component({
   imports: [Button, TranslatePipe, CloseBtn],
   selector: 'section[app-projects]',
@@ -26,10 +28,13 @@ interface Project {
   },
 })
 export class Projects {
+  /** Breakpoint signals for the template. */
   responsiveService = inject(ResponsiveService);
 
+  /** Whether the info overlay of the current project is open. */
   infoIsOpen = signal(false);
 
+  /** All projects in display order. */
   projectList: Project[] = [
     {
       title: 'El Pollo Loco',
@@ -55,12 +60,22 @@ export class Projects {
     },
   ];
 
-  currentIndex = signal(0); // Signal für aktuell aktiven Index
-  currentProject = computed(() => this.projectList[this.currentIndex()]); // computed gibt aktuelles Projekt zurück
-  firstProject = computed(() => this.currentIndex() === 0); //prev-Btn deaktivieren, wenn Index vom ersten Projekt
-  lastProject = computed(() => this.currentIndex() === this.projectList.length - 1); // next-Btn deaktivieren, wenn index vom letzten Objekt
+  /** Index of the project currently shown. */
+  currentIndex = signal(0);
+
+  /** The project currently shown. */
+  currentProject = computed(() => this.projectList[this.currentIndex()]);
+
+  /** `true` while the first project is shown. */
+  firstProject = computed(() => this.currentIndex() === 0);
+
+  /** `true` while the last project is shown. */
+  lastProject = computed(() => this.currentIndex() === this.projectList.length - 1);
+
+  /** Theme class (`theme-*`) of the current project, used for the image colours. */
   currentColorClass = computed(() => this.currentProject().colorClass);
 
+  /** Shows the previous project and wraps around to the last one. */
   prevProject() {
     if (this.currentIndex() === 0) {
       this.currentIndex.set(this.projectList.length - 1);
@@ -69,6 +84,7 @@ export class Projects {
     }
   }
 
+  /** Shows the next project and wraps around to the first one. */
   nextProject() {
     if (this.currentIndex() === this.projectList.length - 1) {
       this.currentIndex.set(0);
@@ -77,14 +93,17 @@ export class Projects {
     }
   }
 
+  /** Opens the info overlay. */
   openInfo() {
     this.infoIsOpen.set(true);
   }
 
+  /** Closes the info overlay. */
   closeInfo() {
     this.infoIsOpen.set(false);
   }
 
+  /** Toggles the info overlay. */
   toggleInfo() {
     this.infoIsOpen.update((v) => !v);
   }

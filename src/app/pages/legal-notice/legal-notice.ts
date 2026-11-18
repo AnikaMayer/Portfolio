@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 
+/** Legal notice page (Impressum). */
 @Component({
   imports: [],
   selector: 'app-legal-notice',

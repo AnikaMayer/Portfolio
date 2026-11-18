@@ -7,6 +7,7 @@ import { References } from './main-components/references/references';
 import { Contact } from './main-components/contact/contact';
 import { NavBar } from '../../shared/components/nav-bar/nav-bar';
 
+/** One-page portfolio: all sections in order plus the side navigation dots. */
 @Component({
   imports: [Hero, About, Skills, Projects, References, Contact, NavBar],
   selector: 'main[app-main]',
