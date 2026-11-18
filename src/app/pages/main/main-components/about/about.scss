@@ -10,6 +10,7 @@
   align-items: stretch;
 
   .content {
+    @include sizeContainer;
     --overlap: clamp(48px, 9vw, 120px);
     --more-overhang: 64px;
 
