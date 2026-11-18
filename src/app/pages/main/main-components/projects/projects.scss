@@ -2,11 +2,7 @@
 
 :host {
   @include sectionStart($bgLight, $textDark);
-
-  display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr;
-  align-items: stretch;
+  @include sectionGrid;
 
   @include tablet {
     padding-block: 80px;
@@ -57,7 +53,7 @@
 
     &__wrapper {
       display: grid;
-      // Bild 488 : Info 688, schrumpft proportional mit
+      // Bild 488 : Info 688
       grid-template-columns: minmax(0, 488fr) minmax(0, 688fr);
       column-gap: 40px;
       align-items: center;
@@ -82,7 +78,6 @@
         aspect-ratio: 1.5 / 1;
       }
 
-      // schmale Container (Smartphone): quadratisch, sonst 3:2 (kein toter Raum im Bild)
       @container (max-width: 519.98px) {
         aspect-ratio: 1 / 1;
       }
@@ -135,8 +130,7 @@
         }
 
         img {
-          width: 100%;
-          height: 100%;
+          @include size(100%);
           object-fit: cover;
         }
       }
@@ -144,10 +138,8 @@
 
     &__info-wrapper {
       width: 100%;
-      display: flex;
-      flex-direction: column;
+      @include stack(32px);
       justify-content: center;
-      gap: 32px;
 
       @include tablet {
         max-width: 688px;
@@ -161,15 +153,12 @@
       height: 300px;
       border-radius: 4px;
       padding: 32px;
-      display: flex;
-      flex-direction: column;
+      @include stack(32px);
       justify-content: center;
-      gap: 32px;
       background-color: $bgDark;
       color: $textLight;
       position: relative;
 
-      // schmale Container: mehr Höhe für den umbrechenden Text, breitere behalten 300px
       @container (max-width: 519.98px) {
         height: 368px;
       }
@@ -179,9 +168,7 @@
       }
 
       &--text {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+        @include stack(16px);
 
         > div {
           width: 100%;
@@ -191,20 +178,18 @@
           h3 {
             font-weight: 700;
             line-height: 120%;
-            font-size: 24px;
+            font-size: rem(24);
           }
 
           button {
-            width: 32px;
-            height: 32px;
+            @include size(32px);
             @include flex-center;
             background: none;
             border: none;
             @include bounce-animation;
 
             img {
-              width: 30px;
-              height: 30px;
+              @include size(30px);
               object-fit: cover;
 
               &:hover {
@@ -241,7 +226,7 @@
           gap: 0;
 
           a {
-            --btn-width: clamp(120px, calc(-144.444px + 77.778vw), 155px);
+            --btn-width: #{calcClamp(120, 155, 340, 385)};
           }
         }
 
@@ -266,12 +251,8 @@
         &-visible {
           width: min(620px, 95%);
           height: auto;
-          border: 1px solid $textLight;
-          border-radius: 4px;
-          padding: 40px;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
+          @include outlinedCard(40px);
+          @include flex-column;
           justify-content: center;
           background-color: $bgMedium;
           color: $textLight;
@@ -305,9 +286,9 @@
         height: auto;
         border: none;
         background: none;
-        font-family: 'Quicksand';
+        font-family: $fontBody;
         font-weight: 700;
-        font-size: clamp(16px, calc(-6.667px + 6.667vw), 18px);
+        font-size: calcClamp(16, 18, 340, 370, width, rem);
         line-height: 120%;
 
         &:hover {

@@ -1,16 +1,14 @@
 @use '../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
-  width: 32px;
-  height: 32px;
+  @include size(32px);
   border: none;
   background: none;
   @include flex-center;
   align-self: flex-end;
 
   svg {
-    width: 18px;
-    height: 18px;
+    @include size(18px);
     transition: 0.1s ease;
     color: var(--close-btn-color, #{$textLight});
   }

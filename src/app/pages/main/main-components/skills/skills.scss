@@ -2,11 +2,7 @@
 
 :host {
   @include sectionStart($bgDark, $textLight);
-
-  display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr;
-  align-items: stretch;
+  @include sectionGrid;
 
   @include tablet {
     padding-block: 80px;
@@ -20,8 +16,7 @@
     @include sizeContainer;
     display: grid;
     grid-template-rows: auto 1fr;
-    // bei wenig Höhe enger (kleine Laptops), sonst unnötiger Scroll
-    row-gap: min(clamp(50px, calc(31px + 4.75vw), 88px), max(40px, 8svh));
+    row-gap: min(calcClamp(50, 88, 400, 1200), max(40px, 8svh));
 
     @media (min-width: 1025px) {
       padding-bottom: min(calcClamp(40, 117, 1025, 1440), max(32px, 9svh));
@@ -31,9 +26,7 @@
   .skills {
     &__info {
       width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: clamp(32px, calc(28px + 1vw), 40px);
+      @include stack(calcClamp(32, 40, 400, 1200));
 
       h2 {
         @include headline;
@@ -61,7 +54,7 @@
       width: 100%;
       align-self: end;
       position: relative;
-      --burst: clamp(96px, 30vw, 120px);
+      --burst: #{calcClamp(96, 120, 320, 400)};
       display: grid;
       grid-template-columns: auto minmax(0, 1fr) minmax(0, 640px);
       align-items: center;
@@ -117,12 +110,8 @@
       max-width: 100%;
       height: auto;
       background-color: $highlightLight;
-      border: 1px solid $textLight;
-      border-radius: 4px;
-      padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      @include outlinedCard;
+      @include stack(16px);
       @include hoverDefault;
       z-index: 10;
 
@@ -134,7 +123,7 @@
         margin-left: 0;
         margin-bottom: calc(var(--burst) + 8px);
         width: min(360px, 100%);
-        padding: clamp(20px, 5vw, 32px);
+        padding: $cardPadding;
       }
 
       &--visible {
@@ -143,7 +132,7 @@
 
       h3 {
         font-weight: 700;
-        font-size: 24px;
+        font-size: rem(24);
         line-height: 120%;
         text-align: center;
       }
@@ -165,8 +154,7 @@
             line-height: 120%;
 
             img {
-              width: 40px;
-              height: 40px;
+              @include size(40px);
             }
           }
         }
@@ -204,7 +192,7 @@
           @include mobile(480px) {
             width: calc((100% - 36px) / 4);
             max-width: 80px;
-            font-size: clamp(12px, 3.4vw, 16px);
+            font-size: clamp(#{rem(12)}, 3.4vw, #{rem(16)});
           }
 
           > div {
@@ -213,8 +201,7 @@
             @include flex-center;
 
             img {
-              width: 75%;
-              height: 75%;
+              @include size(75%);
               object-fit: contain;
               transition: transform 0.3s ease;
             }

@@ -4,14 +4,14 @@
   width: 100%;
   height: auto;
   color: $textLight;
-  font-family: 'Quicksand';
-  font-size: 16px;
+  font-family: $fontBody;
+  font-size: rem(16);
   line-height: 120%;
   @include flex-center;
   position: relative;
   background-color: $bgDark;
 
-  @media (min-width: 1151px) {
+  @include desktop {
     margin-top: calc(-1 * (#{$footerOverlap} + #{$contactPaddingBottom}));
   }
 
@@ -19,12 +19,11 @@
     display: flex;
     justify-content: space-between;
     align-items: end;
-    padding: 0 clamp(16px, calc(-21.333px + 9.333vw), 72px);
+    padding: 0 $sidePadding;
     position: relative;
 
     @include mobile {
       height: 100%;
-      display: flex;
       flex-direction: column-reverse;
       align-items: center;
       justify-content: flex-start;
@@ -71,8 +70,7 @@
 
       svg {
         position: absolute;
-        width: 100%;
-        height: 100%;
+        @include size(100%);
       }
 
       &--left {

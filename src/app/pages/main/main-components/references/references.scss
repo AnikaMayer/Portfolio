@@ -2,15 +2,10 @@
 
 :host {
   @include sectionStart($bgMedium, $textLight);
-  // bei wenig Höhe weniger Abstand nach unten (kleine Laptops), sonst unnötiger Scroll
   padding-bottom: clamp(48px, 12svh, 128px);
+  @include sectionGrid;
 
-  display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr;
-  align-items: stretch;
-
-  @include tablet(1150px) {
+  @include belowDesktop {
     padding-block: 80px;
   }
 
@@ -25,13 +20,9 @@
   .ref {
     h2 {
       @include headline;
-
-      // Die Breite regelt der Container (cqi), kein fester Prozentwert mehr: sonst bricht
-      // die Überschrift unnötig um (Einzelwort in der zweiten Zeile).
     }
 
-    // Spalten richten sich nach der Breite des Inhalts (Container .content), nicht nach dem
-    // Viewport: 1 Spalte -> 2 Spalten (3. Box über die volle Breite) -> 3 Spalten.
+    // Spalten nach Breite des Containers .content: 1 -> 2 (3. Box volle Breite) -> 3
     &__wrapper {
       width: 100%;
       display: grid;
@@ -59,10 +50,8 @@
     &__box {
       width: 100%;
       height: auto;
-      display: flex;
-      flex-direction: column;
+      @include stack(24px);
       align-items: flex-end;
-      gap: 24px;
 
       a:hover {
         color: $highlightMedium;
@@ -71,12 +60,8 @@
       &--content {
         width: 100%;
         height: auto;
-        border: 1px solid $textLight;
-        border-radius: 4px;
-        padding: clamp(20px, 3cqi, 32px);
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
+        @include outlinedCard(clamp(20px, 3cqi, 32px));
+        @include stack(10px);
         line-height: 120%;
 
         > div {
@@ -88,7 +73,7 @@
 
           h3 {
             font-weight: 700;
-            font-size: clamp(20px, calc(18px + 0.5vw), 24px);
+            font-size: calcClamp(20, 24, 400, 1200, width, rem);
             line-height: 120%;
           }
 
@@ -99,7 +84,7 @@
 
         :last-child {
           font-weight: 700;
-          font-size: 18px;
+          font-size: rem(18);
         }
 
         &:hover {
@@ -109,8 +94,7 @@
         }
       }
 
-      // Versatz der Boxen nur im Desktop-Layout (3 Spalten, genug Platz)
-      @media (min-width: 1151px) {
+      @include desktop {
         &--box2 {
           margin-top: clamp(0px, min(4vw, 5svh), 44px);
         }

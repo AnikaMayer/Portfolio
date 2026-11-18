@@ -1,15 +1,15 @@
 @use '../../../../../../public/assets/styles/all_styles.scss' as *;
 
+$fieldRowWidth: 460px; // ab dieser Formularbreite stehen Name und E-Mail nebeneinander
+$fieldGap: clamp(32px, 5svh, 48px);
+$labelFontSize: clamp(#{rem(18)}, 4.5cqi, #{rem(24)});
+
 :host {
   @include sectionStart($bgDark, $textLight);
   min-height: calc(100svh - #{$footerHeight} + #{$footerOverlap} + #{$contactPaddingBottom});
+  @include sectionGrid;
 
-  display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr;
-  align-items: stretch;
-
-  @include tablet(1150px) {
+  @include belowDesktop {
     min-height: 0;
   }
 
@@ -26,9 +26,9 @@
     position: relative;
     z-index: 1;
     padding-block: 24px $contactPaddingBottom;
-    --arrow-top: clamp(0px, calc((100svh - 700px) * 0.25), 80px);
+    --arrow-top: #{calcClamp(0, 80, 700, 1020, height)};
 
-    @include tablet(1150px) {
+    @include belowDesktop {
       grid-template-columns: minmax(0, 1fr);
       row-gap: 48px;
       align-content: start;
@@ -41,16 +41,14 @@
       width: 100%;
       max-width: 528px;
 
-      @media (min-width: 1151px) {
+      @include desktop {
         margin-bottom: $footerOverlap;
       }
 
-      display: flex;
-      flex-direction: column;
-      gap: clamp(32px, calc(16px + 4vw), 64px);
-      container-type: inline-size;
+      @include stack(calcClamp(32, 64, 400, 1200));
+      @include sizeContainer;
 
-      @include tablet(1150px) {
+      @include belowDesktop {
         max-width: 80%;
       }
 
@@ -60,24 +58,17 @@
 
       h2 {
         @include headline;
-        font-size: min(
-          clamp(40px, calc(24px + 4vw), 72px),
-          13cqi,
-          calcClamp(40, 72, 600, 900, height)
-        );
         color: $highlightLight;
       }
 
       &--text {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+        @include stack(16px);
 
         h3 {
           color: $highlightMedium;
           font-weight: 700;
-          font-size: clamp(20px, calc(18px + 0.5vw), 24px);
+          font-size: calcClamp(20, 24, 400, 1200, width, rem);
         }
       }
     }
@@ -87,39 +78,32 @@
       max-width: 600px;
       justify-self: end;
       align-self: end;
-      container-type: inline-size;
-      display: flex;
-      flex-direction: column;
-      gap: 48px;
+      @include sizeContainer;
+      @include stack(48px);
 
-      @media (min-width: 1151px) {
+      @include desktop {
         margin-top: calc(var(--arrow-top) + 60px);
-        gap: clamp(32px, 5svh, 48px);
+        gap: $fieldGap;
       }
 
-      @include tablet(1150px) {
+      @include belowDesktop {
         align-self: start;
-      }
-
-      @include tablet(1150px) {
         max-width: 100%;
       }
 
       &--personal {
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 48px;
+        @include stack(48px);
 
-        @media (min-width: 1151px) {
-          gap: clamp(32px, 5svh, 48px);
+        @include desktop {
+          gap: $fieldGap;
         }
 
         > * {
           min-width: 0;
         }
 
-        @container (min-width: 460px) {
+        @container (min-width: #{$fieldRowWidth}) {
           flex-direction: row;
           gap: 24px;
 
@@ -140,26 +124,24 @@
 
       &--input {
         width: 100%;
-        min-height: clamp(82px, calc(78px + 1vw), 90px);
+        min-height: calcClamp(82, 90, 400, 1200);
         padding: 16px 8px;
-        display: flex;
-        flex-direction: column;
+        @include stack(10px);
         justify-content: flex-start;
-        gap: 10px;
         border-bottom: 1px solid $highlightLight;
         position: relative;
 
         h3 {
           line-height: 120%;
           font-weight: 700;
-          font-size: clamp(18px, 4.5cqi, 24px);
+          font-size: $labelFontSize;
 
-          @container (min-width: 460px) {
-            font-size: clamp(16px, calc((50cqi - 28px) / 12.6), 24px);
+          @container (min-width: #{$fieldRowWidth}) {
+            font-size: clamp(#{rem(16)}, calc((50cqi - 28px) / 12.6), #{rem(24)});
           }
 
           @include tablet {
-            font-size: clamp(18px, 4.5cqi, 24px);
+            font-size: $labelFontSize;
           }
         }
 
@@ -176,8 +158,8 @@
           width: 100%;
           background: none;
           border: none;
-          font-family: 'Quicksand';
-          font-size: 16px;
+          font-family: $fontBody;
+          font-size: rem(16);
           line-height: 120%;
           color: $textLight;
           caret-color: $highlightLight;
@@ -196,11 +178,11 @@
         input::placeholder {
           color: $textLight;
           opacity: 0.8;
-          font-size: clamp(14px, calc(13px + 0.25vw), 16px);
+          font-size: calcClamp(14, 16, 400, 1200, width, rem);
           text-overflow: ellipsis;
 
-          @container (min-width: 460px) and (max-width: 539.98px) {
-            font-size: 14px;
+          @container (min-width: #{$fieldRowWidth}) and (max-width: 539.98px) {
+            font-size: rem(14);
           }
         }
       }
@@ -224,7 +206,7 @@
         left: 8px;
         right: 8px;
         margin-top: 8px;
-        font-size: 14px;
+        font-size: rem(14);
         line-height: 120%;
         color: $errorColor;
       }
@@ -257,8 +239,7 @@
           }
 
           .checkbox {
-            width: 20px;
-            height: 20px;
+            @include size(20px);
             cursor: pointer;
             position: relative;
 
@@ -277,8 +258,7 @@
             }
 
             &-icon {
-              width: 20px;
-              height: 20px;
+              @include size(20px);
               color: $highlightMedium;
               flex-shrink: 0;
             }
@@ -302,8 +282,7 @@
       }
 
       &--checkbox {
-        width: 20px;
-        height: 20px;
+        @include size(20px);
         border: 2px solid $highlightMedium;
         border-radius: 2px;
       }
@@ -321,7 +300,7 @@
         max-width: min(90dvw, 480px);
         width: max-content;
 
-        font-size: calcClamp(16, 20, 320, 760);
+        font-size: calcClamp(16, 20, 320, 760, width, rem);
         font-weight: 700;
         background-color: $bgLight;
         padding: calcClamp(16, 24, 320, 760) calcClamp(24, 32, 320, 760);
@@ -361,8 +340,7 @@
     }
 
     &__startbtn {
-      width: 30px;
-      height: 48px;
+      @include size(30px, 48px);
       border: none;
       background: none;
       position: absolute;
@@ -370,13 +348,13 @@
       right: vwClamp(10, 7, 320, 1440);
       @include flex-center(flex-end);
 
-      @include tablet(1150px) {
+      @include belowDesktop {
         top: unset;
         bottom: 48px;
       }
 
       @include tablet {
-        right: clamp(16px, calc(-12px + 7vw), 72px);
+        right: calcClamp(16, 72, 400, 1200);
       }
 
       svg {

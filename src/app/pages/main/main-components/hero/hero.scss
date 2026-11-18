@@ -6,11 +6,7 @@
   min-height: 100dvh;
   min-height: 100svh;
   height: auto;
-
-  display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr;
-  align-items: stretch;
+  @include sectionGrid;
 
   .content {
     display: grid;
@@ -27,9 +23,7 @@
   .hero {
     &__title {
       height: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+      @include stack(32px);
       align-self: start;
       padding-top: 80px;
 
@@ -40,26 +34,27 @@
       @include tablet {
         width: 100%;
         position: unset;
-        padding-inline: clamp(16px, calc(-21.333px + 9.333vw), 72px);
+        padding-inline: $sidePadding;
       }
 
       h1 {
         width: 100%;
-        font-family: 'Quicksand';
+        font-family: $fontBody;
         font-weight: 400;
-        font-size: min(clamp(30px, calc(18px + 3vw), 48px), calcClamp(30, 48, 500, 900, height));
+        font-size: min(
+          calcClamp(30, 48, 400, 1000, width, rem),
+          calcClamp(30, 48, 500, 900, height, rem)
+        );
         line-height: 1;
         color: $textLight;
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+        @include stack(8px);
 
         span {
-          font-family: 'Eczar';
+          font-family: $fontHeading;
           font-weight: 700;
           font-size: min(
-            clamp(70px, calc(52.667px + 4.333vw), 96px),
-            calcClamp(70, 96, 500, 900, height)
+            calcClamp(70, 96, 400, 1000, width, rem),
+            calcClamp(70, 96, 500, 900, height, rem)
           );
         }
       }
@@ -99,22 +94,11 @@
 
       &--picture {
         width: 100%;
-
         height: auto;
         display: block;
         position: relative;
         z-index: 1;
       }
-    }
-
-    &__section-bar {
-      width: 12px;
-      height: 168px;
-      position: absolute;
-      right: 72px;
-      top: calc(50% - 88px);
-      background-color: pink;
-      display: none;
     }
   }
 }

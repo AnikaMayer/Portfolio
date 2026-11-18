@@ -3,11 +3,7 @@
 :host {
   @include sectionStart($bgLight, $textDark);
   position: relative;
-
-  display: grid;
-  justify-items: center;
-  grid-template-rows: 1fr;
-  align-items: stretch;
+  @include sectionGrid;
 
   .content {
     @include sizeContainer;
@@ -17,7 +13,7 @@
     display: grid;
     grid-template-columns: minmax(240px, 43%) 1fr;
     grid-template-rows: auto auto auto 1fr;
-    column-gap: clamp(16px, 4vw, 64px);
+    column-gap: calcClamp(16, 64, 400, 1600);
     align-items: start;
 
     @include tablet {
@@ -70,8 +66,7 @@
 
       img {
         display: block;
-        width: 100%;
-        height: 100%;
+        @include size(100%);
         object-fit: cover;
       }
     }
@@ -83,17 +78,15 @@
       width: calc(100% + var(--overlap));
       max-width: 600px;
       margin-left: calc(-1 * var(--overlap));
-      margin-top: clamp(0px, 4vw, 64px);
+      margin-top: calcClamp(0, 64, 0, 1600);
 
       background-color: $bgDark;
       color: $textLight;
-      font-family: 'Quicksand';
-      font-size: 16px;
+      font-family: $fontBody;
+      font-size: rem(16);
       border-radius: 4px;
       padding: 32px;
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
+      @include stack(32px);
 
       @include tablet {
         grid-column: 1;
@@ -102,13 +95,11 @@
         width: clamp(240px, 85%, 545px);
         margin-left: 0;
         margin-top: -60px;
-        padding: clamp(20px, 5vw, 32px);
+        padding: $cardPadding;
       }
 
       &--text {
-        display: flex;
-        flex-direction: column;
-        gap: 16px;
+        @include stack(16px);
       }
     }
 
@@ -118,15 +109,13 @@
       justify-content: space-between;
 
       a {
-        --btn-width: clamp(131px, calc(35px + 24vw), 155px);
+        --btn-width: #{calcClamp(131, 155, 400, 500)};
       }
 
       &--more {
         width: 40px;
         height: auto;
-        display: flex;
-        justify-content: center;
-        align-items: flex-end;
+        @include flex-center(flex-end);
         border: none;
         background: none;
         @include bounce-animation;
@@ -147,17 +136,13 @@
       margin-top: -16px;
 
       height: fit-content;
-      border-radius: 4px;
-      border: 1px solid $textLight;
-      padding: 32px;
-      font-family: 'Quicksand';
-      font-size: 16px;
+      @include outlinedCard;
+      font-family: $fontBody;
+      font-size: rem(16);
       line-height: 120%;
       color: $textLight;
       background-color: $bgMedium;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+      @include stack(16px);
       @include hoverDefault;
 
       &--visible {
@@ -170,10 +155,10 @@
         justify-self: start;
         align-self: end;
         margin-top: 0;
-        margin-left: clamp(0px, 2vw, 16px);
+        margin-left: calcClamp(0, 16, 0, 800);
         margin-bottom: calc(-1 * var(--more-overhang));
         width: min(272px, 80%);
-        padding: clamp(20px, 5vw, 32px);
+        padding: $cardPadding;
       }
 
       &--header {
@@ -187,9 +172,7 @@
       }
 
       ul {
-        display: flex;
-        flex-direction: column;
-        gap: 8px;
+        @include stack(8px);
 
         li {
           display: flex;

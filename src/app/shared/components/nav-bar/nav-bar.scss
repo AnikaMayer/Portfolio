@@ -1,8 +1,7 @@
 @use '../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
-  width: 12px;
-  height: 168px;
+  @include size(12px, 168px);
   @include flex-column;
   justify-content: center;
   gap: 20px;
@@ -21,8 +20,7 @@
   }
 
   .nav-section {
-    width: 8px;
-    height: 8px;
+    @include size(8px);
     background-color: $textLight;
     rotate: 45deg;
     border-radius: 50px;
