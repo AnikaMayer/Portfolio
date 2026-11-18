@@ -1,3 +1,5 @@
+@use 'functions' as *;
+
 $highlightLight: rgba(185, 200, 20, 1);
 $highlightMedium: rgba(234, 142, 184, 1);
 $highlightDark: rgba(33, 56, 48, 1);
@@ -11,20 +13,21 @@ $bgLight: rgba(248, 247, 229, 1);
 $bgMedium: rgba(33, 56, 48, 1);
 $bgDark: rgba(29, 29, 29, 1);
 
-// Breite der Footer-Animation (Desktop) und die daraus folgende Footer-Höhe.
-// Die Höhe bestimmt die große Zahnrad (71.1 % der Breite). Contact rechnet damit,
-// damit Contact + Footer zusammen genau einen Screen füllen können.
-// Auf niedrigen Screens (kleine Laptops) zusätzlich über die Höhe begrenzt.
-$footerAnimationWidth: min(
-  clamp(200px, calc(-72px + 34vw), 370px),
-  clamp(200px, calc(200px + (100svh - 600px) * 0.567), 370px)
-);
-$footerHeight: calc(#{$footerAnimationWidth} * 0.711);
-// Desktop: Der Footer ragt um $footerOverlap in den unteren Bereich der Contact-Section.
-// Dort ist links nur Leerraum (Intro endet darüber), rechts steht das Formular.
-// So rückt der Footer-Text näher ans Formular (wie im Mockup), ohne Überlappung.
-$contactPaddingBottom: 24px;
-$footerOverlap: max(0px, calc(#{$footerHeight} * 0.7 - 76px));
-$footerAnimationHeight: clamp(230px, calc(108.481px + 37.975vw), 260px);
+$fontBody: 'Quicksand';
+$fontHeading: 'Eczar';
+
 $headerHeight: 88px;
 $headerHeightMobile: 72px;
+
+// Seitenrand von Header, Hero und Footer
+$sidePadding: calcClamp(16, 72, 400, 1000);
+// Innenabstand der Karten und Overlays
+$cardPadding: calcClamp(20, 32, 400, 640);
+
+// Die Höhe der großen Zahnrad (71,1 % der Breite) bestimmt die Footer-Höhe.
+// Contact rechnet damit, damit Contact + Footer zusammen einen Screen füllen.
+$footerAnimationWidth: min(calcClamp(200, 370, 800, 1300), calcClamp(200, 370, 600, 900, height));
+$footerHeight: calc(#{$footerAnimationWidth} * 0.711);
+// Desktop: Der Footer ragt um $footerOverlap in den unteren Bereich von Contact.
+$contactPaddingBottom: 24px;
+$footerOverlap: max(0px, calc(#{$footerHeight} * 0.7 - 76px));
