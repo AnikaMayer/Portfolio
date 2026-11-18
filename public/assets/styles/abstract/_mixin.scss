@@ -53,6 +53,14 @@
   }
 }
 
+// Macht ein Element zum Container: Überschrift (13cqi) und @container-Regeln der Kinder
+// richten sich dann nach der Breite dieses Elements statt nach dem Viewport.
+// Das Element braucht eine eigene Breite (z. B. width: 100%), da inline-size containment
+// die Breite nicht mehr aus dem Inhalt ableitet.
+@mixin sizeContainer {
+  container-type: inline-size;
+}
+
 @mixin sectionStart($bgColor, $color) {
   min-height: 100svh;
   height: auto;
