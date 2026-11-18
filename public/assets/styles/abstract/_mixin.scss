@@ -27,7 +27,6 @@
   }
 }
 
-// position items in center
 @mixin flex-center($align: center) {
   display: flex;
   justify-content: center;
@@ -40,11 +39,54 @@
   align-items: center;
 }
 
+@mixin stack($gap: 0) {
+  display: flex;
+  flex-direction: column;
+  gap: $gap;
+}
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+@mixin outlinedCard($padding: 32px) {
+  border: 1px solid $textLight;
+  border-radius: 4px;
+  padding: $padding;
+}
+
+// Icon-Link mit Linienfarbe $lines, Füllung beim Hover (Farben kommen über CSS-Variablen ins SVG)
+@mixin iconLink($lines) {
+  --icon-body: none;
+  --icon-lines: #{$lines};
+  transition: color 0.1s ease;
+
+  svg {
+    @include size(17px, 19px);
+  }
+
+  &:hover {
+    --icon-body: #{$highlightMedium};
+  }
+}
+
+// Macht ein Element zum Container: cqi-Einheiten und @container-Regeln der Kinder richten sich
+// nach seiner Breite statt nach dem Viewport. Das Element braucht eine eigene Breite
+// (z. B. width: 100%), weil die Breite nicht mehr aus dem Inhalt abgeleitet wird.
+@mixin sizeContainer {
+  container-type: inline-size;
+}
+
+// 13cqi: "something Cool" passt immer in die Spalte, auf niedrigen Screens zusätzlich begrenzt
 @mixin headline {
-  font-family: 'Eczar';
+  font-family: $fontHeading;
   font-weight: 700;
-  // font-size: calcClamp(40, 72, 390, 1200);
-  font-size: min(clamp(40px, calc(24px + 4vw), 72px), 13cqi, calcClamp(40, 72, 600, 900, height));
+  font-size: min(
+    calcClamp(40, 72, 400, 1200, width, rem),
+    13cqi,
+    calcClamp(40, 72, 600, 900, height, rem)
+  );
   line-height: 100%;
   margin-top: 40px;
 
@@ -53,26 +95,25 @@
   }
 }
 
-// Macht ein Element zum Container: Überschrift (13cqi) und @container-Regeln der Kinder
-// richten sich dann nach der Breite dieses Elements statt nach dem Viewport.
-// Das Element braucht eine eigene Breite (z. B. width: 100%), da inline-size containment
-// die Breite nicht mehr aus dem Inhalt ableitet.
-@mixin sizeContainer {
-  container-type: inline-size;
-}
-
 @mixin sectionStart($bgColor, $color) {
   min-height: 100svh;
   height: auto;
   padding-top: #{$headerHeight};
   background-color: #{$bgColor};
-  font-family: 'Quicksand';
+  font-family: $fontBody;
   color: #{$color};
   @include flex-column;
 
   @include mobile {
     padding-top: #{$headerHeightMobile};
   }
+}
+
+@mixin sectionGrid {
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 1fr;
+  align-items: stretch;
 }
 
 @mixin hoverDefault($axis: Y) {
@@ -95,13 +136,67 @@
     visibility 0s linear 0s;
 }
 
+// Seiten "Legal Notice" und "Privacy Policy": gemeinsames Grundlayout
+@mixin legalMain {
+  main {
+    width: 100%;
+    flex: 1;
+    @include flex-center;
+    background-color: $bgDark;
+  }
+}
+
+@mixin legalPage {
+  height: 100%;
+  padding: 160px 0 calcClamp(190, 260, 1025, 1440);
+  background-color: $bgDark;
+  font-family: $fontBody;
+  color: $textLight;
+  @include flex-column;
+
+  @include tablet {
+    padding-bottom: 190px;
+  }
+
+  @include mobile {
+    padding-bottom: calcClamp(58, 100, 400, 768);
+  }
+
+  .content {
+    width: 100%;
+    padding-left: calcClamp(20, 200, 400, 1200);
+    padding-right: calcClamp(27, 227, 400, 1200);
+    @include stack(24px);
+
+    h1 {
+      font-family: $fontHeading;
+      font-weight: 700;
+      font-size: calcClamp(40, 72, 400, 1200, width, rem);
+      line-height: 100%;
+      margin-bottom: calcClamp(8, 24, 400, 1200);
+    }
+  }
+}
+
 @mixin widescreen {
   @media (min-width: 1441px) {
     @content;
   }
 }
 
-// media-query for tablet-size
+// Desktop-Layout ab 1151px; belowDesktop ist das Gegenstück
+@mixin desktop {
+  @media (min-width: 1151px) {
+    @content;
+  }
+}
+
+@mixin belowDesktop {
+  @media (max-width: 1150px) {
+    @content;
+  }
+}
+
 @mixin tablet($width: 1024px) {
   @media (max-width: $width) {
     @content;
@@ -114,7 +209,6 @@
   }
 }
 
-// media-query for mobile-size
 @mixin mobile($width: 768px) {
   @media (max-width: $width) {
     @content;
