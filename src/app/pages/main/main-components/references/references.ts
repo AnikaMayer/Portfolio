@@ -27,19 +27,19 @@ export class References {
       name: 'reference.items.0.name',
       text: 'reference.items.0.ref',
       job: 'reference.items.0.job',
-      link: '',
+      link: 'https://www.linkedin.com/in/anastasiaroberz/',
     },
     {
       name: 'reference.items.1.name',
       text: 'reference.items.1.ref',
       job: 'reference.items.1.job',
-      link: '',
+      link: 'https://www.linkedin.com/in/wanjamueller/',
     },
     {
       name: 'reference.items.2.name',
       text: 'reference.items.2.ref',
       job: 'reference.items.2.job',
-      link: '',
+      link: 'https://www.linkedin.com/in/hermann-ejrich-7225913b8/',
     },
   ];
 }
