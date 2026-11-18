@@ -138,7 +138,7 @@
 
 // Seiten "Legal Notice" und "Privacy Policy": gemeinsames Grundlayout
 @mixin legalMain {
-  main {
+  :host {
     width: 100%;
     flex: 1;
     @include flex-center;
