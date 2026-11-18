@@ -13,6 +13,7 @@
   }
 
   .content {
+    @include sizeContainer;
     display: grid;
     grid-template-columns: minmax(0, 1fr);
     align-content: center;
@@ -81,7 +82,8 @@
         aspect-ratio: 1.5 / 1;
       }
 
-      @include mobile {
+      // schmale Container (Smartphone): quadratisch, sonst 3:2 (kein toter Raum im Bild)
+      @container (max-width: 519.98px) {
         aspect-ratio: 1 / 1;
       }
 
@@ -167,8 +169,12 @@
       color: $textLight;
       position: relative;
 
-      @include mobile {
+      // schmale Container: mehr Höhe für den umbrechenden Text, breitere behalten 300px
+      @container (max-width: 519.98px) {
         height: 368px;
+      }
+
+      @include mobile {
         padding: 16px;
       }
 
