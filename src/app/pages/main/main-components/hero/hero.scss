@@ -3,6 +3,7 @@
 :host {
   @include sectionStart($bgMedium, $textLight);
   position: relative;
+  min-height: 100dvh;
   min-height: 100svh;
   height: auto;
 
