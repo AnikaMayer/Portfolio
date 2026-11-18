@@ -1,4 +1,4 @@
-<main>
+@if (languageService.currentLang() === 'en') {
   <article class="legal">
     <div class="content">
       <h1>Legal Notice</h1>
@@ -76,9 +76,9 @@
         <h3>Hosting</h3>
         <p>This website is hosted by:</p>
         <ul>
-          <li>[Hosting Provider]</li>
-          <li>[Hosting Provider's Address, if applicable]</li>
-          <li>[Hosting Provider's Website]</li>
+          <li>Hetzner Online GmbH</li>
+          <li>Industriestr. 25, 91710 Gunzenhausen, Germany</li>
+          <li><a href="https://www.hetzner.com" target="_blank" rel="noopener">hetzner.com</a></li>
         </ul>
         <p>
           Further information about the processing of personal data in connection with hosting and
@@ -98,4 +98,106 @@
       </section>
     </div>
   </article>
-</main>
+} @else {
+  <article class="legal">
+    <div class="content">
+      <h1>Impressum</h1>
+      <section class="legal__section">
+        <h2>Angaben gemäß § 5 TMG</h2>
+        <ul>
+          <li>Anika Mayer</li>
+          <li>Martinshöhe 24 A</li>
+          <li>04158 Leipzig</li>
+          <li>Deutschland</li>
+        </ul>
+      </section>
+      <section class="legal__section">
+        <h3>Kontakt</h3>
+        <p>E-Mail: <a href="mailto:mayer.anika@protonmail.com">mayer.anika@protonmail.com</a></p>
+      </section>
+      <section class="legal__section">
+        <h3>Zweck dieser Website</h3>
+        <p>
+          Diese Website ist ein persönliches Portfolio, das für private und bewerbungsbezogene
+          Zwecke erstellt wurde. Sie dient dazu, einen Überblick über meinen Werdegang, meine
+          Fähigkeiten, Projekte, Erfahrungen und ausgewählte Referenzen zu geben.
+        </p>
+        <p>
+          Diese Website stellt kein gewerbliches Onlineangebot und kein Angebot von Waren oder
+          Dienstleistungen dar.
+        </p>
+      </section>
+      <section class="legal__section">
+        <h3>Inhalte und Urheberrecht</h3>
+        <p>
+          Die auf dieser Website veröffentlichten Inhalte – darunter insbesondere Texte,
+          Fotografien, Grafiken, Designs, Projektdarstellungen und sonstige Werke – sind, sofern
+          nicht anders angegeben, urheberrechtlich geschützt.
+        </p>
+        <p>
+          Eine Vervielfältigung, Bearbeitung, Verbreitung, öffentliche Wiedergabe oder sonstige
+          Nutzung dieser Inhalte ist ohne vorherige Zustimmung der jeweiligen Rechteinhaberin
+          unzulässig, soweit nicht gesetzliche Ausnahmen greifen.
+        </p>
+        <p>
+          Soweit auf dieser Website oder in verlinkten Projekten Namen oder Marken Dritter
+          erscheinen, stehen diese im Eigentum der jeweiligen Inhaber. Alle solchen Verweise dienen
+          ausschließlich der Identifikation und implizieren keine Verbindung oder Billigung.
+        </p>
+      </section>
+      <section class="legal__section">
+        <h3>Referenzen und Projektarbeiten</h3>
+        <p>
+          Referenzen, Empfehlungen, Projekte und sonstige Arbeiten, die auf dieser Website
+          präsentiert werden, dienen ausschließlich dem Nachweis meiner Erfahrungen, Fähigkeiten und
+          bisherigen Tätigkeiten.
+        </p>
+        <p>
+          Soweit Namen, Aussagen, Logos, Abbildungen oder sonstige Materialien Dritter dargestellt
+          werden, erfolgt dies mit der jeweiligen Genehmigung oder auf der entsprechenden
+          Rechtsgrundlage.
+        </p>
+      </section>
+      <section class="legal__section">
+        <h3>Externe Links</h3>
+        <p>
+          Diese Website enthält Links zu externen Websites und Online-Profilen, darunter LinkedIn
+          und GitHub.
+        </p>
+        <p>
+          Diese Links öffnen sich in einem neuen Browser-Tab. Wenn Sie einem externen Link folgen,
+          verlassen Sie diese Website und unterliegen den Nutzungsbedingungen und
+          Datenschutzhinweisen des jeweiligen Drittanbieters.
+        </p>
+        <p>
+          Auf die Inhalte oder Datenschutzpraktiken externer Websites habe ich keinen Einfluss. Für
+          Inhalt und Betrieb der verlinkten Seiten ist der jeweilige Anbieter verantwortlich.
+        </p>
+      </section>
+      <section class="legal__section">
+        <h3>Hosting</h3>
+        <p>Diese Website wird gehostet von:</p>
+        <ul>
+          <li>Hetzner Online GmbH</li>
+          <li>Industriestr. 25, 91710 Gunzenhausen, Deutschland</li>
+          <li><a href="https://www.hetzner.com" target="_blank" rel="noopener">hetzner.com</a></li>
+        </ul>
+        <p>
+          Weitere Informationen zur Verarbeitung personenbezogener Daten im Zusammenhang mit Hosting
+          und weiteren Diensten finden Sie in der gesonderten Datenschutzerklärung.
+        </p>
+      </section>
+      <section class="legal__section">
+        <h3>Verantwortliche Person</h3>
+        <p>Verantwortlich für den Inhalt dieser Website gemäß anwendbarem deutschen Recht:</p>
+        <ul>
+          <li>Anika Mayer</li>
+          <li>Martinshöhe 24 A</li>
+          <li>04158 Leipzig</li>
+          <li>Deutschland</li>
+        </ul>
+        <p>Stand: 1. Oktober 2026</p>
+      </section>
+    </div>
+  </article>
+}

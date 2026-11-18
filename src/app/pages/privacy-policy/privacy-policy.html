@@ -1,4 +1,4 @@
-<main>
+@if (languageService.currentLang() === 'en') {
   <article class="policy">
     <div class="content">
       <h1>Privacy Policy</h1>
@@ -49,15 +49,17 @@
           This information may be recorded in server logs. The processing is used to ensure the
           security, stability, and proper functioning of the website.
         </p>
-        <p>The website is hosted by:</p>
+        <p>This website is hosted by:</p>
         <ul>
-          <li>[Hosting Provider]</li>
-          <li>[Hosting Provider's Address, if applicable]</li>
-          <li>[Hosting Provider's Website]</li>
+          <li>Hetzner Online GmbH</li>
+          <li>Industriestr. 25, 91710 Gunzenhausen, Germany</li>
+          <li><a href="https://www.hetzner.com" target="_blank" rel="noopener">hetzner.com</a></li>
         </ul>
         <p>
-          The specific data processing carried out by the hosting provider depends on the hosting
-          service used.
+          For information about how Hetzner processes personal data, please refer to their
+          <a href="https://www.hetzner.com/legal/privacy-policy" target="_blank" rel="noopener">
+            Privacy Policy </a
+          >.
         </p>
       </section>
       <section class="policy__section">
@@ -212,4 +214,230 @@
       </section>
     </div>
   </article>
-</main>
+} @else {
+  <article class="policy">
+    <div class="content">
+      <h1>Datenschutzerklärung</h1>
+      <section class="policy__section">
+        <h2>1. Verantwortliche Stelle</h2>
+        <p>Verantwortlich für die Verarbeitung personenbezogener Daten auf dieser Website ist:</p>
+        <ul>
+          <li>Anika Mayer</li>
+          <li>Martinshöhe 24 A</li>
+          <li>04158 Leipzig</li>
+          <li>Deutschland</li>
+        </ul>
+        <p>E-Mail: <a href="mailto:mayer.anika@protonmail.com">mayer.anika@protonmail.com</a></p>
+      </section>
+      <section class="policy__section">
+        <h2>2. Allgemeine Hinweise</h2>
+        <p>
+          Der Schutz Ihrer personenbezogenen Daten ist mir wichtig. Diese Datenschutzerklärung
+          erläutert, welche personenbezogenen Daten bei der Nutzung dieser Website erhoben werden,
+          wie sie verarbeitet werden und welche Rechte Ihnen nach dem anwendbaren Datenschutzrecht,
+          insbesondere der Datenschutz-Grundverordnung (DSGVO), zustehen.
+        </p>
+        <p>
+          Diese Website ist ein persönliches Portfolio für private und bewerbungsbezogene Zwecke. Es
+          werden keine gewerblichen Dienstleistungen oder Produkte angeboten.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>3. Besuch dieser Website</h2>
+        <p>
+          Wenn Sie diese Website besuchen, können vom Hosting-Anbieter technische Informationen
+          verarbeitet werden, die zur Auslieferung und zum Betrieb der Website erforderlich sind.
+        </p>
+        <p>
+          Je nach technischer Konfiguration des Hosting-Dienstes kann dies unter anderem folgende
+          Informationen umfassen:
+        </p>
+        <ul class="policy__section--list">
+          <li>IP-Adresse</li>
+          <li>Datum und Uhrzeit des Zugriffs</li>
+          <li>aufgerufene Seite oder Ressource</li>
+          <li>Browser-Typ und -Version</li>
+          <li>Betriebssystem</li>
+          <li>Referrer-URL</li>
+          <li>technische Zugriffs- und Fehlerinformationen</li>
+        </ul>
+        <p>
+          Diese Informationen können in Server-Logs gespeichert werden. Die Verarbeitung dient der
+          Sicherheit, Stabilität und dem ordnungsgemäßen Betrieb der Website.
+        </p>
+        <p>Diese Website wird gehostet von:</p>
+        <ul>
+          <li>Hetzner Online GmbH</li>
+          <li>Industriestr. 25, 91710 Gunzenhausen, Deutschland</li>
+          <li><a href="https://www.hetzner.com" target="_blank" rel="noopener">hetzner.com</a></li>
+        </ul>
+        <p>
+          Informationen darüber, wie Hetzner personenbezogene Daten verarbeitet, finden Sie in der
+          <a href="https://www.hetzner.com/legal/privacy-policy" target="_blank" rel="noopener">
+            Datenschutzerklärung von Hetzner </a
+          >.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>4. Kontaktformular</h2>
+        <p>
+          Sie können mich über das auf dieser Website bereitgestellte Kontaktformular erreichen.
+        </p>
+        <p>Bei der Nutzung des Kontaktformulars werden folgende Angaben erhoben:</p>
+        <ul class="policy__section--list">
+          <li>Ihr Name</li>
+          <li>Ihre E-Mail-Adresse</li>
+          <li>der Inhalt Ihrer Nachricht</li>
+        </ul>
+        <p>
+          Die von Ihnen übermittelten Informationen werden ausschließlich dazu verwendet, Ihre
+          Anfrage entgegenzunehmen, zu bearbeiten und zu beantworten.
+        </p>
+        <p>
+          Die übermittelten Daten werden mir per E-Mail zugestellt. Je nach dem von mir genutzten
+          E-Mail-Dienst können die Informationen dabei auch vom jeweiligen E-Mail-Dienstleister
+          verarbeitet werden.
+        </p>
+        <ul>
+          <li>E-Mail-Dienstleister:</li>
+          <li>[E-Mail-Anbieter]</li>
+          <li>[Website des E-Mail-Anbieters]</li>
+        </ul>
+        <p>
+          Rechtsgrundlage für die Verarbeitung ist Ihre Einwilligung gemäß Art. 6 Abs. 1 lit. a
+          DSGVO, sofern Sie diese über die Checkbox im Kontaktformular erteilt haben.
+        </p>
+        <p>
+          Sie können Ihre Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, indem Sie
+          mich über die oben angegebenen Kontaktdaten kontaktieren. Die Rechtmäßigkeit der bis zum
+          Widerruf erfolgten Verarbeitung bleibt hiervon unberührt.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>5. Speicherdauer der Kontaktdaten</h2>
+        <p>
+          Personenbezogene Daten, die über das Kontaktformular übermittelt werden, werden nur so
+          lange gespeichert, wie es zur Bearbeitung und Beantwortung Ihrer Anfrage erforderlich ist.
+        </p>
+        <p>
+          Nach Abschluss des Vorgangs werden die Daten grundsätzlich gelöscht, sofern keine
+          gesetzliche Aufbewahrungspflicht besteht oder eine weitere Speicherung zur Geltendmachung,
+          Ausübung oder Verteidigung von Rechtsansprüchen erforderlich ist.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>6. Externe Links</h2>
+        <p>
+          Diese Website enthält Links zu externen Websites und Online-Profilen, darunter LinkedIn
+          und GitHub.
+        </p>
+        <p>
+          Es handelt sich dabei um gewöhnliche externe Links ohne eingebettete Social-Media-Plugins.
+        </p>
+        <p>
+          Allein durch den Besuch dieser Website werden Ihre personenbezogenen Daten über diese
+          Links nicht an LinkedIn oder GitHub übermittelt.
+        </p>
+        <p>
+          Wenn Sie auf einen dieser Links klicken, verlassen Sie diese Website und gelangen zur
+          jeweiligen Drittanbieter-Website. Ab diesem Zeitpunkt ist der jeweilige Anbieter für die
+          Verarbeitung Ihrer personenbezogenen Daten verantwortlich.
+        </p>
+        <p>
+          Informationen darüber, wie diese Anbieter personenbezogene Daten verarbeiten, finden Sie
+          in deren jeweiligen Datenschutzerklärungen.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>7. Cookies und ähnliche Technologien</h2>
+        <p>
+          Diese Website verwendet bewusst keine Cookies oder ähnliche Technologien zu Zwecken der
+          Werbung, Profilbildung oder Analyse.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>8. Ihre Rechte</h2>
+        <p>
+          Nach der DSGVO stehen Ihnen in Bezug auf Ihre personenbezogenen Daten verschiedene Rechte
+          zu, darunter:
+        </p>
+        <ul class="policy__section--list">
+          <li>
+            <strong>Auskunftsrecht:</strong> Sie können Auskunft darüber verlangen, ob
+            personenbezogene Daten über Sie verarbeitet werden, und ggf. eine Kopie dieser Daten
+            erhalten.
+          </li>
+          <li>
+            <strong>Recht auf Berichtigung:</strong> Sie können die Berichtigung unrichtiger oder
+            unvollständiger personenbezogener Daten verlangen.
+          </li>
+          <li>
+            <strong>Recht auf Löschung:</strong> Unter bestimmten Voraussetzungen können Sie die
+            Löschung Ihrer personenbezogenen Daten verlangen.
+          </li>
+          <li>
+            <strong>Recht auf Einschränkung der Verarbeitung:</strong> Unter bestimmten
+            Voraussetzungen können Sie verlangen, dass die Verarbeitung Ihrer personenbezogenen
+            Daten eingeschränkt wird.
+          </li>
+          <li>
+            <strong>Recht auf Datenübertragbarkeit:</strong> Soweit anwendbar, haben Sie das Recht,
+            personenbezogene Daten, die Sie bereitgestellt haben, in einem strukturierten, gängigen
+            und maschinenlesbaren Format zu erhalten.
+          </li>
+          <li>
+            <strong>Widerspruchsrecht:</strong> Soweit die Verarbeitung auf Art. 6 Abs. 1 lit. e
+            oder f DSGVO beruht, können Sie der Verarbeitung aus Gründen, die sich aus Ihrer
+            besonderen Situation ergeben, widersprechen.
+          </li>
+          <li>
+            <strong>Recht auf Widerruf der Einwilligung:</strong> Soweit die Verarbeitung auf Ihrer
+            Einwilligung beruht, können Sie diese jederzeit widerrufen.
+          </li>
+        </ul>
+        <p>
+          Der Widerruf der Einwilligung berührt nicht die Rechtmäßigkeit der bis zum Widerruf
+          erfolgten Verarbeitung.
+        </p>
+        <p>Weitere Informationen zu diesen Rechten finden Sie in Art. 15–21 DSGVO.</p>
+        <p>
+          Zur Ausübung dieser Rechte wenden Sie sich bitte an die oben angegebene Kontaktadresse.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>9. Beschwerderecht</h2>
+        <p>
+          Wenn Sie der Ansicht sind, dass die Verarbeitung Ihrer personenbezogenen Daten gegen das
+          anwendbare Datenschutzrecht verstößt, haben Sie das Recht, Beschwerde bei einer
+          Datenschutz-Aufsichtsbehörde einzulegen.
+        </p>
+        <p>
+          Sie können sich an die Aufsichtsbehörde Ihres gewöhnlichen Aufenthaltsorts, Arbeitsorts
+          oder des Orts der mutmaßlichen Verletzung wenden.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>10. Datensicherheit</h2>
+        <p>
+          Ich treffe angemessene technische und organisatorische Maßnahmen, um personenbezogene
+          Daten vor zufälliger oder unrechtmäßiger Vernichtung, Verlust, Veränderung, unbefugter
+          Offenlegung oder unbefugtem Zugriff zu schützen.
+        </p>
+        <p>
+          Eine vollständige Sicherheit bei der Übertragung über das Internet oder bei der
+          elektronischen Speicherung kann jedoch nicht garantiert werden.
+        </p>
+      </section>
+      <section class="policy__section">
+        <h2>11. Änderungen dieser Datenschutzerklärung</h2>
+        <p>
+          Diese Datenschutzerklärung kann von Zeit zu Zeit aktualisiert werden, um Änderungen an
+          dieser Website, den genutzten Diensten oder den anwendbaren gesetzlichen Anforderungen
+          widerzuspiegeln.
+        </p>
+        <p>Die jeweils aktuelle Fassung wird auf dieser Seite veröffentlicht.</p>
+        <p>Stand: 1. Oktober 2026</p>
+      </section>
+    </div>
+  </article>
+}
