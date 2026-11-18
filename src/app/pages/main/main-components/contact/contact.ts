@@ -1,12 +1,26 @@
-import { Component, computed, signal } from '@angular/core';
+import { Component, signal } from '@angular/core';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { Button } from '../../../../shared/components/button/button';
 import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-import { customMailValidator, customNameValidator } from '../../../../utils/validators';
+import {
+  customMailValidator,
+  customMessageValidator,
+  customNameValidator,
+  generalCustomValidators,
+} from '../../../../utils/validators';
 
+/** State of the last send attempt; drives the feedback toast. */
 type SendStatus = 'idle' | 'success' | 'error';
 
+/** Names of the text fields that show a validation message. */
+type TextField = 'name' | 'email' | 'message';
+
+/**
+ * Contact section with a reactive form (name, email, message, privacy consent).
+ * Error messages are translation keys. The send action is simulated for now.
+ */
 @Component({
   imports: [Button, ReactiveFormsModule, RouterLink, TranslatePipe],
   selector: 'section[app-contact]',
@@ -17,23 +31,62 @@ type SendStatus = 'idle' | 'success' | 'error';
   },
 })
 export class Contact {
-  /** Current send status of the form submission. */
+  /** Result of the last send attempt; resets to `idle` after 3 seconds. */
   protected readonly sendStatus = signal<SendStatus>('idle');
 
   /** Reactive form group for the contact form. */
   protected readonly contactForm = new FormGroup({
-    name: new FormControl('', [Validators.required, customNameValidator()]),
-    email: new FormControl('', [Validators.required, customMailValidator()]),
-    message: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    name: new FormControl('', [
+      Validators.required,
+      generalCustomValidators(),
+      customNameValidator(),
+    ]),
+    email: new FormControl('', [
+      Validators.required,
+      generalCustomValidators(),
+      customMailValidator(),
+    ]),
+    message: new FormControl('', [Validators.required, customMessageValidator()]),
     acceptPrivacy: new FormControl(false, [Validators.requiredTrue]),
   });
 
-  /** SVG href for the checkbox icon, toggled by the current acceptPrivacy value. */
-  protected readonly checkboxIcon = computed<string>(() =>
-    this.contactForm.get('acceptPrivacy')?.value
+  /** Consent value as signal: a plain `FormControl` value does not notify signals or `computed`. */
+  private readonly accepted = toSignal(this.contactForm.controls.acceptPrivacy.valueChanges, {
+    initialValue: false,
+  });
+
+  /**
+   * SVG href of the checkbox icon, switches between the checked and the empty box.
+   *
+   * @returns The icon reference for the current consent value.
+   */
+  protected checkboxIcon(): string {
+    return this.accepted()
       ? './assets/images/icons/icons.svg#checkbox-checked'
-      : './assets/images/icons/icons.svg#checkbox',
-  );
+      : './assets/images/icons/icons.svg#checkbox';
+  }
+
+  /**
+   * Tells whether a text field was visited and is invalid; drives the red state and the placeholder.
+   *
+   * @param field - The form control name to check.
+   * @returns True if the field is touched and invalid.
+   */
+  protected isInvalid(field: TextField): boolean {
+    const control = this.contactForm.controls[field];
+    return control.touched && control.invalid;
+  }
+
+  /**
+   * Tells whether the detailed error text is shown: only for filled, invalid fields.
+   * An empty field is already marked by the red placeholder.
+   *
+   * @param field - The form control name to check.
+   * @returns True if the field is invalid and not empty.
+   */
+  protected showError(field: TextField): boolean {
+    return this.isInvalid(field) && !!this.contactForm.controls[field].value;
+  }
 
   /**
    * Returns the i18n key for the first error on the given form field.
@@ -41,25 +94,10 @@ export class Contact {
    * @param field - The form control name to check.
    * @returns The translation key string for the current error, or an empty string.
    */
-  protected getErrorMessage(field: string): string {
-    const control = this.contactForm.get(field);
-    if (!control?.errors) return '';
-    if (field === 'name') {
-      return control.errors['required']
-        ? 'contact.errors.name_required'
-        : 'contact.errors.name_valid';
-    }
-    if (field === 'email') {
-      return control.errors['required']
-        ? 'contact.errors.email_required'
-        : 'contact.errors.email_valid';
-    }
-    if (field === 'message') {
-      return control.errors['required']
-        ? 'contact.errors.message_required'
-        : 'contact.errors.message_valid';
-    }
-    return '';
+  protected getErrorMessage(field: TextField): string {
+    const errors = this.contactForm.controls[field].errors;
+    if (!errors) return '';
+    return `contact.errors.${field}_${errors['required'] ? 'required' : 'valid'}`;
   }
 
   /**
@@ -79,16 +117,5 @@ export class Contact {
       this.contactForm.enable();
       setTimeout(() => this.sendStatus.set('idle'), 3000);
     }
-  }
-
-  /**
-   * Syncs the checkbox value to the form control and marks it as touched.
-   *
-   * @param event - The change event from the checkbox input.
-   */
-  protected onCheckboxChange(event: Event): void {
-    const checked = (event.target as HTMLInputElement).checked;
-    this.contactForm.get('acceptPrivacy')?.setValue(checked);
-    this.contactForm.get('acceptPrivacy')?.markAsTouched();
   }
 }

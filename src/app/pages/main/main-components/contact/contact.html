@@ -8,55 +8,38 @@
   </div>
   <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact__form">
     <div class="contact__form--personal">
-      <div
-        class="contact__form--input"
-        [class.contact__form--invalid]="
-          contactForm.get('name')!.touched && contactForm.get('name')!.invalid
-        "
-      >
+      <div class="contact__form--input" [class.contact__form--invalid]="isInvalid('name')">
         <h3>{{ 'contact.form.0.label' | translate }}</h3>
         <input
           type="text"
           formControlName="name"
           autocomplete="name"
           [placeholder]="
-            contactForm.get('name')!.touched && contactForm.get('name')!.invalid
+            isInvalid('name')
               ? ('contact.errors.name_required' | translate)
               : ('contact.form.0.placeholder' | translate)
           "
         />
-        @if (
-          contactForm.get('name')!.touched &&
-          contactForm.get('name')!.invalid &&
-          contactForm.get('name')!.value
-        ) {
+        @if (showError('name')) {
           <p class="contact__form--error">
             {{ getErrorMessage('name') | translate }}
           </p>
         }
       </div>
-      <div
-        class="contact__form--input"
-        [class.contact__form--invalid]="
-          contactForm.get('email')!.touched && contactForm.get('email')!.invalid
-        "
-      >
+      <div class="contact__form--input" [class.contact__form--invalid]="isInvalid('email')">
         <h3>{{ 'contact.form.1.label' | translate }}</h3>
         <input
-          type="email"
+          type="text"
+          inputmode="email"
           formControlName="email"
           autocomplete="email"
           [placeholder]="
-            contactForm.get('email')!.touched && contactForm.get('email')!.invalid
+            isInvalid('email')
               ? ('contact.errors.email_required' | translate)
               : ('contact.form.1.placeholder' | translate)
           "
         />
-        @if (
-          contactForm.get('email')!.touched &&
-          contactForm.get('email')!.invalid &&
-          contactForm.get('email')!.value
-        ) {
+        @if (showError('email')) {
           <p class="contact__form--error">
             {{ getErrorMessage('email') | translate }}
           </p>
@@ -65,9 +48,7 @@
     </div>
     <div
       class="contact__form--mail contact__form--input"
-      [class.contact__form--invalid]="
-        contactForm.get('message')!.touched && contactForm.get('message')!.invalid
-      "
+      [class.contact__form--invalid]="isInvalid('message')"
     >
       <h3>{{ 'contact.form.2.label' | translate }}</h3>
       <input
@@ -75,16 +56,12 @@
         formControlName="message"
         autocomplete="off"
         [placeholder]="
-          contactForm.get('message')!.touched && contactForm.get('message')!.invalid
+          isInvalid('message')
             ? ('contact.errors.message_required' | translate)
             : ('contact.form.2.placeholder' | translate)
         "
       />
-      @if (
-        contactForm.get('message')!.touched &&
-        contactForm.get('message')!.invalid &&
-        contactForm.get('message')!.value
-      ) {
+      @if (showError('message')) {
         <p class="contact__form--error">
           {{ getErrorMessage('message') | translate }}
         </p>
@@ -100,7 +77,6 @@
             class="checkbox-input"
             type="checkbox"
             formControlName="acceptPrivacy"
-            (change)="onCheckboxChange($event)"
             aria-label="Accept privacy policy"
           />
         </label>
@@ -109,7 +85,9 @@
           <a routerLink="/privacy-policy">{{ 'contact.check.link' | translate }}</a>
           {{ 'contact.check.check2' | translate }}
         </p>
-        @if (contactForm.get('acceptPrivacy')!.dirty && contactForm.get('acceptPrivacy')!.invalid) {
+        @if (
+          contactForm.controls.acceptPrivacy.dirty && contactForm.controls.acceptPrivacy.invalid
+        ) {
           <p class="contact__form--error checkbox-line__error">
             {{ 'contact.errors.privacy_required' | translate }}
           </p>
