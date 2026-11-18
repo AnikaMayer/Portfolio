@@ -3,62 +3,62 @@
     <h2>{{ 'contact.title' | translate }}</h2>
     <div class="contact__intro--text">
       <h3>{{ 'contact.subtitle' | translate }}</h3>
-      <p>
-        {{ 'contact.text' | translate }}
-      </p>
+      <p>{{ 'contact.text' | translate }}</p>
     </div>
   </div>
-  <form [formRoot]="contactForm" class="contact__form">
+  <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="contact__form">
     <div class="contact__form--personal">
       <div
         class="contact__form--input"
         [class.contact__form--invalid]="
-          contactForm.name().touched() && contactForm.name().invalid()
+          contactForm.get('name')!.touched && contactForm.get('name')!.invalid
         "
       >
         <h3>{{ 'contact.form.0.label' | translate }}</h3>
         <input
           type="text"
-          [formField]="contactForm.name"
+          formControlName="name"
           autocomplete="name"
           [placeholder]="
-            contactForm.name().touched() && contactForm.name().invalid()
+            contactForm.get('name')!.touched && contactForm.get('name')!.invalid
               ? ('contact.errors.name_required' | translate)
               : ('contact.form.0.placeholder' | translate)
           "
         />
         @if (
-          contactForm.name().touched() && contactForm.name().invalid() && contactForm.name().value()
+          contactForm.get('name')!.touched &&
+          contactForm.get('name')!.invalid &&
+          contactForm.get('name')!.value
         ) {
           <p class="contact__form--error">
-            {{ contactForm.name().errors()?.[0]?.message | translate }}
+            {{ getErrorMessage('name') | translate }}
           </p>
         }
       </div>
       <div
         class="contact__form--input"
         [class.contact__form--invalid]="
-          contactForm.email().touched() && contactForm.email().invalid()
+          contactForm.get('email')!.touched && contactForm.get('email')!.invalid
         "
       >
         <h3>{{ 'contact.form.1.label' | translate }}</h3>
         <input
           type="email"
-          [formField]="contactForm.email"
+          formControlName="email"
           autocomplete="email"
           [placeholder]="
-            contactForm.email().touched() && contactForm.email().invalid()
+            contactForm.get('email')!.touched && contactForm.get('email')!.invalid
               ? ('contact.errors.email_required' | translate)
               : ('contact.form.1.placeholder' | translate)
           "
         />
         @if (
-          contactForm.email().touched() &&
-          contactForm.email().invalid() &&
-          contactForm.email().value()
+          contactForm.get('email')!.touched &&
+          contactForm.get('email')!.invalid &&
+          contactForm.get('email')!.value
         ) {
           <p class="contact__form--error">
-            {{ contactForm.email().errors()?.[0]?.message | translate }}
+            {{ getErrorMessage('email') | translate }}
           </p>
         }
       </div>
@@ -66,27 +66,27 @@
     <div
       class="contact__form--mail contact__form--input"
       [class.contact__form--invalid]="
-        contactForm.message().touched() && contactForm.message().invalid()
+        contactForm.get('message')!.touched && contactForm.get('message')!.invalid
       "
     >
       <h3>{{ 'contact.form.2.label' | translate }}</h3>
       <input
         type="text"
-        [formField]="contactForm.message"
+        formControlName="message"
         autocomplete="off"
         [placeholder]="
-          contactForm.message().touched() && contactForm.message().invalid()
+          contactForm.get('message')!.touched && contactForm.get('message')!.invalid
             ? ('contact.errors.message_required' | translate)
             : ('contact.form.2.placeholder' | translate)
         "
       />
       @if (
-        contactForm.message().touched() &&
-        contactForm.message().invalid() &&
-        contactForm.message().value()
+        contactForm.get('message')!.touched &&
+        contactForm.get('message')!.invalid &&
+        contactForm.get('message')!.value
       ) {
         <p class="contact__form--error">
-          {{ contactForm.message().errors()?.[0]?.message | translate }}
+          {{ getErrorMessage('message') | translate }}
         </p>
       }
     </div>
@@ -99,7 +99,7 @@
           <input
             class="checkbox-input"
             type="checkbox"
-            [checked]="contactModel().acceptPrivacy"
+            formControlName="acceptPrivacy"
             (change)="onCheckboxChange($event)"
             aria-label="Accept privacy policy"
           />
@@ -109,18 +109,14 @@
           <a routerLink="/privacy-policy">{{ 'contact.check.link' | translate }}</a>
           {{ 'contact.check.check2' | translate }}
         </p>
-        @if (contactForm.acceptPrivacy().dirty() && contactForm.acceptPrivacy().invalid()) {
+        @if (contactForm.get('acceptPrivacy')!.dirty && contactForm.get('acceptPrivacy')!.invalid) {
           <p class="contact__form--error checkbox-line__error">
-            {{ contactForm.acceptPrivacy().errors()?.[0]?.message | translate }}
+            {{ 'contact.errors.privacy_required' | translate }}
           </p>
         }
       </div>
-      <button
-        app-btn
-        type="submit"
-        [disabled]="!contactForm().valid() || contactForm().submitting()"
-      >
-        {{ contactForm().submitting() ? 'sending...' : 'Drop a Line' }}
+      <button app-btn type="submit" [disabled]="contactForm.invalid || contactForm.disabled">
+        {{ contactForm.disabled ? 'sending...' : 'Drop a Line' }}
       </button>
       <div
         class="contact__form--feedback contact__form--feedback-success"
@@ -139,7 +135,6 @@
   <a href="#hero-section" class="contact__startbtn">
     <svg width="8" height="17">
       <use href="./assets/images/icons/icons.svg#arrow-up"></use>
-      >
     </svg>
   </a>
 </div>

@@ -1,28 +1,14 @@
 import { Component, computed, signal } from '@angular/core';
 import { Button } from '../../../../shared/components/button/button';
-import {
-  email,
-  form,
-  FormField,
-  minLength,
-  pattern,
-  required,
-  FormRoot,
-} from '@angular/forms/signals';
+import { ReactiveFormsModule, FormGroup, FormControl, Validators } from '@angular/forms';
 import { RouterLink } from '@angular/router';
 import { TranslatePipe } from '@ngx-translate/core';
-
-interface FormData {
-  name: string;
-  email: string;
-  message: string;
-  acceptPrivacy: boolean;
-}
+import { customMailValidator, customNameValidator } from '../../../../utils/validators';
 
 type SendStatus = 'idle' | 'success' | 'error';
 
 @Component({
-  imports: [Button, FormField, RouterLink, FormRoot, TranslatePipe],
+  imports: [Button, ReactiveFormsModule, RouterLink, TranslatePipe],
   selector: 'section[app-contact]',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
@@ -31,65 +17,78 @@ type SendStatus = 'idle' | 'success' | 'error';
   },
 })
 export class Contact {
+  /** Current send status of the form submission. */
   protected readonly sendStatus = signal<SendStatus>('idle');
 
-  protected readonly contactModel = signal<FormData>({
-    name: '',
-    email: '',
-    message: '',
-    acceptPrivacy: false,
+  /** Reactive form group for the contact form. */
+  protected readonly contactForm = new FormGroup({
+    name: new FormControl('', [Validators.required, customNameValidator()]),
+    email: new FormControl('', [Validators.required, customMailValidator()]),
+    message: new FormControl('', [Validators.required, Validators.minLength(2)]),
+    acceptPrivacy: new FormControl(false, [Validators.requiredTrue]),
   });
 
-  protected readonly contactForm = form(
-    this.contactModel,
-    (contactPath) => {
-      required(contactPath.name, { message: 'contact.errors.name_required' });
-      minLength(contactPath.name, 2, { message: 'contact.errors.name_valid' });
-      pattern(contactPath.name, /^[a-zA-ZÀ-ž][a-zA-ZÀ-ž\s\-']*[a-zA-ZÀ-ž]$/, {
-        message: 'contact.errors.name_valid',
-      });
-      required(contactPath.email, { message: 'contact.errors.email_required' });
-      email(contactPath.email, { message: 'contact.errors.email_valid' });
-      pattern(contactPath.email, /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-z]{2,}$/, {
-        message: 'contact.errors.email_valid',
-      });
-      required(contactPath.message, { message: 'contact.errors.message_required' });
-      minLength(contactPath.message, 2, { message: 'contact.errors.message_valid' });
-      required(contactPath.acceptPrivacy, { message: 'contact.errors.privacy_required' });
-    },
-    {
-      submission: {
-        action: async () => {
-          // const result = await sendMessage(field().value());
-          try {
-            await new Promise((resolve) => setTimeout(resolve, 1000));
-
-            this.sendStatus.set('success');
-            setTimeout(() => {
-              this.sendStatus.set('idle');
-            }, 3000);
-            this.contactModel.set({ name: '', email: '', message: '', acceptPrivacy: false });
-            this.contactForm().reset();
-          } catch {
-            this.sendStatus.set('error');
-            setTimeout(() => {
-              this.sendStatus.set('idle');
-            }, 3000);
-          }
-        },
-      },
-    },
+  /** SVG href for the checkbox icon, toggled by the current acceptPrivacy value. */
+  protected readonly checkboxIcon = computed<string>(() =>
+    this.contactForm.get('acceptPrivacy')?.value
+      ? './assets/images/icons/icons.svg#checkbox-checked'
+      : './assets/images/icons/icons.svg#checkbox',
   );
 
-  protected readonly checkboxIcon = computed<string>(() => {
-    return this.contactModel().acceptPrivacy
-      ? './assets/images/icons/icons.svg#checkbox-checked'
-      : './assets/images/icons/icons.svg#checkbox';
-  });
+  /**
+   * Returns the i18n key for the first error on the given form field.
+   *
+   * @param field - The form control name to check.
+   * @returns The translation key string for the current error, or an empty string.
+   */
+  protected getErrorMessage(field: string): string {
+    const control = this.contactForm.get(field);
+    if (!control?.errors) return '';
+    if (field === 'name') {
+      return control.errors['required']
+        ? 'contact.errors.name_required'
+        : 'contact.errors.name_valid';
+    }
+    if (field === 'email') {
+      return control.errors['required']
+        ? 'contact.errors.email_required'
+        : 'contact.errors.email_valid';
+    }
+    if (field === 'message') {
+      return control.errors['required']
+        ? 'contact.errors.message_required'
+        : 'contact.errors.message_valid';
+    }
+    return '';
+  }
 
+  /**
+   * Handles form submission: disables the form while sending,
+   * sets the send status and resets the form on success.
+   */
+  protected async onSubmit(): Promise<void> {
+    if (this.contactForm.invalid) return;
+    this.contactForm.disable();
+    try {
+      await new Promise((resolve) => setTimeout(resolve, 1000));
+      this.sendStatus.set('success');
+      this.contactForm.reset();
+    } catch {
+      this.sendStatus.set('error');
+    } finally {
+      this.contactForm.enable();
+      setTimeout(() => this.sendStatus.set('idle'), 3000);
+    }
+  }
+
+  /**
+   * Syncs the checkbox value to the form control and marks it as touched.
+   *
+   * @param event - The change event from the checkbox input.
+   */
   protected onCheckboxChange(event: Event): void {
     const checked = (event.target as HTMLInputElement).checked;
-    this.contactModel.update((model) => ({ ...model, acceptPrivacy: checked })); // ← contactModel wird gesetzt
-    this.contactForm.acceptPrivacy().markAsTouched();
+    this.contactForm.get('acceptPrivacy')?.setValue(checked);
+    this.contactForm.get('acceptPrivacy')?.markAsTouched();
   }
 }
