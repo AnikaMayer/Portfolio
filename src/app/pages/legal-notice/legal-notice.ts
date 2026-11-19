@@ -2,7 +2,6 @@ import { Component, inject } from '@angular/core';
 import { LanguageService } from '../../shared/services/language-service';
 import { BackLink } from '../../shared/components/back-link/back-link';
 import { ResponsiveService } from '../../shared/services/responsive';
-import { RouterLink } from '@angular/router';
 
 /**
  * Legal notice page (Impressum), available in English and German.
@@ -10,7 +9,7 @@ import { RouterLink } from '@angular/router';
  * {@link LanguageService} and starts with an arrow link back to the main page.
  */
 @Component({
-  imports: [BackLink, RouterLink],
+  imports: [BackLink],
   selector: 'main[app-legal-notice]',
   styleUrl: './legal-notice.scss',
   templateUrl: './legal-notice.html',
