@@ -9,9 +9,14 @@
   top: 0;
   left: 0;
   @include flex-center;
-  background: transparent;
-  backdrop-filter: blur(8px) brightness(0.6);
-  -webkit-backdrop-filter: blur(8px) brightness(0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0.3) 40%,
+    transparent 75%
+  );
+  backdrop-filter: blur(4px) brightness(0.85);
+  -webkit-backdrop-filter: blur(4px) brightness(0.85);
 
   @include mobile {
     height: $headerHeightMobile;
