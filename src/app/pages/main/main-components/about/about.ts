@@ -11,7 +11,7 @@ import { CloseBtn } from '../../../../shared/components/close-btn/close-btn';
   styleUrl: './about.scss',
   templateUrl: './about.html',
   host: {
-    id: 'about-section',
+    id: 'about',
     'aria-labelledby': 'about-heading',
   },
 })

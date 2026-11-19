@@ -6,7 +6,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 /**
  * Arrow link, used on `<a>` elements via the `app-back-link` attribute.
  *
- * - `direction="up"` with an `href` anchor (e.g. `#hero-section`): scrolls smoothly to that
+ * - `direction="up"` with an `href` anchor (e.g. `#home`): scrolls smoothly to that
  *   element on the same page (contact section).
  * - `direction="left"` without `href`: leads from a sub page (legal notice, privacy policy)
  *   back to the main page and restores the scroll position the visitor left.
@@ -27,7 +27,7 @@ export class BackLink {
   /** Direction the arrow points to; `left` is the default (back), `up` scrolls to the top. */
   direction = input<'up' | 'left'>('left');
 
-  /** Anchor to scroll to (e.g. `#hero-section`). Without it the link leads back to the main page. */
+  /** Anchor to scroll to (e.g. `#home`). Without it the link leads back to the main page. */
   href = input<string>('');
 
   private readonly location = inject(Location);

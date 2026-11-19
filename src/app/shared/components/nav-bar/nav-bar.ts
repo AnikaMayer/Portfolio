@@ -10,7 +10,7 @@ import { TranslatePipe } from '@ngx-translate/core';
 })
 export class NavBar implements OnInit, OnDestroy {
   /** Id of the section currently in view. */
-  activeSection = signal<string>('hero-section');
+  activeSection = signal<string>('home');
   /** Watches all sections with an id. */
   private observer!: IntersectionObserver;
 

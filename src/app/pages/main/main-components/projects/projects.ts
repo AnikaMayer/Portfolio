@@ -24,7 +24,7 @@ interface Project {
   styleUrl: './projects.scss',
   templateUrl: './projects.html',
   host: {
-    id: 'portfolio-section',
+    id: 'projects',
   },
 })
 export class Projects {

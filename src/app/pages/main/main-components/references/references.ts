@@ -16,7 +16,7 @@ interface Feedback {
   styleUrl: './references.scss',
   templateUrl: './references.html',
   host: {
-    id: 'reference-section',
+    id: 'references',
     'aria-labelledby': 'ref-heading',
   },
 })

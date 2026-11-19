@@ -10,7 +10,7 @@ import { ScrollAnimation } from './scroll-animation/scroll-animation';
   styleUrl: './hero.scss',
   templateUrl: './hero.html',
   host: {
-    id: 'hero-section',
+    id: 'home',
     'aria-label': 'Introduction',
   },
 })

@@ -10,7 +10,7 @@ import { ResponsiveService } from '../../../../shared/services/responsive';
   styleUrl: './skills.scss',
   templateUrl: './skills.html',
   host: {
-    id: 'skills-section',
+    id: 'skills',
     'aria-labelledby': 'skills-heading',
   },
 })

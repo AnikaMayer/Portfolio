@@ -35,7 +35,7 @@ type TextField = 'name' | 'email' | 'message';
   styleUrl: './contact.scss',
   templateUrl: './contact.html',
   host: {
-    id: 'contact-section',
+    id: 'contact',
   },
 })
 export class Contact {

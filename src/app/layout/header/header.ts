@@ -23,11 +23,11 @@ export class Header {
 
   /** Anchor links of the one-page navigation (`label` is a translation key). */
   navList = [
-    { href: '#about-section', label: 'nav.about' },
-    { href: '#skills-section', label: 'nav.skills' },
-    { href: '#portfolio-section', label: 'nav.projects' },
-    { href: '#reference-section', label: 'nav.references' },
-    { href: '#contact-section', label: 'nav.contact' },
+    { href: '#about', label: 'nav.about' },
+    { href: '#skills', label: 'nav.skills' },
+    { href: '#projects', label: 'nav.projects' },
+    { href: '#references', label: 'nav.references' },
+    { href: '#contact', label: 'nav.contact' },
   ];
 
   /** External profile links shown in the header and in the overlay. */
