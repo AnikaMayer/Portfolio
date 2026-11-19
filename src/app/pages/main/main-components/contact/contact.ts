@@ -19,7 +19,7 @@ import { BackLink } from '../../../../shared/components/back-link/back-link';
 type SendStatus = 'idle' | 'success' | 'error';
 
 /** Time in ms the feedback toast stays visible after a send attempt. */
-const FEEDBACK_DURATION = 10000;
+const FEEDBACK_DURATION = 5000;
 
 /** Names of the text fields that show a validation message. */
 type TextField = 'name' | 'email' | 'message';
