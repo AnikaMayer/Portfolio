@@ -9,6 +9,16 @@ import { TranslatePipe } from '@ngx-translate/core';
   templateUrl: './nav-bar.html',
 })
 export class NavBar implements OnInit, OnDestroy {
+  /** One dot per section: the section id and the translation key of its name. */
+  protected readonly items = [
+    { id: 'home', label: 'aria.start' },
+    { id: 'about', label: 'nav.about' },
+    { id: 'skills', label: 'nav.skills' },
+    { id: 'projects', label: 'nav.projects' },
+    { id: 'references', label: 'nav.references' },
+    { id: 'contact', label: 'nav.contact' },
+  ];
+
   /** Id of the section currently in view. */
   activeSection = signal<string>('home');
   /** Watches all sections with an id. */

@@ -1,11 +1,15 @@
 @use '../../../../../public/assets/styles/all_styles.scss' as *;
 
 :host {
+  display: contents;
+}
+
+.dots,
+.marker {
   @include size(12px, 168px);
   @include flex-column;
   justify-content: center;
   gap: 20px;
-  background-color: rgba($bgDark, 0.4);
   position: fixed;
   right: 72px;
   top: 50%;
@@ -21,14 +25,30 @@
 
   .nav-section {
     @include size(8px);
-    background-color: $textLight;
     rotate: 45deg;
     border-radius: 50px;
     transition: border-radius 0.1s ease;
   }
 }
 
-a.is-active .nav-section {
-  border-radius: 1px;
-  background-color: $highlightMedium;
+.dots {
+  mix-blend-mode: difference;
+
+  .nav-section {
+    background-color: #fff;
+  }
+
+  a.is-active .nav-section {
+    background-color: transparent;
+  }
+}
+
+.marker {
+  pointer-events: none;
+
+  .nav-section.is-active {
+    border-radius: 1px;
+    background-color: $highlightMedium;
+    box-shadow: 0 0 0 1.5px rgba($bgDark, 0.6);
+  }
 }

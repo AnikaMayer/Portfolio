@@ -1,42 +1,16 @@
-<a
-  href="#home"
-  [class.is-active]="activeSection() === 'home'"
-  [attr.aria-label]="'aria.start' | translate"
-  [attr.aria-current]="activeSection() === 'home' ? 'true' : null"
-  ><div class="nav-section"></div
-></a>
-<a
-  href="#about"
-  [class.is-active]="activeSection() === 'about'"
-  [attr.aria-label]="'nav.about' | translate"
-  [attr.aria-current]="activeSection() === 'about' ? 'true' : null"
-  ><div class="nav-section"></div
-></a>
-<a
-  href="#skills"
-  [class.is-active]="activeSection() === 'skills'"
-  [attr.aria-label]="'nav.skills' | translate"
-  [attr.aria-current]="activeSection() === 'skills' ? 'true' : null"
-  ><div class="nav-section"></div
-></a>
-<a
-  href="#projects"
-  [class.is-active]="activeSection() === 'projects'"
-  [attr.aria-label]="'nav.projects' | translate"
-  [attr.aria-current]="activeSection() === 'projects' ? 'true' : null"
-  ><div class="nav-section"></div
-></a>
-<a
-  href="#references"
-  [class.is-active]="activeSection() === 'references'"
-  [attr.aria-label]="'nav.references' | translate"
-  [attr.aria-current]="activeSection() === 'references' ? 'true' : null"
-  ><div class="nav-section"></div
-></a>
-<a
-  href="#contact"
-  [class.is-active]="activeSection() === 'contact'"
-  [attr.aria-label]="'nav.contact' | translate"
-  [attr.aria-current]="activeSection() === 'contact' ? 'true' : null"
-  ><div class="nav-section"></div
-></a>
+<div class="dots">
+  @for (item of items; track item.id) {
+    <a
+      [href]="'#' + item.id"
+      [class.is-active]="activeSection() === item.id"
+      [attr.aria-label]="item.label | translate"
+      [attr.aria-current]="activeSection() === item.id ? 'true' : null"
+      ><div class="nav-section"></div
+    ></a>
+  }
+</div>
+<div class="marker" aria-hidden="true">
+  @for (item of items; track item.id) {
+    <div class="nav-section" [class.is-active]="activeSection() === item.id"></div>
+  }
+</div>
