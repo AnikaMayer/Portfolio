@@ -56,7 +56,6 @@
   padding: $padding;
 }
 
-// Icon-Link mit Linienfarbe $lines, Füllung beim Hover (Farben kommen über CSS-Variablen ins SVG)
 @mixin iconLink($lines) {
   --icon-body: none;
   --icon-lines: #{$lines};
@@ -78,7 +77,6 @@
   container-type: inline-size;
 }
 
-// 13cqi: "something Cool" passt immer in die Spalte, auf niedrigen Screens zusätzlich begrenzt
 @mixin headline {
   font-family: $fontHeading;
   font-weight: 700;
@@ -136,7 +134,7 @@
     visibility 0s linear 0s;
 }
 
-// Seiten "Legal Notice" und "Privacy Policy": gemeinsames Grundlayout
+// main-layout for "Legal Notice" and "Privacy Policy"
 @mixin legalMain {
   :host {
     width: 100%;
@@ -148,7 +146,7 @@
 
 @mixin legalPage {
   height: 100%;
-  padding: 160px 0 calcClamp(190, 260, 1025, 1440);
+  padding: 112px 0 calcClamp(190, 260, 1025, 1440);
   background-color: $bgDark;
   font-family: $fontBody;
   color: $textLight;
@@ -184,7 +182,6 @@
   }
 }
 
-// Desktop-Layout ab 1151px; belowDesktop ist das Gegenstück
 @mixin desktop {
   @media (min-width: 1151px) {
     @content;
