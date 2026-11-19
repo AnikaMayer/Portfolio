@@ -137,6 +137,7 @@
       "check2": "and agree to the processing of my data."
     },
     "submit": "Drop a Line",
+    "submitting": "Sending…",
     "success": "Thank you! Your message has been sent!",
     "failed": "Oh no, something went wrong. Please try again later."
   }

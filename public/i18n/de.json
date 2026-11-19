@@ -140,6 +140,7 @@
       "check2": "gelesen und stimme der Verarbeitung meiner Daten zu."
     },
     "submit": "Schreib mir!",
+    "submitting": "Wird gesendet…",
     "success": "Vielen Dank! Deine Nachricht wurde gesendet.",
     "failed": "Uff, das hat leider nicht geklappt. Versuch’s später noch mal."
   }

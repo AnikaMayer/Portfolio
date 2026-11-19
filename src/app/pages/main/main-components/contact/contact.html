@@ -94,7 +94,7 @@
         }
       </div>
       <button app-btn type="submit" [disabled]="contactForm.invalid || contactForm.disabled">
-        {{ contactForm.disabled ? 'sending...' : 'Drop a Line' }}
+        {{ (contactForm.disabled ? 'contact.submitting' : 'contact.submit') | translate }}
       </button>
       <div
         class="contact__form--feedback contact__form--feedback-success"
