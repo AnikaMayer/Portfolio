@@ -44,7 +44,7 @@ export class Projects {
       image: 'assets/images/projects/El-Pollo-Loco.png',
       icon: 'assets/images/icons/chicken_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
-      liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
+      liveUrl: 'https://elpolloloco.anika-mayer.de/',
       colorClass: 'theme-loco',
     },
     {
@@ -55,7 +55,7 @@ export class Projects {
       image: 'assets/images/projects/join.png',
       icon: 'assets/images/icons/join_icon.svg',
       gitUrl: 'https://github.com/AnikaMayer/El-Pollo-Loco',
-      liveUrl: 'https://anikamayer.developerakademie.net/El_Pollo_Loco/index.html',
+      liveUrl: 'https://join.anika-mayer.de/',
       colorClass: 'theme-join',
     },
   ];
