@@ -191,10 +191,10 @@
             img {
               @include size(30px);
               object-fit: cover;
+            }
 
-              &:hover {
-                animation: paused;
-              }
+            &:hover {
+              animation: paused;
             }
           }
         }
