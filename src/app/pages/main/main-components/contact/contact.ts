@@ -10,6 +10,7 @@ import {
   customNameValidator,
   generalCustomValidators,
 } from '../../../../utils/validators';
+import { BackLink } from '../../../../shared/components/back-link/back-link';
 
 /** State of the last send attempt; drives the feedback toast. */
 type SendStatus = 'idle' | 'success' | 'error';
@@ -22,7 +23,7 @@ type TextField = 'name' | 'email' | 'message';
  * Error messages are translation keys. The send action is simulated for now.
  */
 @Component({
-  imports: [Button, ReactiveFormsModule, RouterLink, TranslatePipe],
+  imports: [Button, ReactiveFormsModule, RouterLink, TranslatePipe, BackLink],
   selector: 'section[app-contact]',
   styleUrl: './contact.scss',
   templateUrl: './contact.html',

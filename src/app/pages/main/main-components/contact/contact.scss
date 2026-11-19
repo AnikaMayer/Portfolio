@@ -338,37 +338,5 @@ $labelFontSize: clamp(#{rem(18)}, 4.5cqi, #{rem(24)});
         }
       }
     }
-
-    &__startbtn {
-      @include size(30px, 48px);
-      border: none;
-      background: none;
-      position: absolute;
-      top: var(--arrow-top);
-      right: vwClamp(10, 7, 320, 1440);
-      @include flex-center(flex-end);
-
-      @include belowDesktop {
-        top: unset;
-        bottom: 48px;
-      }
-
-      @include tablet {
-        right: calcClamp(16, 72, 400, 1200);
-      }
-
-      svg {
-        @include bounce-animation(500ms, 1.2);
-        color: $textLight;
-      }
-
-      &:hover {
-        border-bottom: 1px solid $highlightMedium;
-
-        svg {
-          color: $highlightMedium;
-        }
-      }
-    }
   }
 }

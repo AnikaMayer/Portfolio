@@ -1,0 +1,48 @@
+@use '../../../../../public/assets/styles/all_styles.scss' as *;
+
+:host {
+  display: block;
+  border: none;
+  background: none;
+  @include flex-center(flex-end);
+
+  svg {
+    color: $textLight;
+    @include bounce-animation(500ms, 1.2);
+  }
+
+  &:hover {
+    svg {
+      color: $highlightMedium;
+    }
+  }
+}
+
+:host.is-up {
+  @include size(30px, 48px);
+  position: absolute;
+  top: var(--arrow-top);
+  right: vwClamp(10, 7, 320, 1440);
+
+  @include belowDesktop {
+    top: unset;
+    bottom: 48px;
+  }
+
+  @include tablet {
+    right: calcClamp(16, 72, 400, 1200);
+  }
+
+  &:hover {
+    border-bottom: 1px solid $highlightMedium;
+  }
+}
+
+:host.is-left {
+  @include size(48px, 30px);
+  align-items: center;
+
+  svg {
+    rotate: -90deg;
+  }
+}

@@ -1,6 +1,9 @@
 @if (languageService.currentLang() === 'en') {
   <article class="policy">
     <div class="content">
+      @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+        <a app-back-link direction="left" routerLink="/"></a>
+      }
       <h1>Privacy Policy</h1>
       <section class="policy__section">
         <h2>1. Controller</h2>
@@ -217,6 +220,9 @@
 } @else {
   <article class="policy">
     <div class="content">
+      @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+        <a app-back-link direction="left" routerLink="/"></a>
+      }
       <h1>Datenschutzerklärung</h1>
       <section class="policy__section">
         <h2>1. Verantwortliche Stelle</h2>

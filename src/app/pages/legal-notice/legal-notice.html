@@ -1,6 +1,9 @@
 @if (languageService.currentLang() === 'en') {
   <article class="legal">
     <div class="content">
+      @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+        <a app-back-link direction="left" routerLink="/"></a>
+      }
       <h1>Legal Notice</h1>
       <section class="legal__section">
         <h2>Imprint</h2>
@@ -101,6 +104,9 @@
 } @else {
   <article class="legal">
     <div class="content">
+      @if (responsiveService.isMobile() || responsiveService.isTablet()) {
+        <a app-back-link direction="left" routerLink="/"></a>
+      }
       <h1>Impressum</h1>
       <section class="legal__section">
         <h2>Angaben gemäß § 5 TMG</h2>
