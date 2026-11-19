@@ -76,7 +76,7 @@
           <input
             class="checkbox-input"
             type="checkbox"
-            formControlName="acceptPrivacy"
+            formControlName="privacyAccepted"
             aria-label="Accept privacy policy"
           />
         </label>
@@ -86,7 +86,7 @@
           {{ 'contact.check.check2' | translate }}
         </p>
         @if (
-          contactForm.controls.acceptPrivacy.dirty && contactForm.controls.acceptPrivacy.invalid
+          contactForm.controls.privacyAccepted.dirty && contactForm.controls.privacyAccepted.invalid
         ) {
           <p class="contact__form--error checkbox-line__error">
             {{ 'contact.errors.privacy_required' | translate }}
