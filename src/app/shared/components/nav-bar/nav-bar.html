@@ -1,18 +1,42 @@
-<a href="#hero-section" [class.is-active]="activeSection() === 'hero-section'"
+<a
+  href="#hero-section"
+  [class.is-active]="activeSection() === 'hero-section'"
+  [attr.aria-label]="'aria.start' | translate"
+  [attr.aria-current]="activeSection() === 'hero-section' ? 'true' : null"
   ><div class="nav-section"></div
 ></a>
-<a href="#about-section" [class.is-active]="activeSection() === 'about-section'"
+<a
+  href="#about-section"
+  [class.is-active]="activeSection() === 'about-section'"
+  [attr.aria-label]="'nav.about' | translate"
+  [attr.aria-current]="activeSection() === 'about-section' ? 'true' : null"
   ><div class="nav-section"></div
 ></a>
-<a href="#skills-section" [class.is-active]="activeSection() === 'skills-section'"
+<a
+  href="#skills-section"
+  [class.is-active]="activeSection() === 'skills-section'"
+  [attr.aria-label]="'nav.skills' | translate"
+  [attr.aria-current]="activeSection() === 'skills-section' ? 'true' : null"
   ><div class="nav-section"></div
 ></a>
-<a href="#portfolio-section" [class.is-active]="activeSection() === 'portfolio-section'"
+<a
+  href="#portfolio-section"
+  [class.is-active]="activeSection() === 'portfolio-section'"
+  [attr.aria-label]="'nav.projects' | translate"
+  [attr.aria-current]="activeSection() === 'portfolio-section' ? 'true' : null"
   ><div class="nav-section"></div
 ></a>
-<a href="#reference-section" [class.is-active]="activeSection() === 'reference-section'"
+<a
+  href="#reference-section"
+  [class.is-active]="activeSection() === 'reference-section'"
+  [attr.aria-label]="'nav.references' | translate"
+  [attr.aria-current]="activeSection() === 'reference-section' ? 'true' : null"
   ><div class="nav-section"></div
 ></a>
-<a href="#contact-section" [class.is-active]="activeSection() === 'contact-section'"
+<a
+  href="#contact-section"
+  [class.is-active]="activeSection() === 'contact-section'"
+  [attr.aria-label]="'nav.contact' | translate"
+  [attr.aria-current]="activeSection() === 'contact-section' ? 'true' : null"
   ><div class="nav-section"></div
 ></a>

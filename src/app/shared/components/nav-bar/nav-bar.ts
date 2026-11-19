@@ -1,8 +1,9 @@
 import { Component, OnDestroy, OnInit, signal } from '@angular/core';
+import { TranslatePipe } from '@ngx-translate/core';
 
 /** Side navigation dots; highlights the section that is at least half visible. */
 @Component({
-  imports: [],
+  imports: [TranslatePipe],
   selector: 'nav[app-nav-bar]',
   styleUrl: './nav-bar.scss',
   templateUrl: './nav-bar.html',

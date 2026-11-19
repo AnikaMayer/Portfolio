@@ -1,10 +1,10 @@
 <div class="content header">
   @if (!responsiveService.isMobile()) {
-    <nav class="header__links" aria-label="Social media links">
+    <nav class="header__links" [attr.aria-label]="'aria.socialNav' | translate">
       <ul>
         @for (link of socialMediaLinks; track $index) {
           <li>
-            <a [href]="link.href" target="_blank" [attr.aria-label]="link.label">
+            <a [href]="link.href" target="_blank" [attr.aria-label]="link.label | translate">
               <svg aria-hidden="true">
                 <use [attr.href]="link.icon"></use>
               </svg>
@@ -15,7 +15,7 @@
     </nav>
   }
   <div class="header__logo">
-    <svg>
+    <svg aria-hidden="true" focusable="false">
       <use href="./assets/images/icons/icons.svg#logo"></use>
     </svg>
     <a href="#hero-section">Anika Mayer</a>
@@ -24,13 +24,13 @@
     <button
       (click)="changeLanguageBtn()"
       class="header__btn header__btn--language"
-      aria-label="Change language"
+      [attr.aria-label]="'aria.language' | translate: { lang: languageText }"
     >
       <p>{{ languageText }}</p>
     </button>
     <button
       class="header__btn header__btn--menu"
-      aria-label="Open menu"
+      [attr.aria-label]="'aria.openMenu' | translate"
       [attr.aria-expanded]="overlayOpen"
       aria-controls="main-nav"
       (click)="openMenu()"
@@ -43,18 +43,24 @@
       id="main-nav"
       class="header__overlay"
       [class.header__overlay--open]="overlayOpen"
-      aria-label="Navigation"
+      role="region"
+      [attr.aria-label]="'aria.menu' | translate"
+      [attr.inert]="overlayOpen ? null : ''"
     >
       <div class="header__overlay-header">
         <h3>{{ 'nav.title' | translate }}</h3>
-        <button app-close (closed)="closeMenu()" aria-label="Close menu"></button>
+        <button
+          app-close
+          (closed)="closeMenu()"
+          [attr.aria-label]="'aria.closeMenu' | translate"
+        ></button>
       </div>
-      <nav class="header__overlay-sections" aria-label="page-navigation">
+      <nav class="header__overlay-sections" [attr.aria-label]="'aria.pageNav' | translate">
         <ul class="header__overlay-sections--page-nav">
           @for (item of navList; track item.href) {
             <li>
               <a [href]="item.href" (click)="closeMenu()">
-                <svg class="hide">
+                <svg class="hide" aria-hidden="true" focusable="false">
                   <use href="./assets/images/icons/icons.svg#radialburst"></use>
                 </svg>
                 <span>{{ item.label | translate }}</span>
@@ -66,7 +72,7 @@
           <ul class="header__overlay-sections--social-nav">
             @for (link of socialMediaLinks; track $index) {
               <li (click)="closeMenu()">
-                <a [href]="link.href" target="_blank" aria-label="link.label">
+                <a [href]="link.href" target="_blank" [attr.aria-label]="link.label | translate">
                   <svg aria-hidden="true">
                     <use [attr.href]="link.icon"></use>
                   </svg>

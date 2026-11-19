@@ -12,7 +12,7 @@
     </div>
   </div>
   <div class="footer__name"><p>© Anika Mayer 2026</p></div>
-  <nav class="footer__links" aria-label="Footer navigation">
+  <nav class="footer__links" [attr.aria-label]="'aria.footerNav' | translate">
     <a routerLink="/legal-notice">
       @if (languageService.currentLang() === 'en') {
         Legal Notice
@@ -23,13 +23,13 @@
     <a
       href="https://www.linkedin.com/in/anika-mayer"
       target="_blank"
-      aria-label="Open LinkedIn profile in new tab"
+      [attr.aria-label]="'aria.linkedin' | translate"
       >LinkedIn</a
     >
     <a
       href="https://github.com/AnikaMayer"
       target="_blank"
-      aria-label="Open GitHub profile in new tab"
+      [attr.aria-label]="'aria.github' | translate"
       >GitHub</a
     >
   </nav>
