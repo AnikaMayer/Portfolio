@@ -4,7 +4,7 @@ import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 const DUPLICATE_SPECIALS_REGEX = /([.\-\s])\1/;
 
 /** Detects common invisible characters and zero-width spaces. */
-const INVISIBLE_CHARS_REGEX = /[-]/;
+const INVISIBLE_CHARS_REGEX = /[\u200B-\u200D\uFEFF]/;
 
 /** Forbidden script and control characters in contact data. */
 const FORBIDDEN_CHARS_REGEX = /[<>\{}[\]]/;
