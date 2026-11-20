@@ -162,14 +162,12 @@
 
   .content {
     width: 100%;
-    padding-left: calcClamp(20, 200, 400, 1200);
-    padding-right: calcClamp(27, 227, 400, 1200);
     @include stack(24px);
 
     h1 {
       font-family: $fontHeading;
       font-weight: 700;
-      font-size: calcClamp(40, 72, 400, 1200, width, rem);
+      font-size: calcClamp(28, 72, 320, 1200, width, rem);
       line-height: 100%;
       margin-bottom: calcClamp(8, 24, 400, 1200);
     }
