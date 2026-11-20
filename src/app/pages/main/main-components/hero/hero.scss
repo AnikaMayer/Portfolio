@@ -3,8 +3,9 @@
 :host {
   @include sectionStart($bgMedium, $textLight);
   position: relative;
-  min-height: 100dvh;
+  // svh als Fallback für ältere Browser, dvh (sichtbare Höhe inkl. einklappender Safari-Leiste) gewinnt
   min-height: 100svh;
+  min-height: 100dvh;
   height: auto;
   @include sectionGrid;
 
