@@ -5,6 +5,10 @@
 .policy {
   @include legalPage;
 
+  .content h1 {
+    overflow-wrap: break-word;
+  }
+
   &__section {
     @include stack(16px);
 
