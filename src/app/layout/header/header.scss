@@ -55,6 +55,7 @@
           a {
             width: 100%;
             @include iconLink($textLight);
+            @include flex-center;
           }
         }
       }
